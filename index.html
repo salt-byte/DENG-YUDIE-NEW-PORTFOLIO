@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Film & Photography</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>PORTFOLIO</h1>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#about" class="active">ABOUT</a></li>
+                    <li><a href="#videos">FILMS</a></li>
+                    <li><a href="#photos">PHOTOGRAPHY</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about" class="about hero-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/profile.jpg" alt="Profile Photo" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'display: flex; align-items: center; justify-content: center; height: 100%; color: #666;\'>头像加载失败</div>';">
+                </div>
+                <div class="about-text">
+                    <h2 class="section-title">ABOUT THE ARTIST</h2>
+                    <h3>邓雨蝶 | DENG YUDIE</h3>
+                    <div class="profile-info">
+                        <div class="info-item">
+                            <h4>专业领域 | Professional Field</h4>
+                            <ul>
+                                <li>制片 | Production</li>
+                                <li>AIGC | AIGC</li>
+                            </ul>
+                        </div>
+                        <div class="info-item">
+                            <h4>教育背景 | Education</h4>
+                            <ul>
+                                <li>本科：北京电影学院 | Bachelor: Beijing Film Academy</li>
+                                <li>目前：清华大学 & USC 双学位 | Current: Tsinghua University & USC Dual Degree</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <a href="#videos" class="btn">EXPLORE WORK</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="videos" class="videos">
+        <div class="container">
+            <h2 class="section-title">CINEMATIC WORKS</h2>
+            <div class="video-grid">
+                <!-- Video content will be dynamically loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section id="photos" class="photos">
+        <div class="container">
+            <h2 class="section-title">PHOTOGRAPHIC COLLECTION</h2>
+            <div class="photo-grid">
+                <!-- Photo content will be dynamically loaded via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">CORRESPONDENCE</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <p>290277166@qq.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Telephone</h3>
+                            <p>中国 | China: +86 15996610829</p>
+                            <p>美国 | USA: +1 2138437863</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Location</h3>
+                            <p>北京 | Beijing</p>
+                            <p>洛杉矶 | Los Angeles</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">SEND MESSAGE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DENG YUDIE. ALL RIGHTS RESERVED.</p>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-video-title"></h2>
+            <div id="modal-video-container" class="video-container">
+                <!-- Video will be dynamically inserted here -->
+            </div>
+            <p id="modal-video-description"></p>
+            <p id="modal-video-date" class="modal-date"></p>
+        </div>
+    </div>
+
+    <!-- Photo Modal -->
+    <div id="photo-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-photo-title"></h2>
+            <div class="photo-container">
+                <img id="modal-photo" src="" alt="">
+            </div>
+            <p id="modal-photo-description"></p>
+            <p id="modal-photo-date" class="modal-date"></p>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
