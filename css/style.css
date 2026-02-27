@@ -2570,7 +2570,7 @@ footer p {
 
 /* Laptop variant: wider visual */
 .fs-slide.fs-device.fs-laptop .fs-visual {
-    flex: 0 0 64%;
+    flex: 0 0 70%;
 }
 
 /* Ambient glow behind device */
@@ -2730,13 +2730,13 @@ img.phone-media {
     justify-content: center;
     height: 100%;
     width: 100%;
-    padding: 28px 36px;
+    padding: 20px 24px;
     z-index: 1;
 }
 
 .laptop-mockup {
     width: 100%;
-    max-width: 740px;
+    max-width: 900px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2792,6 +2792,56 @@ img.phone-media {
     background: rgba(255,255,255,0.06);
     border-radius: 3px;
     border: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ════ ZHIPU SCREENSHOT STRIP ════ */
+.zhipu-img-strip {
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.zs-strip {
+    width: 100%;
+}
+.zs-slide {
+    width: auto !important;
+    height: 175px;
+}
+.zs-img {
+    height: 175px;
+    width: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Phone idle hint (shown when no GIF is playing) */
+.phone-idle-hint {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    pointer-events: none;
+    z-index: 1;
+}
+.pih-icon {
+    font-size: 2rem;
+    color: rgba(255,255,255,0.12);
+}
+.pih-text {
+    font-size: 0.62rem;
+    color: rgba(255,255,255,0.12);
+    letter-spacing: 0.1em;
+    font-family: 'DM Mono', monospace;
+    text-transform: uppercase;
+}
+/* Hide hint when GIF is visible */
+.zhipu-gif-overlay.visible ~ .phone-idle-hint,
+.phone-screen:has(.zhipu-gif-overlay.visible) .phone-idle-hint {
+    opacity: 0;
 }
 
 /* ════ ZHIPU FEATURE PILLS ════ */

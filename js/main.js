@@ -73,23 +73,25 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // ── Zhipu AI phone interaction ────────────────────────────
-    // Idle: Swiper left-right carousel of JPGs (smooth, looping)
-    // Click a feature → pause carousel, fade in that feature's GIF
-    // Click same feature again (or another) → toggle / switch
-
-    const zhipuCarouselEl = document.querySelector('.zhipu-carousel');
-    if (zhipuCarouselEl) {
-        // Smooth left-right Swiper for idle product screenshots
-        const zhipuCarousel = new Swiper('.zhipu-carousel', {
+    // ── Zhipu screenshot strip (above text) ──────────────────
+    const zsStripEl = document.querySelector('.zs-strip');
+    if (zsStripEl) {
+        new Swiper('.zs-strip', {
             direction: 'horizontal',
-            slidesPerView: 1,
+            slidesPerView: 'auto',
+            spaceBetween: 10,
             loop: true,
-            speed: 650,
-            autoplay: { delay: 3200, disableOnInteraction: false },
+            speed: 600,
+            autoplay: { delay: 2800, disableOnInteraction: false },
+            nested: true,
         });
+    }
 
-        const gifOverlay = document.querySelector('.zhipu-gif-overlay');
+    // ── Zhipu GIF demos (phone mockup) ───────────────────────
+    // Click a feature pill → fade in that feature's GIF on phone
+    // Click same pill again → toggle off
+    const gifOverlay = document.querySelector('.zhipu-gif-overlay');
+    if (gifOverlay) {
         let activeFeatureIdx = null;
 
         const featureCaptions = [
@@ -107,21 +109,15 @@ document.addEventListener('DOMContentLoaded', function () {
             setTimeout(() => { el.textContent = text; el.style.opacity = '1'; }, 180);
         }
 
-        setCaption('Click any feature to preview its demo →');
-
         document.querySelectorAll('.zf-pill').forEach((item, i) => {
             item.addEventListener('click', () => {
                 if (activeFeatureIdx === i) {
-                    // Toggle off → return to carousel
                     activeFeatureIdx = null;
                     item.classList.remove('active');
                     gifOverlay.classList.remove('visible');
                     setTimeout(() => { gifOverlay.style.display = 'none'; gifOverlay.src = ''; }, 350);
-                    zhipuCarousel.autoplay.start();
-                    setCaption('Click any feature to preview its demo →');
+                    setCaption('Click any feature pill to preview →');
                 } else {
-                    // Show this feature's GIF
-                    zhipuCarousel.autoplay.stop();
                     activeFeatureIdx = i;
                     document.querySelectorAll('.zf-pill').forEach(el => el.classList.remove('active'));
                     item.classList.add('active');
