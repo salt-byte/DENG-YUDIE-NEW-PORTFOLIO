@@ -2620,7 +2620,7 @@ footer p {
     min-height: 0;
     max-height: min(92vh, 880px);
     width: auto;
-    aspect-ratio: 9 / 19.5;
+    aspect-ratio: 9 / 16;
     background: #0d0d14;
     border-radius: 46px;
     border: 2px solid rgba(255,255,255,0.18);
@@ -2794,68 +2794,38 @@ img.phone-media {
     border: 1px solid rgba(255,255,255,0.05);
 }
 
-/* ════ ZHIPU FEATURE LIST ════ */
-.zhipu-features {
+/* ════ ZHIPU FEATURE PILLS ════ */
+.zf-pills {
     display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin: 10px 0 4px;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0 6px;
 }
 
-.zf-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 10px 12px;
-    border-radius: 7px;
-    border: 1px solid rgba(255,255,255,0.04);
-    background: rgba(255,255,255,0.015);
-    cursor: pointer;
-    transition: all 0.5s ease;
-    opacity: 0.38;
-}
-.zf-item.active {
-    opacity: 1;
-    border-color: rgba(197,160,89,0.28);
-    background: rgba(197,160,89,0.055);
-}
-
-.zf-bar {
-    width: 2px;
-    flex-shrink: 0;
-    background: rgba(255,255,255,0.08);
-    border-radius: 2px;
-    align-self: stretch;
-    min-height: 36px;
-    transition: background 0.5s;
-}
-.zf-item.active .zf-bar { background: var(--accent-gold); }
-
-.zf-body { flex: 1; min-width: 0; }
-
-.zf-num {
-    font-size: 0.54rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
-    color: var(--text-dim);
-    font-family: 'DM Mono', monospace;
-    display: block;
-    margin-bottom: 2px;
-}
-.zf-item.active .zf-num { color: var(--accent-gold); }
-
-.zf-body h4 {
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-bright);
-    margin: 0 0 3px;
+.zf-pill {
+    padding: 7px 16px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 100px;
+    color: rgba(255,255,255,0.65);
+    font-size: 0.76rem;
     font-family: var(--font-body);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.22s ease;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
 }
-.zf-body p {
-    font-size: 0.74rem;
-    color: var(--text-mid);
-    margin: 0;
-    line-height: 1.5;
+.zf-pill:hover {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.22);
+    color: rgba(255,255,255,0.9);
+}
+.zf-pill.active {
+    background: var(--accent-gold);
+    border-color: var(--accent-gold);
+    color: #0d0d14;
+    font-weight: 600;
 }
 
 /* ════ ZHIPU PHONE — CAROUSEL + GIF OVERLAY ════ */
@@ -2984,27 +2954,148 @@ details.rp-section[open] .rp-chevron {
     font-weight: 600;
 }
 
-/* Play button hint on each feature row */
-.zf-play {
-    flex-shrink: 0;
-    width: 22px; height: 22px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.12);
-    display: flex; align-items: center; justify-content: center;
-    color: var(--text-dim);
-    font-size: 0.5rem;
-    transition: all 0.3s;
-    margin-top: 2px;
-}
-.zf-item:hover .zf-play {
-    border-color: rgba(197,160,89,0.4);
+/* ════ USC LINK ════ */
+.usc-site-link {
     color: var(--accent-gold);
-    transform: scale(1.1);
+    text-decoration: none;
+    font-weight: 500;
+    opacity: 0.85;
+    transition: opacity 0.2s;
 }
-.zf-item.active .zf-play {
-    background: var(--accent-gold);
-    border-color: var(--accent-gold);
-    color: #000;
+.usc-site-link:hover { opacity: 1; text-decoration: underline; }
+
+/* ════ LET'S CONNECT SLIDE ════ */
+.connect-slide {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-left: 150px; /* sidebar */
+}
+
+.connect-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(197,160,89,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(197,160,89,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+}
+
+.connect-inner {
+    max-width: 600px;
+    width: 100%;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.connect-eyebrow {
+    font-size: 0.68rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.18em;
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0.75;
+}
+
+.connect-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    font-weight: 700;
+    line-height: 1.0;
+    color: var(--text-bright);
+    margin: 0 0 20px;
+    letter-spacing: -0.02em;
+}
+
+.connect-sub {
+    font-size: 0.92rem;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0 0 40px;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.connect-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.connect-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+.connect-card:hover {
+    background: rgba(197,160,89,0.08);
+    border-color: rgba(197,160,89,0.28);
+    transform: translateX(4px);
+}
+
+.cc-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(197,160,89,0.12);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--accent-gold);
+    font-size: 0.95rem;
+    flex-shrink: 0;
+}
+
+.cc-body {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.cc-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    font-family: 'DM Mono', monospace;
+}
+.cc-value {
+    font-size: 0.88rem;
+    color: var(--text-bright);
+    font-weight: 500;
+}
+
+.cc-arrow {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    transition: transform 0.22s, color 0.22s;
+}
+.connect-card:hover .cc-arrow {
+    transform: translateX(3px);
+    color: var(--accent-gold);
+}
+
+.connect-footer {
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    opacity: 0.5;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.08em;
 }
 
 /* ════ RESPONSIVE ════ */

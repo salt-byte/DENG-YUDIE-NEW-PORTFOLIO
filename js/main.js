@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         setCaption('Click any feature to preview its demo →');
 
-        document.querySelectorAll('.zf-item').forEach((item, i) => {
+        document.querySelectorAll('.zf-pill').forEach((item, i) => {
             item.addEventListener('click', () => {
                 if (activeFeatureIdx === i) {
                     // Toggle off → return to carousel
@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     // Show this feature's GIF
                     zhipuCarousel.autoplay.stop();
                     activeFeatureIdx = i;
-                    document.querySelectorAll('.zf-item').forEach(el => el.classList.remove('active'));
+                    document.querySelectorAll('.zf-pill').forEach(el => el.classList.remove('active'));
                     item.classList.add('active');
                     gifOverlay.src = item.dataset.gif;
                     gifOverlay.style.display = 'block';
@@ -142,7 +142,8 @@ document.addEventListener('DOMContentLoaded', function () {
         '2': { a: 'rgba(110, 20, 40, 0.09)',  b: 'rgba(28, 59, 121, 0.04)' },
         '3': { a: 'rgba(20, 110, 70, 0.09)',  b: 'rgba(255, 255, 255, 0.03)' },
         '4': { a: 'rgba(197, 160, 89, 0.09)', b: 'rgba(50, 50, 121, 0.07)' },
-        '5': { a: 'rgba(28, 59, 121, 0.10)',  b: 'rgba(10, 10, 10, 0.08)' }
+        '5': { a: 'rgba(28, 59, 121, 0.10)',  b: 'rgba(10, 10, 10, 0.08)' },
+        '6': { a: 'rgba(197, 160, 89, 0.12)', b: 'rgba(197, 160, 89, 0.04)' }
     };
 
     function updateChapterColors(chapter) {
