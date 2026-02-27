@@ -14,9 +14,16 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet">
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 
 <body>
+    <!-- Background Mesh Blobs -->
+    <div id="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
     <!-- Film Grain Overlay -->
     <div class="film-grain"></div>
     <!-- Header -->
@@ -39,749 +46,227 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <div class="hero-badge">
-                        <span class="badge-dot"></span>
-                        Open to Opportunities
-                    </div>
-                    <h1>Hi, I'm <span class="gradient-text">Yudie Deng</span></h1>
-                    <h2>AI Product Manager</h2>
-                    <p class="hero-desc">AI Product Manager bridging creative media and technical AI — with hands-on
-                        experience in agentic pipelines, generative AI, and enterprise AI safety across USC, Tsinghua,
-                        and top Chinese AI companies.</p>
-                    <div class="hero-actions">
-                        <a href="#products" class="btn btn-primary">View Case Studies <i
-                                class="fas fa-arrow-right"></i></a>
-                        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-number">3+</span>
-                            <span class="stat-label">AI Products Shipped</span>
+    <!-- [x] Structural Changes (HTML/CSS) <!-- id: 3 -->
+    <!-- - [x] Reorganize sections into "Pages" <!-- id: 4 -->
+    <!-- - [x] Implement top-level horizontal swiper/scroll <!-- id: 5 -->
+    <!-- - [x] Style "Pages" to look premium and book-like <!-- id: 6 -->
+    <!-- - [/] Verification <!-- id: 7 -->
+    <!-- Main Narrative Swiper -->
+    <div class="swiper-container root-swiper">
+        <div class="swiper-wrapper">
+
+            <!-- Spread 1: The Origin & Foundation -->
+            <div class="swiper-slide" data-chapter="1">
+                <div class="main-slide">
+                    <div class="book-spread">
+                        <div class="page-left">
+                            <section id="hero" class="hero">
+                                <span class="chapter-label">Chapter 01 — THE ORIGINS</span>
+                                <div class="hero-badge">
+                                    <span class="badge-dot"></span>
+                                    Cinematic AI Product Manager
+                                </div>
+                                <h1>From <span class="gradient-text">Script to Screen to Silicon</span></h1>
+                                <p class="hero-desc">I began my journey in the world of movies, obsessed with how
+                                    stories shape
+                                    reality. Today, I build the next generation of AI products — where cinematic
+                                    aesthetics meet
+                                    technical rigor to create "human" AI experiences.</p>
+                                <div class="experience-peek">
+                                    <p><small>Scroll to begin the journal...</small></p>
+                                </div>
+                            </section>
                         </div>
-                        <div class="stat">
-                            <span class="stat-number">2</span>
-                            <span class="stat-label">AI Creative Awards</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number">4.0</span>
-                            <span class="stat-label">USC GPA</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <div class="hero-image-frame">
-                        <img src="images/profile.jpg" alt="Yudie Deng">
-                        <div class="image-border-glow"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about reveal">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-card glass-card">
-                    <div class="about-icon"><i class="fas fa-graduation-cap"></i></div>
-                    <h3>Education</h3>
-                    <p><strong>Tsinghua University × USC</strong><br>Dual M.S. in Data Communication & Data
-                        Science<br><small>GPA: 4.0/4.0 · Advanced AI, Deep Learning, ML, Data Mining</small></p>
-                    <p><strong>Beijing Film Academy</strong><br>B.A. in Cultural Industry Management<br><small>Cinematic
-                            aesthetics × technical AI — storytelling meets product</small></p>
-                </div>
-                <div class="about-card glass-card">
-                    <div class="about-icon"><i class="fas fa-brain"></i></div>
-                    <h3>Focus Areas</h3>
-                    <ul class="about-tags">
-                        <li>Multimodal AI</li>
-                        <li>Prompt Engineering</li>
-                        <li>AI Trust & Safety</li>
-                        <li>0-to-1 Product</li>
-                        <li>LoRA Fine-tuning</li>
-                        <li>Video Generation</li>
-                    </ul>
-                </div>
-                <div class="about-card glass-card">
-                    <div class="about-icon"><i class="fas fa-tools"></i></div>
-                    <h3>Tools & Stack</h3>
-                    <ul class="about-tags">
-                        <li>Gemini / GPT</li>
-                        <li>ComfyUI</li>
-                        <li>Stable Diffusion</li>
-                        <li>React / TypeScript</li>
-                        <li>Python</li>
-                        <li>Figma</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Timeline -->
-    <section id="experience" class="experience reveal">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item" data-side="right">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <span class="timeline-date">Jan 2026 — Present</span>
-                            <span class="timeline-tag tag-research">Research</span>
-                        </div>
-                        <h3>AI Product Researcher</h3>
-                        <h4>Tumeryk & USC AI Trust Lab · Los Angeles</h4>
-                        <p>Contributing to the development of Tumeryk's AI Trust Score™, a B2B platform that quantifies
-                            trustworthiness across multi-agent collaboration pipelines. Defined risk evaluation
-                            dimensions aligned with NIST AI RMF and EU AI Act. Conducted adversarial red-teaming using
-                            NVIDIA Garak to validate evaluation rigor across 9 trust dimensions.</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-side="left">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <span class="timeline-date">Sep 2025 — Dec 2025</span>
-                            <span class="timeline-tag tag-product">Product Lead</span>
-                        </div>
-                        <h3>AI Product Intern — Cinematic Mirror</h3>
-                        <h4>Tianji Cloud Technology · Shenzhen (Remote)</h4>
-                        <p>Independently led AI product development in an early-stage team. Built Cinematic Mirror with
-                            a 3-stage agentic pipeline: conversational profiling → film character matching →
-                            personalized styling consultation, leveraging Gemini to chain structured context across
-                            stages.</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-side="right">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <span class="timeline-date">Mar 2025 — Jul 2025</span>
-                            <span class="timeline-tag tag-core">Core Role</span>
-                        </div>
-                        <h3>AI Product Intern</h3>
-                        <h4>Zhipu AI · Beijing</h4>
-                        <p>Led 0-to-1 design and launch of a multimodal AI companion product targeting Gen-Z users.
-                            Built a model evaluation framework to select optimal image-to-video generation model from 4+
-                            candidates. Pioneered an automated storytelling agent with script-to-video workflow.</p>
-                    </div>
-                </div>
-                <div class="timeline-item" data-side="left">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-header">
-                            <span class="timeline-date">Sep 2024 — Dec 2024</span>
-                            <span class="timeline-tag tag-creative">Creative AI</span>
-                        </div>
-                        <h3>AI Product Intern</h3>
-                        <h4>Enlight Media · Beijing</h4>
-                        <p>Trained LoRA models for movie characters; built image generation workflows in ComfyUI
-                            integrating Stable Diffusion for controllable character-specific outputs.</p>
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <!-- Products / Case Studies Section -->
-    <section id="products" class="products reveal">
-        <div class="container">
-            <h2 class="section-title">Product Case Studies</h2>
-            <p class="section-subtitle">Full product lifecycle — from problem definition to launch and iteration</p>
-
-            <!-- ==================== Cinematic Mirror ==================== -->
-            <div class="case-study glass-card">
-                <div class="case-study-header">
-                    <div class="case-study-title-row">
-                        <div>
-                            <div class="project-type-badge">Personal Project · Solo PM & Builder</div>
-                            <h3>Cinematic Mirror — AI Styling App</h3>
-                        </div>
-                        <div class="product-badge-inline">iOS · Live on App Store</div>
-                    </div>
-                </div>
-
-                <!-- Phone Mockup + Overview side-by-side -->
-                <div class="case-study-demo-row">
-                    <div class="phone-mockup">
-                        <div class="phone-notch"></div>
-                        <iframe src="https://cinematic-mirror.vercel.app/" title="Cinematic Mirror Live Demo"></iframe>
-                    </div>
-                    <div class="case-study-overview">
-                        <p>An AI-native styling app that matches your personality to iconic movie characters. Through an
-                            immersive "audition" conversation with an AI director, users receive a <strong>personalized
-                                cinematic persona profile</strong> with detailed styling recommendations.</p>
-                        <div class="product-tags">
-                            <span>Gemini API</span>
-                            <span>Multimodal</span>
-                            <span>React + Capacitor</span>
-                            <span>DeepSeek</span>
-                            <span>Prompt Engineering</span>
-                            <span>Full-Stack</span>
-                        </div>
-                        <p class="demo-hint"><i class="fas fa-hand-pointer"></i> Interactive — try the live MVP in the
-                            phone preview</p>
-                    </div>
-                </div>
-
-                <div class="case-study-sections">
-                    <!-- 1. User Problem -->
-                    <div class="case-section">
-                        <div class="case-section-num">01</div>
-                        <div class="case-section-content">
-                            <h4>User Problem</h4>
-                            <p>Fashion/styling apps recommend based on body type or trends — they miss <strong>who the
-                                    user is</strong>. Professional stylists understand personality, but cost
-                                $200+/session and aren't scalable. Users want personalized style advice that reflects
-                                their identity, not cookie-cutter outfit suggestions.</p>
-
-                            <h5 class="subsection-title">Competitive Landscape</h5>
-                            <div class="comparison-grid">
-                                <div class="comparison-item">
-                                    <h5>Subscription Styling (Stitch Fix)</h5>
-                                    <p>Human stylists + algorithms. <strong>Expensive</strong> ($20+ fee), slow
-                                        turnaround, no personality depth.</p>
+                        <div class="book-spine"></div>
+                        <div class="page-right">
+                            <section id="about" class="about">
+                                <h2 class="section-title">The Foundation</h2>
+                                <div class="about-grid">
+                                    <div class="about-card glass-card">
+                                        <div class="about-icon"><i class="fas fa-film"></i></div>
+                                        <h3>Cinematic Vision</h3>
+                                        <p><strong>Beijing Film Academy</strong><br><small>Visual storytelling and
+                                                character psychology. My foundation in film allows me to design AI that
+                                                feels "alive."</small></p>
+                                    </div>
+                                    <div class="about-card glass-card">
+                                        <div class="about-icon"><i class="fas fa-microchip"></i></div>
+                                        <h3>Technical Engine</h3>
+                                        <p><strong>Data Science @ USC</strong><br><small>Bridging the gap between
+                                                creative intuition and LLM technical rigor.</small></p>
+                                    </div>
                                 </div>
-                                <div class="comparison-item">
-                                    <h5>AI Fashion Apps (Cher, Acloset)</h5>
-                                    <p>Wardrobe management + outfit generation. <strong>No personality input</strong>,
-                                        purely visual matching.</p>
+                                <div class="narrative-bridge glass-card">
+                                    <p>"I discovered that film is a 'secondary world' for humans, and AI can be the
+                                        architect of new digital realities."</p>
                                 </div>
-                                <div class="comparison-item">
-                                    <h5>Virtual Try-On (Zara, ASOS)</h5>
-                                    <p>AR-based clothing preview. <strong>Retailer-locked</strong>, no style guidance or
-                                        personal direction.</p>
-                                </div>
-                                <div class="comparison-item">
-                                    <h5>ChatGPT-based Advice</h5>
-                                    <p>Generic Q&A format. No structured personality extraction, <strong>no visual
-                                            anchors</strong>.</p>
-                                </div>
-                            </div>
-                            <p class="case-insight"><i class="fas fa-lightbulb"></i> Gap: No product connects
-                                <strong>personality understanding → culturally resonant style archetype → actionable
-                                    recommendations</strong>
-                            </p>
-
-                            <h5 class="subsection-title">User Personas</h5>
-                            <div class="icp-grid">
-                                <div class="icp-tier">
-                                    <h5><span class="tier-badge">Primary</span> Gen-Z & Millennial Movie Lovers</h5>
-                                    <p>Identify with characters; want style that expresses identity; active on social
-                                        media; budget-conscious but willing to pay for personalization</p>
-                                </div>
-                                <div class="icp-tier">
-                                    <h5><span class="tier-badge tier-2">Secondary</span> Fashion-Curious Professionals
-                                    </h5>
-                                    <p>Want polished looks but lack styling knowledge; time-poor; value efficiency over
-                                        browsing</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 2. Decision -->
-                    <div class="case-section">
-                        <div class="case-section-num">02</div>
-                        <div class="case-section-content">
-                            <h4>Key Product Decisions</h4>
-                            <div class="decisions-list">
-                                <div class="decision-item">
-                                    <h5>Conversation-First UX over Form-Based Input</h5>
-                                    <p>Instead of surveys or quizzes, designed an AI "director" audition: an 8-12 round
-                                        deep conversation that naturally extracts personality traits, aesthetic
-                                        preferences, and lifestyle context. Users reveal more through dialogue than
-                                        checkboxes.</p>
-                                </div>
-                                <div class="decision-item">
-                                    <h5>Movie Characters as Style Anchors</h5>
-                                    <p>Built a curated database of iconic characters with detailed style profiles (color
-                                        palette, silhouette, key pieces). Characters serve as intuitive, culturally
-                                        resonant references — "You're a Margot Tenenbaum" is more actionable than "Try
-                                        warm earth tones."</p>
-                                </div>
-                                <div class="decision-item">
-                                    <h5>Multimodal Pipeline Architecture</h5>
-                                    <p>Chained Gemini API calls: conversation analysis → personality extraction →
-                                        character matching → style report generation → live video consultation. Each
-                                        stage enriches context for the next.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 3. MVP Scope -->
-                    <div class="case-section">
-                        <div class="case-section-num">03</div>
-                        <div class="case-section-content">
-                            <h4>MVP Scope</h4>
-                            <div class="pipeline-flow">
-                                <div class="pipeline-step">
-                                    <div class="step-icon"><i class="fas fa-comments"></i></div>
-                                    <span>AI Audition<br><small>8-12 round conversation</small></span>
-                                </div>
-                                <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
-                                <div class="pipeline-step">
-                                    <div class="step-icon"><i class="fas fa-user-tag"></i></div>
-                                    <span>Character Match<br><small>Personality → Movie DB</small></span>
-                                </div>
-                                <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
-                                <div class="pipeline-step">
-                                    <div class="step-icon"><i class="fas fa-palette"></i></div>
-                                    <span>Style Report<br><small>Color, material, silhouette</small></span>
-                                </div>
-                                <div class="pipeline-arrow"><i class="fas fa-arrow-right"></i></div>
-                                <div class="pipeline-step">
-                                    <div class="step-icon"><i class="fas fa-video"></i></div>
-                                    <span>Video Consult<br><small>Real-time camera styling</small></span>
-                                </div>
-                            </div>
-                            <p class="scope-note">MVP cut: Deferred outfit shopping integration and social sharing to
-                                post-launch. Focused on the core "personality → style" loop as the differentiator.</p>
-                        </div>
-                    </div>
-
-                    <!-- 4. Success Metrics -->
-                    <div class="case-section">
-                        <div class="case-section-num">04</div>
-                        <div class="case-section-content">
-                            <h4>Success Metrics</h4>
-                            <div class="metrics-grid">
-                                <div class="metric-card">
-                                    <div class="metric-icon"><i class="fas fa-comments"></i></div>
-                                    <h5>Conversation Completion Rate</h5>
-                                    <p>% of users who finish the full audition (target: >60%)</p>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-icon"><i class="fas fa-redo"></i></div>
-                                    <h5>Re-engagement</h5>
-                                    <p>% who return for a second character match within 7 days</p>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-icon"><i class="fas fa-star"></i></div>
-                                    <h5>Character Match Satisfaction</h5>
-                                    <p>Post-match thumbs up/down ratio (target: >75% positive)</p>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-icon"><i class="fas fa-video"></i></div>
-                                    <h5>Video Consult Adoption</h5>
-                                    <p>% of matched users who try live video consultation</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 5. Tradeoffs -->
-                    <div class="case-section">
-                        <div class="case-section-num">05</div>
-                        <div class="case-section-content">
-                            <h4>Tradeoffs & Reflections</h4>
-                            <div class="tradeoff-list">
-                                <div class="tradeoff-item">
-                                    <div class="tradeoff-label chose">Chose</div>
-                                    <p><strong>Deep conversation (8-12 rounds)</strong> over quick quiz — higher
-                                        friction but dramatically better personality extraction and user engagement</p>
-                                </div>
-                                <div class="tradeoff-item">
-                                    <div class="tradeoff-label chose">Chose</div>
-                                    <p><strong>Curated character DB</strong> over open-ended generation — sacrificed
-                                        variety for quality, consistency, and cultural resonance</p>
-                                </div>
-                                <div class="tradeoff-item">
-                                    <div class="tradeoff-label deferred">Deferred</div>
-                                    <p><strong>E-commerce integration</strong> — kept MVP focused on personalization
-                                        value before monetization</p>
-                                </div>
-                                <div class="tradeoff-item">
-                                    <div class="tradeoff-label deferred">Deferred</div>
-                                    <p><strong>User-generated character submissions</strong> — would expand DB but
-                                        required moderation infrastructure beyond MVP scope</p>
-                                </div>
-                            </div>
+                            </section>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- ==================== LandIt ==================== -->
-            <div class="case-study glass-card">
-                <div class="case-study-header">
-                    <div class="case-study-title-row">
-                        <div>
-                            <div class="project-type-badge project-team">Team Project · PM & Designer</div>
-                            <h3>LandIt — AI Interview Prep Platform</h3>
+            <!-- Spread 2: Creative Productions (AIGC) -->
+            <div class="swiper-slide" data-chapter="2">
+                <div class="main-slide">
+                    <div class="book-spread">
+                        <div class="page-left">
+                            <section id="gallery" class="gallery">
+                                <span class="chapter-label">Chapter 02 — CREATIVE EXPLORATIONS</span>
+                                <h2 class="section-title">AIGC Works</h2>
+                                <p>Blending movie aesthetics with multimodal generation workflows.</p>
+                                <div class="polaroid-frame">
+                                    <div class="video-embed">
+                                        <iframe src="https://www.youtube.com/embed/J0ch24ktZeE" title="Writing Pen"
+                                            frameborder="0" allowfullscreen></iframe>
+                                    </div>
+                                    <div class="polaroid-caption">🏆 Writing Pen — BFA Animation Awards</div>
+                                </div>
+                            </section>
                         </div>
-                        <div class="product-badge-inline">Web App · Gemini-Powered</div>
+                        <div class="book-spine"></div>
+                        <div class="page-right">
+                            <section class="gallery-extra">
+                                <div class="polaroid-frame">
+                                    <img src="images/aigc/AIGC海报/IMG_5959.jpg" alt="AIGC Poster">
+                                    <div class="polaroid-caption">Character Consistency LoRA Training</div>
+                                </div>
+                                <div class="polaroid-frame">
+                                    <img src="images/aigc/AIGC海报/IMG_5960.jpg" alt="AIGC Poster 2">
+                                    <div class="polaroid-caption">Visual Style Transfer Experiments</div>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="case-study-hero-row">
-                    <div class="laptop-mockup">
-                        <div class="laptop-screen">
-                            <iframe src="https://landit-ai-interview-prep.vercel.app/"
-                                title="LandIt Live Demo"></iframe>
-                        </div>
-                        <div class="laptop-base"></div>
-                    </div>
-                    <div class="case-study-overview">
-                        <p>An AI-powered interview preparation platform that creates a <strong>continuous improvement
-                                loop</strong>: Align requirements → Simulated interview → Structured feedback →
-                            Iterative improvement. Not just a mock interview — a long-term training system.</p>
-                        <div class="product-tags">
-                            <span>Gemini API</span>
-                            <span>React + TypeScript</span>
-                            <span>Vite</span>
-                            <span>Multi-Agent System</span>
-                            <span>NLP</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="case-study-sections">
-                    <!-- 1. User Problem -->
-                    <div class="case-section">
-                        <div class="case-section-num">01</div>
-                        <div class="case-section-content">
-                            <h4>User Problem</h4>
-                            <p>Candidates practice problems but lack feedback on: clarity of explanation, completeness
-                                of reasoning, and performance under pressure. Existing tools are either question banks
-                                with shallow AI extensions, or conversational tools that lack personalization depth.</p>
-                            <div class="comparison-grid">
-                                <div class="comparison-item">
-                                    <h5>Question-bank + AI (LeetCode, etc.)</h5>
-                                    <p>Improve efficiency but <strong>limited personalization</strong> and scalability.
-                                    </p>
+            <!-- Spread 3: AI Life (Zhipu AI) -->
+            <div class="swiper-slide" data-chapter="3">
+                <div class="main-slide">
+                    <div class="book-spread">
+                        <div class="page-left">
+                            <section id="zhipu" class="zhipu">
+                                <span class="chapter-label">Chapter 03 — AI LIFE</span>
+                                <h2 class="section-title">Zhipu AI</h2>
+                                <p>Leading the 0-to-1 design of a multimodal companion PET Believing that cinema can
+                                    serve as the ultimate carrier for human-like AI interaction.</p>
+                                <div class="zhipu-gif-frame polaroid-frame">
+                                    <img src="images/zhipu/IMG_5964.GIF" alt="Zhipu PET">
+                                    <div class="polaroid-caption">Multimodal Emotional Response System</div>
                                 </div>
-                                <div class="comparison-item">
-                                    <h5>Conversational AI Mocks (Pramp, etc.)</h5>
-                                    <p>Lack feedback consistency; <strong>no training continuity</strong> across
-                                        sessions.</p>
-                                </div>
-                            </div>
-                            <p class="case-insight"><i class="fas fa-lightbulb"></i> Competition is shifting from "can
-                                you simulate an interview?" to <strong>"can you support continuous
-                                    improvement?"</strong></p>
-
-                            <h5 class="subsection-title">Target Users (ICP)</h5>
-                            <div class="icp-grid">
-                                <div class="icp-tier">
-                                    <h5><span class="tier-badge">Tier 1</span> Primary ICP</h5>
+                            </section>
+                        </div>
+                        <div class="book-spine"></div>
+                        <div class="page-right">
+                            <section class="zhipu-details">
+                                <div class="glass-card">
+                                    <h4>Design Goals</h4>
                                     <ul>
-                                        <li><strong>Technical Candidates</strong> — Multi-round structured interviews;
-                                            need realistic simulation</li>
-                                        <li><strong>PM Candidates</strong> — Structured thinking, communication, case
-                                            framing</li>
-                                        <li><strong>Marketing / Business</strong> — Behavioral questions, scenario
-                                            discussions</li>
-                                        <li><strong>Consulting / Finance</strong> — Case interviews, frameworks,
-                                            reasoning</li>
+                                        <li>Script-to-Video Workflow</li>
+                                        <li>Gen-Z Resonance Strategy</li>
+                                        <li>Multimodal Interaction Pipelines</li>
                                     </ul>
                                 </div>
-                                <div class="icp-tier">
-                                    <h5><span class="tier-badge tier-2">Tier 2</span> Secondary</h5>
-                                    <ul>
-                                        <li>Legal, Design, Healthcare — structured explanation & communication clarity
-                                        </li>
-                                    </ul>
+                                <div class="polaroid-frame" style="margin-top: 20px;">
+                                    <img src="images/zhipu/IMG_5971.GIF" alt="Interaction 1">
+                                    <div class="polaroid-caption">Interaction Archetypes</div>
                                 </div>
-                            </div>
+                            </section>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <!-- 2. Decision -->
-                    <div class="case-section">
-                        <div class="case-section-num">02</div>
-                        <div class="case-section-content">
-                            <h4>Key Product Decisions</h4>
-                            <div class="decisions-list">
-                                <div class="decision-item">
-                                    <h5>6-Agent Architecture over Monolithic LLM</h5>
-                                    <p>Split the system into specialized agents — each owns a domain (user context, role
-                                        analysis, interview orchestration, scoring, progress tracking, resume
-                                        generation). This enables modular iteration and better output quality vs. a
-                                        single prompt.</p>
+            <!-- Spread 4: Independent Builder (Cinematic Mirror & LandIt) -->
+            <div class="swiper-slide" data-chapter="4">
+                <div class="main-slide">
+                    <div class="book-spread">
+                        <div class="page-left">
+                            <section id="products" class="products">
+                                <span class="chapter-label">Chapter 04 — INDEPENDENT BUILDS</span>
+                                <h2 class="section-title">影中镜 — Cinematic Mirror</h2>
+                                <div class="phone-mockup" style="height: 400px; margin: 20px 0;">
+                                    <iframe src="https://cinematic-mirror.vercel.app/"
+                                        title="Cinematic Mirror"></iframe>
                                 </div>
-                                <div class="decision-item">
-                                    <h5>Adaptive Follow-up System</h5>
-                                    <p>4 follow-up types (Clarify / Probe / Challenge / Stress), each triggered by
-                                        specific conditions. Follow-ups anchor on user's own words to avoid "AI feels
-                                        robotic" problem. Probability randomized 40-70%.</p>
+                                <p><small>Finding your cinematic alter-ego via Gemini-powered agentic pipelines.</small>
+                                </p>
+                            </section>
+                        </div>
+                        <div class="book-spine"></div>
+                        <div class="page-right">
+                            <section id="landit" class="products">
+                                <h2 class="section-title">LandIt</h2>
+                                <div class="laptop-mockup" style="margin: 20px 0;">
+                                    <div class="laptop-screen">
+                                        <iframe src="https://landit-ai-interview-prep.vercel.app/"
+                                            title="LandIt"></iframe>
+                                    </div>
+                                    <div class="laptop-base"></div>
                                 </div>
-                                <div class="decision-item">
-                                    <h5>3-Phase Pacing Model</h5>
-                                    <p><strong>Warm-up (0-25%)</strong> → build confidence. <strong>Core
-                                            (25-75%)</strong> → core evaluation. <strong>Pressure (75-100%)</strong> →
-                                        test limits. If user scores ≥4/5 consecutively, skip warm-up; if ≤2/5, downshift
-                                        to coaching mode.</p>
-                                </div>
-                            </div>
+                                <p><small>AI Interview Prep with Continuous Training & Multi-Agent Feedback.</small></p>
+                            </section>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <!-- 3. MVP Scope -->
-                    <div class="case-section">
-                        <div class="case-section-num">03</div>
-                        <div class="case-section-content">
-                            <h4>MVP Scope</h4>
-                            <div class="agent-grid">
-                                <div class="agent-card">
-                                    <div class="agent-label">Agent A</div>
-                                    <h5>Background Builder</h5>
-                                    <p>Parses resume into structured "digital persona" with confidence scoring</p>
+            <!-- Spread 5: Integrity & Contact -->
+            <div class="swiper-slide" data-chapter="5">
+                <div class="main-slide">
+                    <div class="book-spread">
+                        <div class="page-left">
+                            <section id="usc" class="usc">
+                                <span class="chapter-label">Chapter 05 — THE PURSUIT OF TRUST</span>
+                                <h2 class="section-title">USC AI Trust Lab</h2>
+                                <p>Researching the AI Trust Score™ to ensure agentic pipelines are robust, stable, and
+                                    safe.</p>
+                                <div class="polaroid-frame">
+                                    <img src="images/uscaitrustlab/截屏2026-02-27 02.26.14.png" alt="Trust Lab Analysis">
+                                    <div class="polaroid-caption">Red-teaming via NVIDIA Garak</div>
                                 </div>
-                                <div class="agent-card">
-                                    <div class="agent-label">Agent B</div>
-                                    <h5>Role Context</h5>
-                                    <p>Analyzes JD, builds evaluation criteria + question bank</p>
-                                </div>
-                                <div class="agent-card">
-                                    <div class="agent-label">Agent C</div>
-                                    <h5>Interview Orchestrator</h5>
-                                    <p>Real-time pacing, difficulty, and follow-up strategy</p>
-                                </div>
-                                <div class="agent-card">
-                                    <div class="agent-label">Agent D</div>
-                                    <h5>Scoring & Feedback</h5>
-                                    <p>6-dimension evaluation with actionable suggestions</p>
-                                </div>
-                                <div class="agent-card">
-                                    <div class="agent-label">Agent E</div>
-                                    <h5>Progress Tracker</h5>
-                                    <p>Cross-session skill trends and weakness detection</p>
-                                </div>
-                                <div class="agent-card">
-                                    <div class="agent-label">Agent F</div>
-                                    <h5>Resume Agent</h5>
-                                    <p>JD-aligned resume and cover letter generation</p>
-                                </div>
-                            </div>
-                            <p class="scope-note">Question mix: 40% behavioral (JD × user experience cross-generated),
-                                30% technical, 20% case-based, 10% stress questions weighted toward identified
-                                weaknesses.</p>
+                            </section>
                         </div>
-                    </div>
-
-                    <!-- 4. Success Metrics -->
-                    <div class="case-section">
-                        <div class="case-section-num">04</div>
-                        <div class="case-section-content">
-                            <h4>Success Metrics</h4>
-                            <div class="metrics-grid">
-                                <div class="metric-card">
-                                    <div class="metric-icon"><i class="fas fa-chart-line"></i></div>
-                                    <h5>Score Improvement</h5>
-                                    <p>Avg. scoring improvement across 6 dimensions after 3+ sessions</p>
+                        <div class="book-spine"></div>
+                        <div class="page-right">
+                            <section id="contact" class="contact">
+                                <h2 class="section-title">Let's Connect</h2>
+                                <div class="contact-card glass-card">
+                                    <p>yudieden@usc.edu</p>
+                                    <div class="contact-socials">
+                                        <a href="https://linkedin.com/in/yudie-deng" target="_blank"><i
+                                                class="fab fa-linkedin"></i></a>
+                                        <a href="https://github.com/salt-byte" target="_blank"><i
+                                                class="fab fa-github"></i></a>
+                                    </div>
                                 </div>
-                                <div class="metric-card">
-                                    <div class="metric-icon"><i class="fas fa-redo"></i></div>
-                                    <h5>Session Retention</h5>
-                                    <p>% of users who complete 3+ mock interviews (target: >40%)</p>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-icon"><i class="fas fa-bullseye"></i></div>
-                                    <h5>Feedback Actionability</h5>
-                                    <p>% of improvement suggestions users mark as "useful"</p>
-                                </div>
-                                <div class="metric-card">
-                                    <div class="metric-icon"><i class="fas fa-trophy"></i></div>
-                                    <h5>Offer Conversion</h5>
-                                    <p>Long-term: % of active users who report receiving offers</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- 5. Tradeoffs -->
-                    <div class="case-section">
-                        <div class="case-section-num">05</div>
-                        <div class="case-section-content">
-                            <h4>Tradeoffs & Reflections</h4>
-                            <div class="tradeoff-list">
-                                <div class="tradeoff-item">
-                                    <div class="tradeoff-label chose">Chose</div>
-                                    <p><strong>Multi-agent architecture</strong> over single-prompt — higher system
-                                        complexity but dramatically better output quality and modularity for iteration
-                                    </p>
-                                </div>
-                                <div class="tradeoff-item">
-                                    <div class="tradeoff-label chose">Chose</div>
-                                    <p><strong>Cross-generated questions</strong> (JD × user experience) over generic
-                                        question bank — more compute but every question is personalized</p>
-                                </div>
-                                <div class="tradeoff-item">
-                                    <div class="tradeoff-label deferred">Deferred</div>
-                                    <p><strong>Non-verbal signal analysis</strong> (gestures, eye contact) — high
-                                        differentiation value but requires significant CV infrastructure</p>
-                                </div>
-                                <div class="tradeoff-item">
-                                    <div class="tradeoff-label deferred">Deferred</div>
-                                    <p><strong>Peer-to-peer mock matching</strong> — would add human element but MVP
-                                        focused on AI-only loop first</p>
-                                </div>
-                            </div>
+                                <footer class="journal-footer">
+                                    <p>&copy; 2026 Yudie Deng. From Script to Screen to Silicon.</p>
+                                </footer>
+                            </section>
                         </div>
                     </div>
                 </div>
             </div>
 
         </div>
-    </section>
 
-    <!-- AI Expertise Section -->
-    <section id="expertise" class="expertise reveal">
-        <div class="container">
-            <h2 class="section-title">AI Expertise & Knowledge</h2>
-            <p class="section-subtitle">Deep understanding of multimodal models and AI product development, from
-                research to production</p>
-            <div class="expertise-grid">
-                <div class="expertise-card glass-card">
-                    <div class="expertise-icon-wrap"><i class="fas fa-layer-group"></i></div>
-                    <h3>Multimodal Pipelines</h3>
-                    <p>Designed multi-stage generation workflows combining text understanding, image analysis, and video
-                        synthesis. Built production pipelines that chain LLM reasoning → visual generation → user
-                        delivery.</p>
-                    <div class="expertise-exp"><span><i class="fas fa-building"></i> Zhipu AI, Cinematic Mirror</span>
-                    </div>
-                </div>
-                <div class="expertise-card glass-card">
-                    <div class="expertise-icon-wrap"><i class="fas fa-sliders-h"></i></div>
-                    <h3>LoRA Fine-tuning</h3>
-                    <p>Trained custom character LoRA models with curated high-quality reference datasets. Achieved
-                        visual style consistency across generated assets where base models like Midjourney fell short.
-                    </p>
-                    <div class="expertise-exp"><span><i class="fas fa-building"></i> Enlight Media</span></div>
-                </div>
-                <div class="expertise-card glass-card">
-                    <div class="expertise-icon-wrap"><i class="fas fa-terminal"></i></div>
-                    <h3>Prompt Engineering</h3>
-                    <p>Systematic prompt design for character consistency, emotional tone, and safety boundaries.
-                        Authored core prompt templates through bad/good case analysis — prompt engineering creates a 0%
-                        to 90% performance difference.</p>
-                    <div class="expertise-exp"><span><i class="fas fa-building"></i> Zhipu AI</span></div>
-                </div>
-                <div class="expertise-card glass-card">
-                    <div class="expertise-icon-wrap"><i class="fas fa-photo-video"></i></div>
-                    <h3>Image & Video Generation</h3>
-                    <p>Production experience with ComfyUI + Stable Diffusion, Kling, Jimeng, CogVideo. Evaluated models
-                        on quality, latency, and cost for real product deployment.</p>
-                    <div class="expertise-exp"><span><i class="fas fa-building"></i> Enlight Media, Zhipu AI</span>
-                    </div>
-                </div>
-                <div class="expertise-card glass-card">
-                    <div class="expertise-icon-wrap"><i class="fas fa-shield-alt"></i></div>
-                    <h3>AI Trust & Safety</h3>
-                    <p>Researching product-oriented AI Trust Index at USC — decomposing risks like hallucination,
-                        stability, and consistency into quantifiable evaluation dimensions.</p>
-                    <div class="expertise-exp"><span><i class="fas fa-building"></i> USC AI Trust Lab</span></div>
-                </div>
-                <div class="expertise-card glass-card">
-                    <div class="expertise-icon-wrap"><i class="fas fa-robot"></i></div>
-                    <h3>Agentic AI Design</h3>
-                    <p>Pioneered an automated storytelling agent before the current agent wave — designed
-                        script-to-video workflows, navigating the agency-control tradeoff between creative autonomy and
-                        output predictability.</p>
-                    <div class="expertise-exp"><span><i class="fas fa-building"></i> Zhipu AI</span></div>
-                </div>
-            </div>
+        <!-- UI Elements -->
+        <div class="swiper-pagination root-pagination"></div>
+        <div class="page-controls">
+            <div class="page-nav prev-page"><i class="fas fa-chevron-left"></i></div>
+            <div class="page-nav next-page"><i class="fas fa-chevron-right"></i></div>
         </div>
-    </section>
-
-    <!-- AIGC Gallery -->
-    <section id="gallery" class="gallery reveal">
-        <div class="container">
-            <h2 class="section-title">AIGC Creative Works</h2>
-            <p class="section-subtitle">Award-winning AIGC short films and AI-generated video content</p>
-            <div class="gallery-grid">
-                <div class="gallery-item">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/J0ch24ktZeE" title="Writing Pen" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="gallery-info">
-                        <h4>🏆 Writing Pen</h4>
-                        <p>Nominated for 25th Beijing Film Academy Animation Awards. Won 2nd Prize & AI Excellence
-                            Award.</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/3llQAtCn5Ks" title="Zooo — Zhipu AI" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="gallery-info">
-                        <h4>Zooo — Zhipu AI Promo</h4>
-                        <p>AI-generated promotional video for Zhipu AI's Dynamic Zoo product.</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <div class="video-embed">
-                        <iframe src="https://www.youtube.com/embed/nJpXQpITNTg" title="Tsinghua Twelve Hours"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="gallery-info">
-                        <h4>Tsinghua Twelve Hours</h4>
-                        <p>AIGC showcase of daily life at Tsinghua University.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="scroll-hint">
+            <span class="mouse-icon"><span class="wheel"></span></span>
+            <p>Scroll to Flip Pages</p>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact reveal">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-grid">
-                <div class="contact-card glass-card">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <a href="mailto:yudieden@usc.edu" class="contact-link">yudieden@usc.edu</a>
-                </div>
-                <div class="contact-card glass-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>Phone</h3>
-                    <p>🇺🇸 +1 (213) 843-5722</p>
-                </div>
-                <div class="contact-card glass-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Location</h3>
-                    <p>Los Angeles, CA</p>
-                </div>
-                <div class="contact-card glass-card">
-                    <i class="fab fa-linkedin"></i>
-                    <h3>LinkedIn</h3>
-                    <a href="https://linkedin.com/in/yudie-deng" target="_blank" class="contact-link">Yudie Deng</a>
-                </div>
-                <div class="contact-card glass-card">
-                    <i class="fab fa-github"></i>
-                    <h3>GitHub</h3>
-                    <a href="https://github.com/salt-byte" target="_blank" class="contact-link">salt-byte</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Yudie Deng. Crafted with AI & ❤️</p>
-        </div>
-    </footer>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Swiper.js JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 

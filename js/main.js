@@ -1,128 +1,99 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // ---- Mobile Nav Toggle ----
-    const menuToggle = document.getElementById('menu-toggle');
-    const nav = document.getElementById('nav');
-
-    menuToggle.addEventListener('click', function () {
-        nav.classList.toggle('active');
-        this.classList.toggle('open');
-    });
-
-    // Close mobile nav on link click
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', () => {
-            nav.classList.remove('active');
-            menuToggle.classList.remove('open');
-        });
-    });
-
-    // ---- Scroll-triggered Reveal Animations ----
-    const revealObserver = new IntersectionObserver(
-        (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
+    // ---- Root Swiper (Narrative Book) ----
+    const rootSwiper = new Swiper('.root-swiper', {
+        direction: 'horizontal',
+        slidesPerView: 1,
+        spaceBetween: 0,
+        mousewheel: {
+            forceToAxis: true,
+            sensitivity: 1,
+            releaseOnEdges: true,
         },
-        { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
-    );
-
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-
-    // ---- Active Nav Link on Scroll ----
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('nav ul li a');
-
-    function updateActiveNav() {
-        const scrollY = window.scrollY + 120;
-        let current = '';
-
-        sections.forEach(section => {
-            const top = section.offsetTop;
-            const height = section.offsetHeight;
-            if (scrollY >= top && scrollY < top + height) {
-                current = section.getAttribute('id');
+        keyboard: true,
+        speed: 1200,
+        effect: 'creative',
+        creativeEffect: {
+            prev: {
+                shadow: true,
+                translate: ['-20%', 0, -1],
+                rotate: [0, 0, -5],
+            },
+            next: {
+                translate: ['100%', 0, 0],
+            },
+        },
+        pagination: {
+            el: '.root-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.next-page',
+            prevEl: '.prev-page',
+        },
+        on: {
+            slideChange: function () {
+                const activeSlide = this.slides[this.activeIndex];
+                const chapter = activeSlide.getAttribute('data-chapter');
+                updateChapterColors(chapter);
+                // Sync nav based on the first section ID found in the slide
+                const firstSection = activeSlide.querySelector('section');
+                if (firstSection) updateNav(firstSection.id);
             }
-        });
+        }
+    });
 
+    // ---- Chapter-based Shifting ----
+    const chapterColors = {
+        '1': { a: 'rgba(197, 160, 89, 0.12)', b: 'rgba(26, 26, 26, 0.05)' },  // Origins (Gold/Warm)
+        '2': { a: 'rgba(121, 28, 45, 0.1)', b: 'rgba(28, 59, 121, 0.05)' },    // AIGC (Artistic)
+        '3': { a: 'rgba(28, 121, 80, 0.1)', b: 'rgba(255, 255, 255, 0.05)' },  // Zhipu (Life/Green)
+        '4': { a: 'rgba(197, 160, 89, 0.1)', b: 'rgba(50, 50, 121, 0.08)' },   // Independent (Tech/Gold)
+        '5': { a: 'rgba(28, 59, 121, 0.12)', b: 'rgba(15, 15, 15, 0.1)' }      // USC (Deep/Trust)
+    };
+
+    function updateChapterColors(chapter) {
+        if (chapter && chapterColors[chapter]) {
+            const colors = chapterColors[chapter];
+            document.documentElement.style.setProperty('--diffuse-1-a', colors.a);
+            document.documentElement.style.setProperty('--diffuse-1-b', colors.b);
+        }
+    }
+
+    // ---- Navigation Sync ----
+    const navLinks = document.querySelectorAll('nav ul li a');
+    function updateNav(sectionId) {
+        if (!sectionId) return;
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
+            if (link.getAttribute('href') === '#' + sectionId) {
                 link.classList.add('active');
             }
         });
     }
 
-    // ---- Header Background on Scroll ----
-    const header = document.getElementById('header');
-    function updateHeader() {
-        if (window.scrollY > 60) {
-            header.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)';
-        } else {
-            header.style.boxShadow = 'none';
-        }
-    }
-
-    window.addEventListener('scroll', function () {
-        updateActiveNav();
-        updateHeader();
+    // Handle nav link clicks to jump to spreads
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = link.getAttribute('href').substring(1);
+            const slides = document.querySelectorAll('.swiper-slide');
+            let foundIndex = -1;
+            slides.forEach((slide, index) => {
+                if (slide.querySelector(`section#${targetId}`)) {
+                    foundIndex = index;
+                }
+            });
+            if (foundIndex > -1) {
+                rootSwiper.slideTo(foundIndex);
+            }
+        });
     });
 
-    // ---- Collapsible Case Study Sections ----
-    document.querySelectorAll('.case-section').forEach(section => {
-        // Start collapsed
-        section.classList.add('collapsed');
-
-        // Make the header (num + h4) clickable
-        const num = section.querySelector('.case-section-num');
-        const content = section.querySelector('.case-section-content');
-        const h4 = content.querySelector('h4');
-
-        if (!h4) return;
-
-        // Create clickable header wrapper
-        const header = document.createElement('div');
-        header.className = 'case-section-header';
-
-        // Add chevron icon
-        const chevron = document.createElement('i');
-        chevron.className = 'fas fa-chevron-down case-section-chevron';
-
-        // Clone h4 into header
-        header.appendChild(h4.cloneNode(true));
-        header.appendChild(chevron);
-
-        // Replace original h4 with header
-        h4.replaceWith(header);
-
-        // Wrap remaining content in collapsible body
-        const body = document.createElement('div');
-        body.className = 'case-section-body';
-
-        // Move all children after header into body
-        while (header.nextSibling) {
-            body.appendChild(header.nextSibling);
-        }
-        content.appendChild(body);
-
-        // Toggle on click (header or num)
-        const toggle = () => {
-            section.classList.toggle('collapsed');
-        };
-        header.addEventListener('click', toggle);
-        num.addEventListener('click', toggle);
-        num.style.cursor = 'pointer';
-    });
-
-    updateActiveNav();
-    updateHeader();
     // ---- Three.js Liquid Displacement (Water Ripple) ----
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
-    // Create base canvas for Three.js
     const canvas = renderer.domElement;
     canvas.id = 'ripple-canvas';
     canvas.style.position = 'fixed';
@@ -136,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // Shader for liquid distortion
     const vertexShader = `
         varying vec2 vUv;
         void main() {
@@ -152,28 +122,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
         void main() {
             vec2 uv = vUv;
-            
-            // Subtle water ripple distortion logic
             vec2 direction = normalize(uv - vec2(0.5));
             float distance = length(uv - uMouse);
-            
-            float wave = sin(distance * 15.0 - uTime * 1.5) * 0.008;
-            float mask = smoothstep(0.6, 0.0, distance);
-            
+            float wave = sin(distance * 12.0 - uTime * 1.2) * 0.007;
+            float mask = smoothstep(0.7, 0.0, distance);
             uv += direction * wave * mask;
             
-            // Background color (ink black)
-            vec3 color = vec3(0.04, 0.04, 0.06); 
-            
-            // Add subtle noise/grain
+            // Adjust to darker, subtle atmospheric color
+            vec3 color = vec3(0.06, 0.06, 0.07); 
             float noise = fract(sin(dot(uv ,vec2(12.9898,78.233))) * 43758.5453);
-            color += noise * 0.02;
-            
+            color += noise * 0.015;
             gl_FragColor = vec4(color, 1.0);
         }
     `;
 
-    const geometry = new THREE.PlaneGeometry(2, 2);
     const material = new THREE.ShaderMaterial({
         uniforms: {
             uMouse: { value: new THREE.Vector2(0.5, 0.5) },
@@ -184,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
         transparent: true
     });
 
-    const mesh = new THREE.Mesh(geometry, material);
+    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
     scene.add(mesh);
 
     let mousePosition = new THREE.Vector2(0.5, 0.5);
@@ -195,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function animate(time) {
         material.uniforms.uTime.value = time * 0.001;
-        material.uniforms.uMouse.value.lerp(mousePosition, 0.05);
+        material.uniforms.uMouse.value.lerp(mousePosition, 0.04);
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
     }
@@ -205,5 +167,8 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('resize', () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
+
+    // Initialize first chapter
+    updateChapterColors('1');
 });
 
