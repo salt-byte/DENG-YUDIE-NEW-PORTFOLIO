@@ -61,19 +61,14 @@
                     <div class="book-spread">
                         <div class="page-left">
                             <section id="hero" class="hero">
-                                <span class="chapter-label">Chapter 01 — THE ORIGINS</span>
+                                <span class="chapter-label">Chapter 01 — The Origins</span>
+                                <h1>From <span class="gradient-text">Script to Screen to Silicon</span></h1>
+                                <p class="hero-desc">I began my journey in the world of movies, obsessed with how
+                                    stories shape reality. Today, I build the next generation of AI products — where
+                                    cinematic aesthetics meet technical rigor to create "human" AI experiences.</p>
                                 <div class="hero-badge">
                                     <span class="badge-dot"></span>
                                     Cinematic AI Product Manager
-                                </div>
-                                <h1>From <span class="gradient-text">Script to Screen to Silicon</span></h1>
-                                <p class="hero-desc">I began my journey in the world of movies, obsessed with how
-                                    stories shape
-                                    reality. Today, I build the next generation of AI products — where cinematic
-                                    aesthetics meet
-                                    technical rigor to create "human" AI experiences.</p>
-                                <div class="experience-peek">
-                                    <p><small>Scroll to begin the journal...</small></p>
                                 </div>
                             </section>
                         </div>
@@ -81,24 +76,22 @@
                         <div class="page-right">
                             <section id="about" class="about">
                                 <h2 class="section-title">The Foundation</h2>
-                                <div class="about-grid">
-                                    <div class="about-card glass-card">
-                                        <div class="about-icon"><i class="fas fa-film"></i></div>
-                                        <h3>Cinematic Vision</h3>
-                                        <p><strong>Beijing Film Academy</strong><br><small>Visual storytelling and
-                                                character psychology. My foundation in film allows me to design AI that
-                                                feels "alive."</small></p>
-                                    </div>
-                                    <div class="about-card glass-card">
-                                        <div class="about-icon"><i class="fas fa-microchip"></i></div>
-                                        <h3>Technical Engine</h3>
-                                        <p><strong>Data Science @ USC</strong><br><small>Bridging the gap between
-                                                creative intuition and LLM technical rigor.</small></p>
-                                    </div>
+                                <div class="about-card glass-card">
+                                    <div class="about-icon"><i class="fas fa-film"></i></div>
+                                    <h3>Cinematic Vision</h3>
+                                    <p><strong>Beijing Film Academy</strong></p>
+                                    <p>Visual storytelling and character psychology. My foundation in film allows me to
+                                        design AI that feels "alive."</p>
+                                </div>
+                                <div class="about-card glass-card" style="margin-top: 16px;">
+                                    <div class="about-icon"><i class="fas fa-microchip"></i></div>
+                                    <h3>Technical Engine</h3>
+                                    <p><strong>Data Science @ USC</strong></p>
+                                    <p>Bridging the gap between creative intuition and LLM technical rigor.</p>
                                 </div>
                                 <div class="narrative-bridge glass-card">
-                                    <p>"I discovered that film is a 'secondary world' for humans, and AI can be the
-                                        architect of new digital realities."</p>
+                                    <p>"Film is a 'secondary world' for humans, and AI can be the architect of new
+                                        digital realities."</p>
                                 </div>
                             </section>
                         </div>
@@ -106,34 +99,78 @@
                 </div>
             </div>
 
-            <!-- Spread 2: Creative Productions (AIGC) -->
+            <!-- Spread 2: AIGC Gallery (Nested Swiper for media) -->
             <div class="swiper-slide" data-chapter="2">
                 <div class="main-slide">
                     <div class="book-spread">
                         <div class="page-left">
                             <section id="gallery" class="gallery">
-                                <span class="chapter-label">Chapter 02 — CREATIVE EXPLORATIONS</span>
+                                <span class="chapter-label">Chapter 02 — Creative Explorations</span>
                                 <h2 class="section-title">AIGC Works</h2>
                                 <p>Blending movie aesthetics with multimodal generation workflows.</p>
-                                <div class="polaroid-frame">
-                                    <div class="video-embed">
-                                        <iframe src="https://www.youtube.com/embed/J0ch24ktZeE" title="Writing Pen"
-                                            frameborder="0" allowfullscreen></iframe>
+                                <!-- Nested Swiper for media -->
+                                <div class="swiper-container gallery-swiper" style="margin-top: 20px;">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="polaroid-frame">
+                                                <div class="video-embed">
+                                                    <iframe src="https://www.youtube.com/embed/J0ch24ktZeE"
+                                                        title="Writing Pen" frameborder="0" allowfullscreen></iframe>
+                                                </div>
+                                                <div class="polaroid-caption">🏆 Writing Pen — BFA Animation Awards
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="polaroid-frame">
+                                                <img src="images/aigc/AIGC海报/小倩/截屏2025-08-11 21.26.49.png"
+                                                    alt="小倩 Character">
+                                                <div class="polaroid-caption">小倩 — Character Consistency via LoRA</div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="polaroid-frame">
+                                                <img src="images/aigc/AIGC海报/清华/a36eef992434d574ca89fe5c9fb3a2bc.jpg"
+                                                    alt="Tsinghua Project">
+                                                <div class="polaroid-caption">Tsinghua × AI Visual Generation</div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="polaroid-frame">
+                                                <img src="images/aigc/lora训练/截屏2025-08-11 21.32.34.png"
+                                                    alt="LoRA Training">
+                                                <div class="polaroid-caption">Custom LoRA Model Training</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="polaroid-caption">🏆 Writing Pen — BFA Animation Awards</div>
+                                    <div class="swiper-pagination gallery-pagination"></div>
                                 </div>
                             </section>
                         </div>
                         <div class="book-spine"></div>
                         <div class="page-right">
-                            <section class="gallery-extra">
-                                <div class="polaroid-frame">
-                                    <img src="images/aigc/AIGC海报/IMG_5959.jpg" alt="AIGC Poster">
-                                    <div class="polaroid-caption">Character Consistency LoRA Training</div>
+                            <section class="gallery-details">
+                                <h3>Production Pipeline</h3>
+                                <p>At Enlight Media, I led AIGC experiments combining text-to-video workflows with
+                                    cinematic storytelling techniques.</p>
+                                <div class="glass-card" style="margin-top: 16px;">
+                                    <h4>Key Contributions</h4>
+                                    <ul>
+                                        <li>Trained custom LoRA models for controllable character consistency</li>
+                                        <li>Designed text-to-video production workflows using Runway, Sora, and Kling
+                                        </li>
+                                        <li>Nominated for BFA Animation Awards with <em>Writing Pen</em></li>
+                                        <li>Explored visual style transfer experiments across genres</li>
+                                    </ul>
                                 </div>
-                                <div class="polaroid-frame">
-                                    <img src="images/aigc/AIGC海报/IMG_5960.jpg" alt="AIGC Poster 2">
-                                    <div class="polaroid-caption">Visual Style Transfer Experiments</div>
+                                <div class="glass-card" style="margin-top: 16px;">
+                                    <h4>Tools & Tech</h4>
+                                    <ul>
+                                        <li>Stable Diffusion + LoRA</li>
+                                        <li>Runway Gen-3 / Kling / Sora</li>
+                                        <li>ComfyUI Workflows</li>
+                                        <li>Prompt Engineering</li>
+                                    </ul>
                                 </div>
                             </section>
                         </div>
@@ -141,36 +178,63 @@
                 </div>
             </div>
 
-            <!-- Spread 3: AI Life (Zhipu AI) -->
+            <!-- Spread 3: Zhipu AI -->
             <div class="swiper-slide" data-chapter="3">
                 <div class="main-slide">
                     <div class="book-spread">
                         <div class="page-left">
                             <section id="zhipu" class="zhipu">
-                                <span class="chapter-label">Chapter 03 — AI LIFE</span>
+                                <span class="chapter-label">Chapter 03 — AI Life</span>
                                 <h2 class="section-title">Zhipu AI</h2>
-                                <p>Leading the 0-to-1 design of a multimodal companion PET Believing that cinema can
+                                <p>Leading the 0-to-1 design of a multimodal companion PET, believing that cinema can
                                     serve as the ultimate carrier for human-like AI interaction.</p>
-                                <div class="zhipu-gif-frame polaroid-frame">
-                                    <img src="images/zhipu/IMG_5964.GIF" alt="Zhipu PET">
-                                    <div class="polaroid-caption">Multimodal Emotional Response System</div>
+                                <div class="swiper-container zhipu-swiper" style="margin-top: 20px;">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="polaroid-frame">
+                                                <img src="images/zhipu/IMG_5964.GIF" alt="Zhipu PET">
+                                                <div class="polaroid-caption">Multimodal Emotional Response</div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="polaroid-frame">
+                                                <img src="images/zhipu/IMG_5971.GIF" alt="Interaction 1">
+                                                <div class="polaroid-caption">Interaction Archetypes</div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="polaroid-frame">
+                                                <img src="images/zhipu/IMG_5969.GIF" alt="Animation">
+                                                <div class="polaroid-caption">Animation Loop System</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-pagination zhipu-pagination"></div>
                                 </div>
                             </section>
                         </div>
                         <div class="book-spine"></div>
                         <div class="page-right">
                             <section class="zhipu-details">
+                                <h3>Product Design</h3>
                                 <div class="glass-card">
                                     <h4>Design Goals</h4>
                                     <ul>
-                                        <li>Script-to-Video Workflow</li>
+                                        <li>Script-to-Video Workflow for PET behaviors</li>
                                         <li>Gen-Z Resonance Strategy</li>
                                         <li>Multimodal Interaction Pipelines</li>
+                                        <li>Emotional Response Calibration</li>
                                     </ul>
                                 </div>
-                                <div class="polaroid-frame" style="margin-top: 20px;">
-                                    <img src="images/zhipu/IMG_5971.GIF" alt="Interaction 1">
-                                    <div class="polaroid-caption">Interaction Archetypes</div>
+                                <div class="glass-card" style="margin-top: 16px;">
+                                    <h4>Target Users</h4>
+                                    <p>Gen-Z users seeking emotional companionship through AI. The PET uses cinematic
+                                        narrative techniques to create authentic-feeling digital relationships.</p>
+                                </div>
+                                <div class="glass-card" style="margin-top: 16px;">
+                                    <h4>My Role</h4>
+                                    <p>Led product design from concept to prototype, coordinating with engineering and
+                                        content teams to deliver a multimodal companion experience.</p>
                                 </div>
                             </section>
                         </div>
@@ -178,53 +242,126 @@
                 </div>
             </div>
 
-            <!-- Spread 4: Independent Builder (Cinematic Mirror & LandIt) -->
+            <!-- Spread 4: Cinematic Mirror (独立页面) -->
             <div class="swiper-slide" data-chapter="4">
                 <div class="main-slide">
                     <div class="book-spread">
                         <div class="page-left">
                             <section id="products" class="products">
-                                <span class="chapter-label">Chapter 04 — INDEPENDENT BUILDS</span>
-                                <h2 class="section-title">影中镜 — Cinematic Mirror</h2>
-                                <div class="phone-mockup" style="height: 400px; margin: 20px 0;">
+                                <span class="chapter-label">Chapter 04 — Independent Builds</span>
+                                <h2 class="section-title">影中镜 Cinematic Mirror</h2>
+                                <div class="phone-mockup">
                                     <iframe src="https://cinematic-mirror.vercel.app/"
                                         title="Cinematic Mirror"></iframe>
                                 </div>
-                                <p><small>Finding your cinematic alter-ego via Gemini-powered agentic pipelines.</small>
-                                </p>
                             </section>
                         </div>
                         <div class="book-spine"></div>
                         <div class="page-right">
+                            <section class="product-details">
+                                <h3>Finding Your Cinematic Alter-Ego</h3>
+                                <p>An AI-powered styling app that matches users with their movie character persona and
+                                    provides personalized fashion recommendations.</p>
+                                <div class="glass-card" style="margin-top: 16px;">
+                                    <h4>Core Features</h4>
+                                    <ul>
+                                        <li>Gemini-powered agentic analysis pipeline</li>
+                                        <li>Multi-dimensional persona matching</li>
+                                        <li>Personalized styling recommendations</li>
+                                        <li>Director-grade visual consultation</li>
+                                    </ul>
+                                </div>
+                                <div class="glass-card" style="margin-top: 16px;">
+                                    <h4>Target Audience</h4>
+                                    <p>Fashion-forward individuals seeking a unique, cinema-inspired approach to
+                                        personal styling. Primarily Gen-Z and millennial users interested in the
+                                        intersection of film and fashion.</p>
+                                </div>
+                                <div class="glass-card" style="margin-top: 16px;">
+                                    <h4>Tech Stack</h4>
+                                    <ul>
+                                        <li>Gemini API + Prompt Engineering</li>
+                                        <li>React + Capacitor (iOS)</li>
+                                        <li>Supabase + StoreKit</li>
+                                    </ul>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spread 5: LandIt (独立页面) -->
+            <div class="swiper-slide" data-chapter="4">
+                <div class="main-slide">
+                    <div class="book-spread">
+                        <div class="page-left">
                             <section id="landit" class="products">
                                 <h2 class="section-title">LandIt</h2>
-                                <div class="laptop-mockup" style="margin: 20px 0;">
+                                <div class="laptop-mockup">
                                     <div class="laptop-screen">
                                         <iframe src="https://landit-ai-interview-prep.vercel.app/"
                                             title="LandIt"></iframe>
                                     </div>
                                     <div class="laptop-base"></div>
                                 </div>
-                                <p><small>AI Interview Prep with Continuous Training & Multi-Agent Feedback.</small></p>
+                            </section>
+                        </div>
+                        <div class="book-spine"></div>
+                        <div class="page-right">
+                            <section class="product-details">
+                                <h3>AI Interview Prep</h3>
+                                <p>A long-term training system that simulates adaptive "stress" interviews and provides
+                                    high-quality feedback with multi-agent collaboration.</p>
+                                <div class="glass-card" style="margin-top: 16px;">
+                                    <h4>Core Features</h4>
+                                    <ul>
+                                        <li>Multi-Agent feedback alignment</li>
+                                        <li>Adaptive difficulty scaling</li>
+                                        <li>Real-time performance analytics</li>
+                                        <li>Continuous training loops</li>
+                                    </ul>
+                                </div>
+                                <div class="glass-card" style="margin-top: 16px;">
+                                    <h4>Target Audience</h4>
+                                    <p>Job seekers preparing for technical and behavioral interviews. Focus on
+                                        structured, repeatable practice with intelligent AI feedback.</p>
+                                </div>
+                                <div class="glass-card" style="margin-top: 16px;">
+                                    <h4>Tech Stack</h4>
+                                    <ul>
+                                        <li>Multi-Agent System (NLP)</li>
+                                        <li>Vite + React</li>
+                                        <li>Real-time WebSocket Feedback</li>
+                                    </ul>
+                                </div>
                             </section>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Spread 5: Integrity & Contact -->
+            <!-- Spread 6: USC AI Trust Lab & Contact -->
             <div class="swiper-slide" data-chapter="5">
                 <div class="main-slide">
                     <div class="book-spread">
                         <div class="page-left">
                             <section id="usc" class="usc">
-                                <span class="chapter-label">Chapter 05 — THE PURSUIT OF TRUST</span>
+                                <span class="chapter-label">Chapter 05 — The Pursuit of Trust</span>
                                 <h2 class="section-title">USC AI Trust Lab</h2>
                                 <p>Researching the AI Trust Score™ to ensure agentic pipelines are robust, stable, and
                                     safe.</p>
-                                <div class="polaroid-frame">
+                                <div class="polaroid-frame" style="margin-top: 16px;">
                                     <img src="images/uscaitrustlab/截屏2026-02-27 02.26.14.png" alt="Trust Lab Analysis">
                                     <div class="polaroid-caption">Red-teaming via NVIDIA Garak</div>
+                                </div>
+                                <div class="glass-card" style="margin-top: 16px;">
+                                    <h4>Research Focus</h4>
+                                    <ul>
+                                        <li>Adversarial red-teaming across 9 trust dimensions</li>
+                                        <li>NVIDIA Garak integration for automated testing</li>
+                                        <li>Multi-agent collaboration safety analysis</li>
+                                    </ul>
                                 </div>
                             </section>
                         </div>
@@ -233,16 +370,21 @@
                             <section id="contact" class="contact">
                                 <h2 class="section-title">Let's Connect</h2>
                                 <div class="contact-card glass-card">
+                                    <p><strong>Email</strong></p>
                                     <p>yudieden@usc.edu</p>
+                                </div>
+                                <div class="contact-card glass-card" style="margin-top: 16px;">
+                                    <p><strong>Social</strong></p>
                                     <div class="contact-socials">
                                         <a href="https://linkedin.com/in/yudie-deng" target="_blank"><i
-                                                class="fab fa-linkedin"></i></a>
+                                                class="fab fa-linkedin"></i> LinkedIn</a>
                                         <a href="https://github.com/salt-byte" target="_blank"><i
-                                                class="fab fa-github"></i></a>
+                                                class="fab fa-github"></i> GitHub</a>
                                     </div>
                                 </div>
                                 <footer class="journal-footer">
-                                    <p>&copy; 2026 Yudie Deng. From Script to Screen to Silicon.</p>
+                                    <p>&copy; 2026 Yudie Deng</p>
+                                    <p>From Script to Screen to Silicon.</p>
                                 </footer>
                             </section>
                         </div>
@@ -257,10 +399,6 @@
         <div class="page-controls">
             <div class="page-nav prev-page"><i class="fas fa-chevron-left"></i></div>
             <div class="page-nav next-page"><i class="fas fa-chevron-right"></i></div>
-        </div>
-        <div class="scroll-hint">
-            <span class="mouse-icon"><span class="wheel"></span></span>
-            <p>Scroll to Flip Pages</p>
         </div>
     </div>
 

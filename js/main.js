@@ -35,12 +35,53 @@ document.addEventListener('DOMContentLoaded', function () {
                 const activeSlide = this.slides[this.activeIndex];
                 const chapter = activeSlide.getAttribute('data-chapter');
                 updateChapterColors(chapter);
-                // Sync nav based on the first section ID found in the slide
                 const firstSection = activeSlide.querySelector('section');
                 if (firstSection) updateNav(firstSection.id);
             }
         }
     });
+
+    // ---- Nested Swipers (for media cycling within pages) ----
+    const gallerySwiperEl = document.querySelector('.gallery-swiper');
+    if (gallerySwiperEl) {
+        new Swiper('.gallery-swiper', {
+            direction: 'horizontal',
+            slidesPerView: 1,
+            spaceBetween: 20,
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
+            pagination: {
+                el: '.gallery-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: true,
+            },
+            nested: true,
+        });
+    }
+
+    const zhipuSwiperEl = document.querySelector('.zhipu-swiper');
+    if (zhipuSwiperEl) {
+        new Swiper('.zhipu-swiper', {
+            direction: 'horizontal',
+            slidesPerView: 1,
+            spaceBetween: 20,
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
+            pagination: {
+                el: '.zhipu-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: true,
+            },
+            nested: true,
+        });
+    }
+
 
     // ---- Chapter-based Shifting ----
     const chapterColors = {

@@ -1925,6 +1925,47 @@ footer p {
     text-align: center;
 }
 
+/* Nested Swipers (inside book pages) */
+.gallery-swiper,
+.zhipu-swiper {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.gallery-swiper .swiper-slide,
+.zhipu-swiper .swiper-slide {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.gallery-swiper .swiper-slide-active,
+.zhipu-swiper .swiper-slide-active {
+    opacity: 1;
+}
+
+.gallery-pagination,
+.zhipu-pagination {
+    text-align: center;
+    margin-top: 10px;
+    position: relative !important;
+    bottom: auto !important;
+}
+
+.gallery-pagination .swiper-pagination-bullet,
+.zhipu-pagination .swiper-pagination-bullet {
+    background: var(--accent-gold) !important;
+    opacity: 0.3;
+    width: 8px;
+    height: 8px;
+}
+
+.gallery-pagination .swiper-pagination-bullet-active,
+.zhipu-pagination .swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+
 /* Video embeds in book */
 .book-spread .video-embed {
     position: relative;
