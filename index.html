@@ -272,11 +272,17 @@
                         <div class="zhipu-img-strip fly-in d1">
                             <div class="swiper-container zs-strip">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide zs-slide"><img src="images/zhipu/IMG_5965.jpg" class="zs-img" alt=""></div>
-                                    <div class="swiper-slide zs-slide"><img src="images/zhipu/IMG_5966.jpg" class="zs-img" alt=""></div>
-                                    <div class="swiper-slide zs-slide"><img src="images/zhipu/IMG_5967.jpg" class="zs-img" alt=""></div>
-                                    <div class="swiper-slide zs-slide"><img src="images/zhipu/IMG_5968.jpg" class="zs-img" alt=""></div>
-                                    <div class="swiper-slide zs-slide"><img src="images/zhipu/微信图片_2026-02-27_021340_832.jpg" class="zs-img" alt=""></div>
+                                    <div class="swiper-slide zs-slide"><img src="images/zhipu/IMG_5965.jpg"
+                                            class="zs-img" alt=""></div>
+                                    <div class="swiper-slide zs-slide"><img src="images/zhipu/IMG_5966.jpg"
+                                            class="zs-img" alt=""></div>
+                                    <div class="swiper-slide zs-slide"><img src="images/zhipu/IMG_5967.jpg"
+                                            class="zs-img" alt=""></div>
+                                    <div class="swiper-slide zs-slide"><img src="images/zhipu/IMG_5968.jpg"
+                                            class="zs-img" alt=""></div>
+                                    <div class="swiper-slide zs-slide"><img
+                                            src="images/zhipu/微信图片_2026-02-27_021340_832.jpg" class="zs-img" alt="">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -399,43 +405,49 @@
                  SLIDE 4 — CINEMATIC MIRROR (phone mockup)
                  ═══════════════════════════════════════ -->
             <div class="swiper-slide" data-chapter="3">
-                <div class="fs-slide fs-split">
-                    <div class="fs-visual feat-gallery-panel">
-                        <div class="feat-gallery fg-portrait-row">
-                            <div class="fg-card">
-                                <div class="fg-ph"><i class="fas fa-mobile-alt"></i><span>Screenshot coming</span></div>
-                                <span class="fg-label">I · Interview</span>
+                <div class="fs-slide fs-device">
+                    <div class="fs-visual device-bg">
+                        <div class="phone-scene">
+                            <div class="phone-mockup">
+                                <div class="phone-island"></div>
+                                <div class="phone-btn-vol"></div>
+                                <div class="phone-btn-power"></div>
+                                <div class="phone-screen">
+                                    <iframe src="https://cinematic-mirror.vercel.app/"
+                                        class="phone-iframe cm-live-iframe" title="Cinematic Mirror"></iframe>
+                                    <img src="" class="cm-gif-overlay" alt="">
+                                </div>
                             </div>
-                            <div class="fg-card">
-                                <div class="fg-ph"><i class="fas fa-mobile-alt"></i><span>Screenshot coming</span></div>
-                                <span class="fg-label">II · Character Match</span>
-                            </div>
-                            <div class="fg-card">
-                                <div class="fg-ph"><i class="fas fa-mobile-alt"></i><span>Screenshot coming</span></div>
-                                <span class="fg-label">III · Director Mode</span>
-                            </div>
+                            <a href="https://cinematic-mirror.vercel.app/" target="_blank" class="device-try-btn">
+                                <i class="fas fa-external-link-alt"></i> Try it →
+                            </a>
+                            <div class="phone-caption cm-caption">Live preview — tap a stage to switch view</div>
                         </div>
                     </div>
                     <div class="fs-content cm-content">
                         <span class="chapter-label fly-in d1">Chapter 04 — Independent Builds</span>
                         <h2 class="section-title fly-in d2" style="text-align:left;">Cinematic Mirror Agent</h2>
-                        <p class="fly-in d3">A personality-first styling system — not a trend engine. Built to help users dress <em>authentically</em>, not algorithmically.</p>
+                        <p class="fly-in d3">A personality-first styling system — not a trend engine. Built to help
+                            users dress <em>authentically</em>, not algorithmically.</p>
 
                         <!-- Problem -->
                         <div class="cm-problem fly-in d3">
                             <div class="cm-prob-item">
                                 <span class="cm-prob-num">01</span>
-                                <div><strong>Homogenized recommendations</strong> — algorithms optimize for trends, not individuality.</div>
+                                <div><strong>Homogenized recommendations</strong> — algorithms optimize for trends, not
+                                    individuality.</div>
                             </div>
                             <div class="cm-prob-item">
                                 <span class="cm-prob-num">02</span>
-                                <div><strong>No personality foundation</strong> — body type &amp; trends, but never temperament or identity.</div>
+                                <div><strong>No personality foundation</strong> — body type &amp; trends, but never
+                                    temperament or identity.</div>
                             </div>
                         </div>
 
-                        <!-- 3-Stage Pipeline -->
+                        <!-- 3-Stage Pipeline (clickable → switches phone screen) -->
                         <div class="cm-pipeline fly-in d4">
-                            <div class="cm-stage">
+                            <div class="cm-stage cm-stage-btn active" data-cm-view="live"
+                                data-cm-gif="images/mirror/interview.GIF">
                                 <span class="cm-stage-num">I</span>
                                 <div class="cm-stage-body">
                                     <strong>Cinematic Interview</strong>
@@ -443,21 +455,28 @@
                                 </div>
                             </div>
                             <div class="cm-stage-arrow">→</div>
-                            <div class="cm-stage">
+                            <div class="cm-stage cm-stage-btn" data-cm-view="live"
+                                data-cm-gif="images/mirror/character.GIF">
                                 <span class="cm-stage-num">II</span>
                                 <div class="cm-stage-body">
                                     <strong>Film Character Match</strong>
-                                    <span>Character archetype → Style Guide: silhouette, color system, outfit logic</span>
+                                    <span>Character archetype → Style Guide: silhouette, color system, outfit
+                                        logic</span>
                                 </div>
                             </div>
                             <div class="cm-stage-arrow">→</div>
-                            <div class="cm-stage">
+                            <div class="cm-stage cm-stage-btn" data-cm-view="live"
+                                data-cm-gif="images/mirror/directormode.GIF">
                                 <span class="cm-stage-num">III</span>
                                 <div class="cm-stage-body">
                                     <strong>Live Director Mode</strong>
                                     <span>Real-time video: color alignment, silhouette, accessories, posture</span>
                                 </div>
                             </div>
+                            <div class="cm-stage-arrow">·</div>
+                            <button class="cm-home-btn" title="Back to live preview">
+                                <i class="fas fa-home"></i>
+                            </button>
                         </div>
 
                         <!-- Accordion: MVP / Metrics / Tradeoffs -->
@@ -492,13 +511,16 @@
                                         <i class="fas fa-chevron-down rp-chevron"></i>
                                     </summary>
                                     <div class="rp-content">
-                                        <p style="font-size:0.7rem;color:var(--accent-gold);margin:0 0 6px;">North Star — Post-session styling satisfaction score</p>
+                                        <p style="font-size:0.7rem;color:var(--accent-gold);margin:0 0 6px;">North Star
+                                            — Post-session styling satisfaction score</p>
                                         <ul>
                                             <li>Video session conversion rate</li>
                                             <li>Credit repurchase rate</li>
                                             <li>7-day retention rate &amp; outfit adoption rate</li>
                                         </ul>
-                                        <p style="font-size:0.7rem;color:var(--text-dim);margin:8px 0 4px;">Core question: do users treat this as an ongoing companion, not a one-time quiz?</p>
+                                        <p style="font-size:0.7rem;color:var(--text-dim);margin:8px 0 4px;">Core
+                                            question: do users treat this as an ongoing companion, not a one-time quiz?
+                                        </p>
                                     </div>
                                 </details>
 
@@ -510,10 +532,14 @@
                                     </summary>
                                     <div class="rp-content">
                                         <ul>
-                                            <li><strong>Personality modeling</strong> adds complexity → creates defensibility &amp; long-term engagement</li>
-                                            <li><strong>Live video inference</strong> raises infra cost → enables premium pricing &amp; trust</li>
-                                            <li><strong>CV accuracy limits</strong> → prioritize silhouette logic &amp; aesthetic coherence over garment recognition</li>
-                                            <li><strong>Positioning risk</strong> → interface must deliver wearable suggestions, not just cinematic framing</li>
+                                            <li><strong>Personality modeling</strong> adds complexity → creates
+                                                defensibility &amp; long-term engagement</li>
+                                            <li><strong>Live video inference</strong> raises infra cost → enables
+                                                premium pricing &amp; trust</li>
+                                            <li><strong>CV accuracy limits</strong> → prioritize silhouette logic &amp;
+                                                aesthetic coherence over garment recognition</li>
+                                            <li><strong>Positioning risk</strong> → interface must deliver wearable
+                                                suggestions, not just cinematic framing</li>
                                         </ul>
                                     </div>
                                 </details>
@@ -522,7 +548,8 @@
                         </div>
 
                         <div class="cm-stack fly-in d6">
-                            <span>Gemini API</span><span>React + Capacitor</span><span>Supabase</span><span>StoreKit</span>
+                            <span>Gemini API</span><span>React +
+                                Capacitor</span><span>Supabase</span><span>StoreKit</span>
                         </div>
                     </div>
                 </div>
@@ -532,33 +559,44 @@
                  SLIDE 5 — LANDIT (laptop mockup)
                  ═══════════════════════════════════════ -->
             <div class="swiper-slide" data-chapter="4">
-                <div class="fs-slide fs-split">
-                    <div class="fs-visual feat-gallery-panel">
-                        <div class="feat-gallery fg-landscape-col">
-                            <div class="fg-card fg-wide">
-                                <div class="fg-ph"><i class="fas fa-laptop"></i><span>Screenshot coming</span></div>
-                                <span class="fg-label">Workspace + Role Context</span>
+                <div class="fs-slide fs-device fs-laptop">
+                    <div class="fs-visual device-bg">
+                        <div class="laptop-wrap">
+                            <div class="laptop-mockup">
+                                <div class="laptop-lid">
+                                    <div class="laptop-camera-dot"></div>
+                                    <div class="laptop-screen-area">
+                                        <iframe src="https://landit-ai-interview-prep.vercel.app/"
+                                            class="laptop-iframe li-live-iframe" title="LandIt"></iframe>
+                                    </div>
+                                </div>
+                                <div class="laptop-body">
+                                    <div class="laptop-trackpad"></div>
+                                </div>
                             </div>
-                            <div class="fg-card fg-wide">
-                                <div class="fg-ph"><i class="fas fa-laptop"></i><span>Screenshot coming</span></div>
-                                <span class="fg-label">Mock Interview + Scoring</span>
-                            </div>
+                            <a href="https://landit-ai-interview-prep.vercel.app/" target="_blank"
+                                class="device-try-btn">
+                                <i class="fas fa-external-link-alt"></i> Try it →
+                            </a>
                         </div>
                     </div>
                     <div class="fs-content cm-content">
                         <span class="chapter-label fly-in d1">Chapter 05 — Independent Builds</span>
                         <h2 class="section-title fly-in d2" style="text-align:left;">LandIt</h2>
-                        <p class="fly-in d3">A preparation system, not a question generator — structured role-specific training that improves candidates across an entire interview cycle.</p>
+                        <p class="fly-in d3">A preparation system, not a question generator — structured role-specific
+                            training that improves candidates across an entire interview cycle.</p>
 
                         <!-- Problem -->
                         <div class="cm-problem fly-in d3">
                             <div class="cm-prob-item">
                                 <span class="cm-prob-num">01</span>
-                                <div><strong>Fragmented prep</strong> — resume, research, questions, advice all disconnected. No system.</div>
+                                <div><strong>Fragmented prep</strong> — resume, research, questions, advice all
+                                    disconnected. No system.</div>
                             </div>
                             <div class="cm-prob-item">
                                 <span class="cm-prob-num">02</span>
-                                <div><strong>Shallow tools</strong> — question banks lack personalization; mock tools lack structured feedback; copilots raise ethics issues.</div>
+                                <div><strong>Shallow tools</strong> — question banks lack personalization; mock tools
+                                    lack structured feedback; copilots raise ethics issues.</div>
                             </div>
                         </div>
 
@@ -574,11 +612,16 @@
                                     </summary>
                                     <div class="rp-content">
                                         <ul>
-                                            <li><strong>Background Builder</strong> — persistent digital profile from resume &amp; context</li>
-                                            <li><strong>Role Context Agent</strong> — job-specific criteria from JD input</li>
-                                            <li><strong>Interview Orchestrator</strong> — adaptive pacing, difficulty, follow-ups</li>
-                                            <li><strong>Scoring Agent</strong> — 6-dimension evaluation with role-adjusted weights</li>
-                                            <li><strong>Progress Tracker</strong> — feeds weaknesses into next simulation</li>
+                                            <li><strong>Background Builder</strong> — persistent digital profile from
+                                                resume &amp; context</li>
+                                            <li><strong>Role Context Agent</strong> — job-specific criteria from JD
+                                                input</li>
+                                            <li><strong>Interview Orchestrator</strong> — adaptive pacing, difficulty,
+                                                follow-ups</li>
+                                            <li><strong>Scoring Agent</strong> — 6-dimension evaluation with
+                                                role-adjusted weights</li>
+                                            <li><strong>Progress Tracker</strong> — feeds weaknesses into next
+                                                simulation</li>
                                         </ul>
                                     </div>
                                 </details>
@@ -589,7 +632,8 @@
                                         <i class="fas fa-chevron-down rp-chevron"></i>
                                     </summary>
                                     <div class="rp-content">
-                                        <p style="font-size:0.7rem;color:var(--accent-gold);margin:0 0 6px;">North Star — Score improvement across 3 consecutive mock sessions</p>
+                                        <p style="font-size:0.7rem;color:var(--accent-gold);margin:0 0 6px;">North Star
+                                            — Score improvement across 3 consecutive mock sessions</p>
                                         <ul>
                                             <li>Mock completion rate · 7-day return rate</li>
                                             <li>Sessions per Target Role · subscription conversion</li>
@@ -605,10 +649,14 @@
                                     </summary>
                                     <div class="rp-content">
                                         <ul>
-                                            <li><strong>Deep personalization</strong> → modular agents + clean data flows to avoid brittle chains</li>
-                                            <li><strong>Adaptive orchestration</strong> → balance realism with response speed</li>
-                                            <li><strong>Video analysis deferred</strong> → prioritize structured text scoring in MVP</li>
-                                            <li><strong>Positioning risk</strong> → must emphasize growth, not just another mock tool</li>
+                                            <li><strong>Deep personalization</strong> → modular agents + clean data
+                                                flows to avoid brittle chains</li>
+                                            <li><strong>Adaptive orchestration</strong> → balance realism with response
+                                                speed</li>
+                                            <li><strong>Video analysis deferred</strong> → prioritize structured text
+                                                scoring in MVP</li>
+                                            <li><strong>Positioning risk</strong> → must emphasize growth, not just
+                                                another mock tool</li>
                                         </ul>
                                     </div>
                                 </details>
@@ -616,7 +664,8 @@
                         </div>
 
                         <div class="cm-stack fly-in d5">
-                            <span>Multi-Agent NLP</span><span>Vite + React</span><span>WebSocket</span><span>Vector Memory</span>
+                            <span>Multi-Agent NLP</span><span>Vite + React</span><span>WebSocket</span><span>Vector
+                                Memory</span>
                         </div>
                     </div>
                 </div>
@@ -673,7 +722,8 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="aigc-embed-slide">
-                                        <iframe src="https://www.youtube-nocookie.com/embed/J0ch24ktZeE?rel=0&modestbranding=1"
+                                        <iframe
+                                            src="https://www.youtube-nocookie.com/embed/J0ch24ktZeE?rel=0&modestbranding=1"
                                             title="Writing Pen" frameborder="0"
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                             allowfullscreen></iframe>

@@ -135,10 +135,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // ── Chapter ambient color shift ───────────────────────────
     const chapterColors = {
         '1': { a: 'rgba(197, 160, 89, 0.10)', b: 'rgba(26, 26, 26, 0.04)' },
-        '2': { a: 'rgba(110, 20, 40, 0.09)',  b: 'rgba(28, 59, 121, 0.04)' },
-        '3': { a: 'rgba(20, 110, 70, 0.09)',  b: 'rgba(255, 255, 255, 0.03)' },
+        '2': { a: 'rgba(110, 20, 40, 0.09)', b: 'rgba(28, 59, 121, 0.04)' },
+        '3': { a: 'rgba(20, 110, 70, 0.09)', b: 'rgba(255, 255, 255, 0.03)' },
         '4': { a: 'rgba(197, 160, 89, 0.09)', b: 'rgba(50, 50, 121, 0.07)' },
-        '5': { a: 'rgba(28, 59, 121, 0.10)',  b: 'rgba(10, 10, 10, 0.08)' },
+        '5': { a: 'rgba(28, 59, 121, 0.10)', b: 'rgba(10, 10, 10, 0.08)' },
         '6': { a: 'rgba(197, 160, 89, 0.12)', b: 'rgba(197, 160, 89, 0.04)' }
     };
 
@@ -151,8 +151,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ── Three.js ripple background ────────────────────────────
-    const scene    = new THREE.Scene();
-    const camera   = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    const scene = new THREE.Scene();
+    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
     const canvas = renderer.domElement;
@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const material = new THREE.ShaderMaterial({
         uniforms: {
             uMouse: { value: new THREE.Vector2(0.5, 0.5) },
-            uTime:  { value: 0 }
+            uTime: { value: 0 }
         },
         vertexShader, fragmentShader, transparent: true
     });
@@ -213,6 +213,60 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('resize', () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
+
+    // ── Cinematic Mirror stage pills ──────────────────────────
+    const cmStageBtns = document.querySelectorAll('.cm-stage-btn');
+    const cmCaptionEl = document.querySelector('.cm-caption');
+    const cmGifOverlay = document.querySelector('.cm-gif-overlay');
+    const cmStageCaptions = ['I · Cinematic Interview', 'II · Film Character Match', 'III · Live Director Mode'];
+
+    cmStageBtns.forEach((btn, i) => {
+        btn.addEventListener('click', () => {
+            cmStageBtns.forEach(el => el.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Check if this stage has a GIF demo
+            const gifSrc = btn.dataset.cmGif;
+            if (gifSrc && cmGifOverlay) {
+                cmGifOverlay.src = gifSrc;
+                cmGifOverlay.style.display = 'block';
+                requestAnimationFrame(() => requestAnimationFrame(() => {
+                    cmGifOverlay.classList.add('visible');
+                }));
+            } else if (cmGifOverlay) {
+                // No GIF — hide overlay, show live iframe
+                cmGifOverlay.classList.remove('visible');
+                setTimeout(() => { cmGifOverlay.style.display = 'none'; cmGifOverlay.src = ''; }, 350);
+            }
+
+            if (cmCaptionEl) {
+                cmCaptionEl.style.opacity = '0';
+                setTimeout(() => {
+                    cmCaptionEl.textContent = cmStageCaptions[i];
+                    cmCaptionEl.style.opacity = '1';
+                }, 180);
+            }
+        });
+    });
+
+    // Home button — back to live iframe preview
+    const cmHomeBtn = document.querySelector('.cm-home-btn');
+    if (cmHomeBtn) {
+        cmHomeBtn.addEventListener('click', () => {
+            cmStageBtns.forEach(el => el.classList.remove('active'));
+            if (cmGifOverlay) {
+                cmGifOverlay.classList.remove('visible');
+                setTimeout(() => { cmGifOverlay.style.display = 'none'; cmGifOverlay.src = ''; }, 350);
+            }
+            if (cmCaptionEl) {
+                cmCaptionEl.style.opacity = '0';
+                setTimeout(() => {
+                    cmCaptionEl.textContent = 'Live preview — tap a stage to switch view';
+                    cmCaptionEl.style.opacity = '1';
+                }, 180);
+            }
+        });
+    }
 
     // Init
     updateChapterColors('1');
