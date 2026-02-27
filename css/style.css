@@ -2961,17 +2961,25 @@ details.rp-section[open] .rp-chevron {
     align-items: center;
     justify-content: center;
     background: #07070d;
-    padding: 40px 36px;
+    padding: 28px;
 }
 
 .aigc-video-frame {
+    display: block;
     width: 100%;
-    max-width: 520px;
+    max-width: 680px;
     background: rgba(255,255,255,0.04);
     border: 1px solid rgba(255,255,255,0.09);
     border-radius: 14px;
     overflow: hidden;
-    box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+    box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s;
+}
+.aigc-video-frame:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 32px 100px rgba(0,0,0,0.8);
+    border-color: rgba(197,160,89,0.25);
 }
 
 .aigc-video-label {
@@ -2984,19 +2992,31 @@ details.rp-section[open] .rp-chevron {
     opacity: 0.75;
 }
 
-.aigc-video-embed {
+.aigc-thumb-wrap {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
     margin-top: 10px;
 }
-.aigc-video-embed iframe {
+.aigc-thumb {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #111;
+}
+.aigc-play-btn {
     position: absolute;
     inset: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.35);
+    transition: background 0.22s;
+    font-size: 3.5rem;
+    color: rgba(255,255,255,0.92);
+}
+.aigc-video-frame:hover .aigc-play-btn {
+    background: rgba(0,0,0,0.18);
+    color: #fff;
 }
 
 .aigc-video-sub {
