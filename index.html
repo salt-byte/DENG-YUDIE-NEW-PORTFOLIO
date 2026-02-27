@@ -413,26 +413,113 @@
                             </div>
                         </div>
                     </div>
-                    <div class="fs-content">
+                    <div class="fs-content cm-content">
                         <span class="chapter-label fly-in d1">Chapter 04 — Independent Builds</span>
-                        <h2 class="section-title fly-in d2" style="text-align:left;">Cinematic Mirror</h2>
-                        <p class="fly-in d3">AI styling app: conversational profiling → film character matching →
-                            personalized fashion consultation. Built at Tianji Cloud.</p>
-                        <div class="dark-card fly-in d4">
-                            <h4>3-Stage Agentic Pipeline</h4>
-                            <ul>
-                                <li>Conversational profiling</li>
-                                <li>Film character matching &amp; profile generation</li>
-                                <li>Personalized styling consultation (Gemini)</li>
-                            </ul>
+                        <h2 class="section-title fly-in d2" style="text-align:left;">Cinematic Mirror Agent</h2>
+                        <p class="fly-in d3">A personality-first styling system — not a trend engine. Built to help users dress <em>authentically</em>, not algorithmically.</p>
+
+                        <!-- Problem -->
+                        <div class="cm-problem fly-in d3">
+                            <div class="cm-prob-item">
+                                <span class="cm-prob-num">01</span>
+                                <div><strong>Homogenized recommendations</strong> — algorithms optimize for trends, not individuality.</div>
+                            </div>
+                            <div class="cm-prob-item">
+                                <span class="cm-prob-num">02</span>
+                                <div><strong>No personality foundation</strong> — body type &amp; trends, but never temperament or identity.</div>
+                            </div>
                         </div>
-                        <div class="dark-card fly-in d5">
-                            <h4>Tech Stack</h4>
-                            <ul>
-                                <li>Gemini API + Prompt Engineering</li>
-                                <li>React + Capacitor (iOS)</li>
-                                <li>Supabase + StoreKit</li>
-                            </ul>
+
+                        <!-- 3-Stage Pipeline -->
+                        <div class="cm-pipeline fly-in d4">
+                            <div class="cm-stage">
+                                <span class="cm-stage-num">I</span>
+                                <div class="cm-stage-body">
+                                    <strong>Cinematic Interview</strong>
+                                    <span>Natural dialogue → multidimensional Cinematic Personality Profile</span>
+                                </div>
+                            </div>
+                            <div class="cm-stage-arrow">→</div>
+                            <div class="cm-stage">
+                                <span class="cm-stage-num">II</span>
+                                <div class="cm-stage-body">
+                                    <strong>Film Character Match</strong>
+                                    <span>Character archetype → Style Guide: silhouette, color system, outfit logic</span>
+                                </div>
+                            </div>
+                            <div class="cm-stage-arrow">→</div>
+                            <div class="cm-stage">
+                                <span class="cm-stage-num">III</span>
+                                <div class="cm-stage-body">
+                                    <strong>Live Director Mode</strong>
+                                    <span>Real-time video: color alignment, silhouette, accessories, posture</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Accordion: MVP / Metrics / Tradeoffs -->
+                        <div class="rp-card fly-in d5">
+                            <div class="rp-accordion">
+
+                                <details class="rp-section" open>
+                                    <summary>
+                                        <span class="rp-num">MVP</span>
+                                        Scope
+                                        <i class="fas fa-chevron-down rp-chevron"></i>
+                                    </summary>
+                                    <div class="rp-content">
+                                        <p style="font-size:0.7rem;color:var(--text-dim);margin:0 0 6px;">Included</p>
+                                        <ul>
+                                            <li>Conversational personality modeling</li>
+                                            <li>Single character match + detailed outfit analysis</li>
+                                            <li>Basic real-time video styling feedback</li>
+                                            <li>Credit-based consultation system</li>
+                                        </ul>
+                                        <p style="font-size:0.7rem;color:var(--text-dim);margin:8px 0 6px;">Excluded</p>
+                                        <ul>
+                                            <li>E-commerce integration / AR try-on / community</li>
+                                        </ul>
+                                    </div>
+                                </details>
+
+                                <details class="rp-section">
+                                    <summary>
+                                        <span class="rp-num">OKR</span>
+                                        Success Metrics
+                                        <i class="fas fa-chevron-down rp-chevron"></i>
+                                    </summary>
+                                    <div class="rp-content">
+                                        <p style="font-size:0.7rem;color:var(--accent-gold);margin:0 0 6px;">North Star — Post-session styling satisfaction score</p>
+                                        <ul>
+                                            <li>Video session conversion rate</li>
+                                            <li>Credit repurchase rate</li>
+                                            <li>7-day retention rate &amp; outfit adoption rate</li>
+                                        </ul>
+                                        <p style="font-size:0.7rem;color:var(--text-dim);margin:8px 0 4px;">Core question: do users treat this as an ongoing companion, not a one-time quiz?</p>
+                                    </div>
+                                </details>
+
+                                <details class="rp-section">
+                                    <summary>
+                                        <span class="rp-num">±</span>
+                                        Tradeoffs
+                                        <i class="fas fa-chevron-down rp-chevron"></i>
+                                    </summary>
+                                    <div class="rp-content">
+                                        <ul>
+                                            <li><strong>Personality modeling</strong> adds complexity → creates defensibility &amp; long-term engagement</li>
+                                            <li><strong>Live video inference</strong> raises infra cost → enables premium pricing &amp; trust</li>
+                                            <li><strong>CV accuracy limits</strong> → prioritize silhouette logic &amp; aesthetic coherence over garment recognition</li>
+                                            <li><strong>Positioning risk</strong> → interface must deliver wearable suggestions, not just cinematic framing</li>
+                                        </ul>
+                                    </div>
+                                </details>
+
+                            </div>
+                        </div>
+
+                        <div class="cm-stack fly-in d6">
+                            <span>Gemini API</span><span>React + Capacitor</span><span>Supabase</span><span>StoreKit</span>
                         </div>
                     </div>
                 </div>

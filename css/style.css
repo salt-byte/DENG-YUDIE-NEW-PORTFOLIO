@@ -3077,6 +3077,106 @@ details.rp-section[open] .rp-chevron {
     letter-spacing: 0.02em;
 }
 
+/* ════ CINEMATIC MIRROR SLIDE ════ */
+.cm-content {
+    overflow-y: auto;
+    padding-top: 48px;
+    padding-bottom: 40px;
+}
+
+.cm-problem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 14px 0 18px;
+}
+.cm-prob-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: var(--text-mid);
+    line-height: 1.5;
+}
+.cm-prob-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--accent-gold);
+    opacity: 0.75;
+    flex-shrink: 0;
+    padding-top: 2px;
+}
+
+.cm-pipeline {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 14px;
+    flex-wrap: nowrap;
+}
+.cm-stage {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 10px 12px;
+    background: rgba(197,160,89,0.06);
+    border: 1px solid rgba(197,160,89,0.14);
+    border-radius: 8px;
+}
+.cm-stage-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    letter-spacing: 0.12em;
+}
+.cm-stage-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.cm-stage-body strong {
+    font-size: 0.74rem;
+    color: var(--text-bright);
+    font-weight: 600;
+}
+.cm-stage-body span {
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    line-height: 1.45;
+}
+.cm-stage-arrow {
+    color: rgba(197,160,89,0.35);
+    font-size: 0.85rem;
+    padding-top: 14px;
+    flex-shrink: 0;
+}
+
+.cm-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 12px;
+}
+.cm-stack span {
+    padding: 4px 12px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 100px;
+    font-size: 0.68rem;
+    color: var(--text-dim);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.04em;
+}
+
 /* ════ USC LINK ════ */
 .usc-site-link {
     color: var(--accent-gold);
