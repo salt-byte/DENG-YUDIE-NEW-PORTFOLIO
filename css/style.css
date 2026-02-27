@@ -4086,6 +4086,7 @@ details.rp-section[open] .rp-chevron {
     .fs-visual {
         flex: 0 0 45vh;
         width: 100%;
+        order: -1;
     }
 
     .fs-slide.fs-media .fs-visual {
@@ -4102,10 +4103,58 @@ details.rp-section[open] .rp-chevron {
     }
 
     .phone-mockup {
-        max-height: 380px;
+        max-height: 50vh;
+        width: auto;
+        aspect-ratio: 300/600;
     }
 
     .laptop-mockup {
         max-width: 100%;
+    }
+
+    .laptop-body {
+        width: 100%;
+        /* Prevent horizontal overflow on mobile from the original 110% */
+        border-radius: 0 0 4px 4px;
+    }
+
+    /* Fix Zhipu features layout on mobile */
+    .zf-pills {
+        gap: 6px;
+    }
+
+    .zf-pill {
+        padding: 6px 10px;
+        font-size: 0.65rem;
+    }
+
+    /* Cinematic pipeline sizing for mobile */
+    .cm-stage {
+        padding: 8px 10px;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .cm-stage-arrow {
+        display: none;
+        /* Hide vertical arrows when stacking horizontally or just save vertical space */
+    }
+
+    .interactive-hint {
+        font-size: 0.6rem;
+        padding: 4px 8px;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .laptop-wrap {
+        padding: 10px;
+    }
+
+    .fs-slide {
+        padding-left: 0;
+        /* Assuming nav disappears or moves to top/bottom */
     }
 }
