@@ -1755,74 +1755,111 @@ footer p {
 
 /* ============================
    SCOPED OVERRIDES for book pages
+   Force ALL content to stack vertically
    ============================ */
 
-/* Reset all sections inside the book */
-.book-spread section {
-    min-height: auto !important;
-    padding: 0 !important;
-    display: block !important;
+/* MASTER RESET: force everything vertical */
+.book-spread * {
+    box-sizing: border-box;
 }
 
-.book-spread .container {
+.book-spread section,
+.book-spread .container,
+.book-spread .hero-content,
+.book-spread .case-study-hero-row,
+.book-spread .zhipu-content,
+.book-spread .usc-content {
+    display: block !important;
+    width: 100% !important;
     max-width: 100% !important;
     padding: 0 !important;
-    width: 100% !important;
+    margin: 0 !important;
+}
+
+.book-spread section {
+    min-height: auto !important;
+}
+
+/* Force all grids to single column */
+.book-spread .about-grid,
+.book-spread .expertise-grid,
+.book-spread .contact-grid,
+.book-spread .gallery-grid,
+.book-spread .usc-research {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    grid-template-columns: unset !important;
+    margin-top: 16px !important;
+}
+
+/* Hide hero image (not needed in book) */
+.book-spread .hero-image,
+.book-spread .hero-actions,
+.book-spread .hero-stats {
+    display: none !important;
 }
 
 /* Hero overrides */
 .book-spread .hero {
     min-height: auto !important;
     padding-top: 0 !important;
+    display: block !important;
+}
+
+.book-spread .hero-text {
+    flex: unset !important;
+    width: 100% !important;
 }
 
 .book-spread .hero h1 {
-    font-size: 2rem;
-    line-height: 1.2;
-    letter-spacing: -0.5px;
-    margin-bottom: 16px;
+    font-size: 1.8rem !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.5px !important;
+    margin-bottom: 16px !important;
 }
 
 .book-spread .hero-badge {
-    background: rgba(197, 160, 89, 0.15);
-    border-color: rgba(197, 160, 89, 0.3);
-    color: var(--accent-gold);
-    font-size: 0.75rem;
-    padding: 6px 14px;
-    margin-bottom: 16px;
+    background: rgba(197, 160, 89, 0.15) !important;
+    border-color: rgba(197, 160, 89, 0.3) !important;
+    color: var(--accent-gold) !important;
+    font-size: 0.75rem !important;
+    padding: 6px 14px !important;
+    margin-bottom: 16px !important;
 }
 
 .book-spread .badge-dot {
-    background: var(--accent-gold);
+    background: var(--accent-gold) !important;
 }
 
 .book-spread .hero-desc {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    max-width: 100%;
-    margin-bottom: 20px;
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+    max-width: 100% !important;
+    margin-bottom: 16px !important;
 }
 
 .book-spread .chapter-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent-gold);
-    margin-bottom: 12px;
-    display: block;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.15em !important;
+    text-transform: uppercase !important;
+    color: var(--accent-gold) !important;
+    margin-bottom: 12px !important;
+    display: block !important;
 }
 
 /* Section titles */
 .book-spread .section-title {
-    font-size: 1.6rem;
-    margin-bottom: 16px;
-    color: var(--text-primary);
+    font-size: 1.5rem !important;
+    margin-bottom: 16px !important;
+    color: var(--text-primary) !important;
 }
 
 .book-spread .section-title::after {
-    background: var(--accent-gold);
+    background: var(--accent-gold) !important;
 }
+
 
 /* About grid */
 .book-spread .about-grid {
