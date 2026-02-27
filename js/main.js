@@ -117,4 +117,93 @@ document.addEventListener('DOMContentLoaded', function () {
 
     updateActiveNav();
     updateHeader();
+    // ---- Three.js Liquid Displacement (Water Ripple) ----
+    const scene = new THREE.Scene();
+    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+    // Create base canvas for Three.js
+    const canvas = renderer.domElement;
+    canvas.id = 'ripple-canvas';
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.zIndex = '-1';
+    canvas.style.pointerEvents = 'none';
+    document.body.appendChild(canvas);
+
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // Shader for liquid distortion
+    const vertexShader = `
+        varying vec2 vUv;
+        void main() {
+            vUv = uv;
+            gl_Position = vec4(position, 1.0);
+        }
+    `;
+
+    const fragmentShader = `
+        uniform vec2 uMouse;
+        uniform float uTime;
+        varying vec2 vUv;
+
+        void main() {
+            vec2 uv = vUv;
+            
+            // Subtle water ripple distortion logic
+            vec2 direction = normalize(uv - vec2(0.5));
+            float distance = length(uv - uMouse);
+            
+            float wave = sin(distance * 15.0 - uTime * 1.5) * 0.008;
+            float mask = smoothstep(0.6, 0.0, distance);
+            
+            uv += direction * wave * mask;
+            
+            // Background color (ink black)
+            vec3 color = vec3(0.04, 0.04, 0.06); 
+            
+            // Add subtle noise/grain
+            float noise = fract(sin(dot(uv ,vec2(12.9898,78.233))) * 43758.5453);
+            color += noise * 0.02;
+            
+            gl_FragColor = vec4(color, 1.0);
+        }
+    `;
+
+    const geometry = new THREE.PlaneGeometry(2, 2);
+    const material = new THREE.ShaderMaterial({
+        uniforms: {
+            uMouse: { value: new THREE.Vector2(0.5, 0.5) },
+            uTime: { value: 0 }
+        },
+        vertexShader,
+        fragmentShader,
+        transparent: true
+    });
+
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+
+    let mousePosition = new THREE.Vector2(0.5, 0.5);
+    window.addEventListener('mousemove', (e) => {
+        mousePosition.x = e.clientX / window.innerWidth;
+        mousePosition.y = 1.0 - (e.clientY / window.innerHeight);
+    });
+
+    function animate(time) {
+        material.uniforms.uTime.value = time * 0.001;
+        material.uniforms.uMouse.value.lerp(mousePosition, 0.05);
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+
+    window.addEventListener('resize', () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
 });
+

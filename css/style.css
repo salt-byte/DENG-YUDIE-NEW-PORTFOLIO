@@ -1,27 +1,24 @@
-/* ============================================
-   AI PM Portfolio — CSS
-   Clean dark theme with subtle accents
-   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* ---- Variables ---- */
 :root {
-    --bg-dark: #111117;
-    --bg-card: rgba(255, 255, 255, 0.04);
-    --bg-card-hover: rgba(255, 255, 255, 0.08);
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --text-primary: #f0f0f5;
-    --text-secondary: #a0a0b0;
-    --text-muted: #6b6b80;
+    --bg-dark: #0a0a0c;
+    --bg-card: rgba(255, 255, 255, 0.03);
+    --bg-card-hover: rgba(255, 255, 255, 0.06);
+    --border-subtle: rgba(255, 255, 255, 0.05);
+    --text-primary: #e6e6eb;
+    --text-secondary: #9494a3;
+    --text-muted: #5a5a6b;
     --accent-cyan: #00d4ff;
     --accent-purple: #7c3aed;
     --accent-pink: #f472b6;
     --gradient-main: linear-gradient(135deg, #00d4ff, #7c3aed, #f472b6);
-    --gradient-subtle: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(124, 58, 237, 0.15));
-    --font-heading: 'Space Grotesk', 'Inter', sans-serif;
+    --gradient-subtle: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(124, 58, 237, 0.1));
+    --font-heading: 'Playfair Display', 'Space Grotesk', serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    --radius: 16px;
-    --radius-sm: 8px;
-    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --radius: 12px;
+    --radius-sm: 6px;
+    --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ---- Reset & Base ---- */
@@ -45,6 +42,34 @@ body {
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    position: relative;
+}
+
+/* ---- Film Grain Overlay ---- */
+.film-grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+    background: url('https://grainy-gradients.vercel.app/noise.svg');
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+}
+
+/* Subtle Vignette */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.4) 100%);
+    pointer-events: none;
+    z-index: 9998;
 }
 
 .container {
@@ -653,11 +678,68 @@ nav ul li a.active::after {
     margin-top: 4px;
 }
 
-/* Demo Row (Phone Mockup + Overview) */
+/* Demo Row (Phone/Laptop Mockup + Overview) */
 .case-study-demo-row {
     display: grid;
-    grid-template-columns: 280px 1fr;
-    gap: 36px;
+    grid-template-columns: minmax(280px, 40%) 1fr;
+    gap: 48px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+/* Laptop Mockup Wrapper */
+.laptop-mockup {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.laptop-screen {
+    position: relative;
+    padding-bottom: 62.5%;
+    /* 16:10 aspect ratio */
+    height: 0;
+    background: #1a1a1e;
+    border-radius: 12px 12px 0 0;
+    border: 8px solid #2a2a2e;
+    border-bottom: none;
+    overflow: hidden;
+}
+
+.laptop-screen iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #000;
+}
+
+.laptop-base {
+    position: relative;
+    height: 12px;
+    background: #2a2a2e;
+    border-radius: 0 0 12px 12px;
+    width: 105%;
+    margin-left: -2.5%;
+}
+
+.laptop-base::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+.case-study-hero-row {
     padding: 32px 36px;
     border-bottom: 1px solid var(--border-subtle);
     align-items: start;
