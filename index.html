@@ -399,17 +399,20 @@
                  SLIDE 4 — CINEMATIC MIRROR (phone mockup)
                  ═══════════════════════════════════════ -->
             <div class="swiper-slide" data-chapter="3">
-                <div class="fs-slide fs-device">
-                    <div class="fs-visual device-bg">
-                        <div class="phone-wrap">
-                            <div class="phone-mockup">
-                                <div class="phone-island"></div>
-                                <div class="phone-btn-vol"></div>
-                                <div class="phone-btn-power"></div>
-                                <div class="phone-screen">
-                                    <iframe src="https://cinematic-mirror.vercel.app/" class="phone-iframe"
-                                        title="Cinematic Mirror"></iframe>
-                                </div>
+                <div class="fs-slide fs-split">
+                    <div class="fs-visual feat-gallery-panel">
+                        <div class="feat-gallery fg-portrait-row">
+                            <div class="fg-card">
+                                <div class="fg-ph"><i class="fas fa-mobile-alt"></i><span>Screenshot coming</span></div>
+                                <span class="fg-label">I · Interview</span>
+                            </div>
+                            <div class="fg-card">
+                                <div class="fg-ph"><i class="fas fa-mobile-alt"></i><span>Screenshot coming</span></div>
+                                <span class="fg-label">II · Character Match</span>
+                            </div>
+                            <div class="fg-card">
+                                <div class="fg-ph"><i class="fas fa-mobile-alt"></i><span>Screenshot coming</span></div>
+                                <span class="fg-label">III · Director Mode</span>
                             </div>
                         </div>
                     </div>
@@ -529,44 +532,91 @@
                  SLIDE 5 — LANDIT (laptop mockup)
                  ═══════════════════════════════════════ -->
             <div class="swiper-slide" data-chapter="4">
-                <div class="fs-slide fs-device fs-laptop">
-                    <div class="fs-visual device-bg">
-                        <div class="laptop-wrap">
-                            <div class="laptop-mockup">
-                                <div class="laptop-lid">
-                                    <div class="laptop-camera-dot"></div>
-                                    <div class="laptop-screen-area">
-                                        <iframe src="https://landit-ai-interview-prep.vercel.app/" class="laptop-iframe"
-                                            title="LandIt"></iframe>
-                                    </div>
-                                </div>
-                                <div class="laptop-body">
-                                    <div class="laptop-trackpad"></div>
-                                </div>
+                <div class="fs-slide fs-split">
+                    <div class="fs-visual feat-gallery-panel">
+                        <div class="feat-gallery fg-landscape-col">
+                            <div class="fg-card fg-wide">
+                                <div class="fg-ph"><i class="fas fa-laptop"></i><span>Screenshot coming</span></div>
+                                <span class="fg-label">Workspace + Role Context</span>
+                            </div>
+                            <div class="fg-card fg-wide">
+                                <div class="fg-ph"><i class="fas fa-laptop"></i><span>Screenshot coming</span></div>
+                                <span class="fg-label">Mock Interview + Scoring</span>
                             </div>
                         </div>
                     </div>
-                    <div class="fs-content">
+                    <div class="fs-content cm-content">
                         <span class="chapter-label fly-in d1">Chapter 05 — Independent Builds</span>
                         <h2 class="section-title fly-in d2" style="text-align:left;">LandIt</h2>
-                        <p class="fly-in d3">Multi-agent AI interview coaching platform with adaptive difficulty and
-                            real-time performance feedback.</p>
-                        <div class="dark-card fly-in d4">
-                            <h4>Core Features</h4>
-                            <ul>
-                                <li>Multi-Agent feedback alignment</li>
-                                <li>Adaptive difficulty scaling</li>
-                                <li>Real-time performance analytics</li>
-                                <li>Continuous training loops</li>
-                            </ul>
+                        <p class="fly-in d3">A preparation system, not a question generator — structured role-specific training that improves candidates across an entire interview cycle.</p>
+
+                        <!-- Problem -->
+                        <div class="cm-problem fly-in d3">
+                            <div class="cm-prob-item">
+                                <span class="cm-prob-num">01</span>
+                                <div><strong>Fragmented prep</strong> — resume, research, questions, advice all disconnected. No system.</div>
+                            </div>
+                            <div class="cm-prob-item">
+                                <span class="cm-prob-num">02</span>
+                                <div><strong>Shallow tools</strong> — question banks lack personalization; mock tools lack structured feedback; copilots raise ethics issues.</div>
+                            </div>
                         </div>
-                        <div class="dark-card fly-in d5">
-                            <h4>Tech Stack</h4>
-                            <ul>
-                                <li>Multi-Agent System (NLP)</li>
-                                <li>Vite + React</li>
-                                <li>Real-time WebSocket Feedback</li>
-                            </ul>
+
+                        <!-- 5-Agent Pipeline -->
+                        <div class="rp-card fly-in d4">
+                            <div class="rp-card-header">5-Agent Architecture</div>
+                            <div class="rp-accordion">
+                                <details class="rp-section" open>
+                                    <summary>
+                                        <span class="rp-num">Loop</span>
+                                        Preparation Loop
+                                        <i class="fas fa-chevron-down rp-chevron"></i>
+                                    </summary>
+                                    <div class="rp-content">
+                                        <ul>
+                                            <li><strong>Background Builder</strong> — persistent digital profile from resume &amp; context</li>
+                                            <li><strong>Role Context Agent</strong> — job-specific criteria from JD input</li>
+                                            <li><strong>Interview Orchestrator</strong> — adaptive pacing, difficulty, follow-ups</li>
+                                            <li><strong>Scoring Agent</strong> — 6-dimension evaluation with role-adjusted weights</li>
+                                            <li><strong>Progress Tracker</strong> — feeds weaknesses into next simulation</li>
+                                        </ul>
+                                    </div>
+                                </details>
+                                <details class="rp-section">
+                                    <summary>
+                                        <span class="rp-num">OKR</span>
+                                        Success Metrics
+                                        <i class="fas fa-chevron-down rp-chevron"></i>
+                                    </summary>
+                                    <div class="rp-content">
+                                        <p style="font-size:0.7rem;color:var(--accent-gold);margin:0 0 6px;">North Star — Score improvement across 3 consecutive mock sessions</p>
+                                        <ul>
+                                            <li>Mock completion rate · 7-day return rate</li>
+                                            <li>Sessions per Target Role · subscription conversion</li>
+                                            <li>Weakness convergence rate</li>
+                                        </ul>
+                                    </div>
+                                </details>
+                                <details class="rp-section">
+                                    <summary>
+                                        <span class="rp-num">±</span>
+                                        Tradeoffs
+                                        <i class="fas fa-chevron-down rp-chevron"></i>
+                                    </summary>
+                                    <div class="rp-content">
+                                        <ul>
+                                            <li><strong>Deep personalization</strong> → modular agents + clean data flows to avoid brittle chains</li>
+                                            <li><strong>Adaptive orchestration</strong> → balance realism with response speed</li>
+                                            <li><strong>Video analysis deferred</strong> → prioritize structured text scoring in MVP</li>
+                                            <li><strong>Positioning risk</strong> → must emphasize growth, not just another mock tool</li>
+                                        </ul>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+
+                        <div class="cm-stack fly-in d5">
+                            <span>Multi-Agent NLP</span><span>Vite + React</span><span>WebSocket</span><span>Vector Memory</span>
                         </div>
                     </div>
                 </div>
@@ -618,21 +668,36 @@
                  ═══════════════════════════════════════ -->
             <div class="swiper-slide" data-chapter="2">
                 <div class="fs-slide fs-split fs-media">
-                    <div class="fs-visual aigc-visual">
-                        <a class="aigc-video-frame fly-in d1"
-                           href="https://www.youtube.com/watch?v=J0ch24ktZeE"
-                           target="_blank" rel="noopener">
-                            <div class="aigc-video-label">Writing Pen</div>
-                            <div class="aigc-thumb-wrap">
-                                <img src="https://img.youtube.com/vi/J0ch24ktZeE/maxresdefault.jpg"
-                                     onerror="this.src='https://img.youtube.com/vi/J0ch24ktZeE/hqdefault.jpg'"
-                                     alt="Writing Pen thumbnail" class="aigc-thumb">
-                                <div class="aigc-play-btn">
-                                    <i class="fab fa-youtube"></i>
+                    <div class="fs-visual">
+                        <div class="swiper-container gallery-swiper fs-nested-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="aigc-embed-slide">
+                                        <iframe src="https://www.youtube-nocookie.com/embed/J0ch24ktZeE?rel=0&modestbranding=1"
+                                            title="Writing Pen" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                    </div>
+                                    <div class="fs-media-caption">Writing Pen — BFA Animation Awards Nominee</div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/aigc/AIGC海报/小倩/截屏2025-08-11 21.26.49.png" alt="Xiao Qian Character"
+                                        class="fs-media-img">
+                                    <div class="fs-media-caption">Xiao Qian — Character Consistency via LoRA</div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/aigc/AIGC海报/清华/a36eef992434d574ca89fe5c9fb3a2bc.jpg"
+                                        alt="Tsinghua Project" class="fs-media-img">
+                                    <div class="fs-media-caption">Tsinghua × AI Visual Generation</div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="images/aigc/lora训练/截屏2025-08-11 21.32.34.png" alt="LoRA Training"
+                                        class="fs-media-img">
+                                    <div class="fs-media-caption">Custom LoRA Model Training Pipeline</div>
                                 </div>
                             </div>
-                            <div class="aigc-video-sub">BFA Animation Awards Nominee · Enlight Media · Click to watch on YouTube</div>
-                        </a>
+                            <div class="swiper-pagination gallery-pagination"></div>
+                        </div>
                     </div>
                     <div class="fs-content">
                         <span class="chapter-label fly-in d1">Chapter 07 — Creative Foundations</span>

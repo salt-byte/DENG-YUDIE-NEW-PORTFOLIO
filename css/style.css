@@ -3077,6 +3077,112 @@ details.rp-section[open] .rp-chevron {
     letter-spacing: 0.02em;
 }
 
+/* ════ FEATURE SCREENSHOT GALLERY (Cinematic Mirror / LandIt) ════ */
+.feat-gallery-panel {
+    background: #07070d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 28px;
+}
+
+.feat-gallery {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Portrait row: 3 phone screenshots side by side */
+.fg-portrait-row {
+    flex-direction: row;
+    gap: 14px;
+}
+.fg-portrait-row .fg-card {
+    flex: 1;
+    aspect-ratio: 9 / 16;
+    max-height: min(70vh, 580px);
+}
+
+/* Landscape column: 2 desktop screenshots stacked */
+.fg-landscape-col {
+    flex-direction: column;
+    gap: 16px;
+}
+.fg-landscape-col .fg-card {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.fg-card {
+    position: relative;
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(255,255,255,0.10);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    overflow: hidden;
+    transition: border-color 0.2s;
+}
+/* When image is placed inside, it fills the card */
+.fg-card > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+.fg-ph {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.10);
+    font-size: 0.58rem;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 12px;
+}
+.fg-ph i {
+    font-size: 1.3rem;
+    opacity: 0.5;
+}
+
+.fg-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 6px 10px;
+    background: rgba(0,0,0,0.55);
+    font-size: 0.58rem;
+    color: rgba(255,255,255,0.45);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+/* AIGC video embed slide */
+.aigc-embed-slide {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.aigc-embed-slide iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
 /* ════ CINEMATIC MIRROR SLIDE ════ */
 .cm-content {
     overflow-y: auto;
