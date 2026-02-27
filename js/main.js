@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // ---- Root Swiper (Narrative Book) ----
+
+    // ── Root Swiper ──────────────────────────────────────────
     const rootSwiper = new Swiper('.root-swiper', {
-        direction: 'horizontal',
+        direction: 'vertical',
         slidesPerView: 1,
         spaceBetween: 0,
         mousewheel: {
@@ -10,18 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
             releaseOnEdges: true,
         },
         keyboard: true,
-        speed: 1200,
-        effect: 'creative',
-        creativeEffect: {
-            prev: {
-                shadow: true,
-                translate: ['-20%', 0, -1],
-                rotate: [0, 0, -5],
-            },
-            next: {
-                translate: ['100%', 0, 0],
-            },
-        },
+        speed: 900,
         pagination: {
             el: '.root-pagination',
             clickable: true,
@@ -31,148 +21,171 @@ document.addEventListener('DOMContentLoaded', function () {
             prevEl: '.prev-page',
         },
         on: {
+            // Clear fly-ins immediately when slide starts changing
             slideChange: function () {
+                document.querySelectorAll('.swiper-slide').forEach(s => {
+                    s.classList.remove('slide-visible');
+                });
                 const activeSlide = this.slides[this.activeIndex];
-                const chapter = activeSlide.getAttribute('data-chapter');
+                const chapter = activeSlide ? activeSlide.getAttribute('data-chapter') : null;
                 updateChapterColors(chapter);
-                const firstSection = activeSlide.querySelector('section');
-                if (firstSection) updateNav(firstSection.id);
+                updateSidebar(this.activeIndex);
+            },
+            // Trigger fly-ins AFTER the page-flip transition completes
+            transitionEnd: function () {
+                const active = this.slides[this.activeIndex];
+                if (active) active.classList.add('slide-visible');
+            },
+            // Fly in slide 0 on first load
+            init: function () {
+                setTimeout(() => {
+                    if (this.slides[0]) this.slides[0].classList.add('slide-visible');
+                }, 250);
             }
         }
     });
 
-    // ---- Nested Swipers (for media cycling within pages) ----
+    // ── Sidebar sync ─────────────────────────────────────────
+    function updateSidebar(index) {
+        document.querySelectorAll('.chapter-item').forEach((item, i) => {
+            item.classList.toggle('active', i === index);
+        });
+    }
+
+    document.querySelectorAll('.chapter-item').forEach((item) => {
+        item.addEventListener('click', () => {
+            rootSwiper.slideTo(parseInt(item.dataset.slide));
+        });
+    });
+
+    // ── Nested Swipers ───────────────────────────────────────
     const gallerySwiperEl = document.querySelector('.gallery-swiper');
     if (gallerySwiperEl) {
         new Swiper('.gallery-swiper', {
             direction: 'horizontal',
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 0,
             effect: 'fade',
             fadeEffect: { crossFade: true },
-            pagination: {
-                el: '.gallery-pagination',
-                clickable: true,
-            },
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: true,
-            },
+            pagination: { el: '.gallery-pagination', clickable: true },
+            autoplay: { delay: 4000, disableOnInteraction: true },
             nested: true,
         });
     }
 
-    const zhipuSwiperEl = document.querySelector('.zhipu-swiper');
-    if (zhipuSwiperEl) {
-        new Swiper('.zhipu-swiper', {
+    // ── Zhipu AI phone interaction ────────────────────────────
+    // Idle: Swiper left-right carousel of JPGs (smooth, looping)
+    // Click a feature → pause carousel, fade in that feature's GIF
+    // Click same feature again (or another) → toggle / switch
+
+    const zhipuCarouselEl = document.querySelector('.zhipu-carousel');
+    if (zhipuCarouselEl) {
+        // Smooth left-right Swiper for idle product screenshots
+        const zhipuCarousel = new Swiper('.zhipu-carousel', {
             direction: 'horizontal',
             slidesPerView: 1,
-            spaceBetween: 20,
-            effect: 'fade',
-            fadeEffect: { crossFade: true },
-            pagination: {
-                el: '.zhipu-pagination',
-                clickable: true,
-            },
-            autoplay: {
-                delay: 3500,
-                disableOnInteraction: true,
-            },
-            nested: true,
+            loop: true,
+            speed: 650,
+            autoplay: { delay: 3200, disableOnInteraction: false },
+        });
+
+        const gifOverlay = document.querySelector('.zhipu-gif-overlay');
+        let activeFeatureIdx = null;
+
+        const featureCaptions = [
+            '01 · Photo to Life',
+            '02 · Immersive Companion',
+            '03 · Social Matchmaking',
+            '04 · Cloud Travel',
+            '05 · Roaming Mode',
+        ];
+
+        function setCaption(text) {
+            const el = document.querySelector('.phone-caption');
+            if (!el) return;
+            el.style.opacity = '0';
+            setTimeout(() => { el.textContent = text; el.style.opacity = '1'; }, 180);
+        }
+
+        setCaption('Click any feature to preview its demo →');
+
+        document.querySelectorAll('.zf-item').forEach((item, i) => {
+            item.addEventListener('click', () => {
+                if (activeFeatureIdx === i) {
+                    // Toggle off → return to carousel
+                    activeFeatureIdx = null;
+                    item.classList.remove('active');
+                    gifOverlay.classList.remove('visible');
+                    setTimeout(() => { gifOverlay.style.display = 'none'; gifOverlay.src = ''; }, 350);
+                    zhipuCarousel.autoplay.start();
+                    setCaption('Click any feature to preview its demo →');
+                } else {
+                    // Show this feature's GIF
+                    zhipuCarousel.autoplay.stop();
+                    activeFeatureIdx = i;
+                    document.querySelectorAll('.zf-item').forEach(el => el.classList.remove('active'));
+                    item.classList.add('active');
+                    gifOverlay.src = item.dataset.gif;
+                    gifOverlay.style.display = 'block';
+                    requestAnimationFrame(() => requestAnimationFrame(() => {
+                        gifOverlay.classList.add('visible');
+                    }));
+                    setCaption(featureCaptions[i]);
+                }
+            });
         });
     }
 
-
-    // ---- Chapter-based Shifting ----
+    // ── Chapter ambient color shift ───────────────────────────
     const chapterColors = {
-        '1': { a: 'rgba(197, 160, 89, 0.12)', b: 'rgba(26, 26, 26, 0.05)' },  // Origins (Gold/Warm)
-        '2': { a: 'rgba(121, 28, 45, 0.1)', b: 'rgba(28, 59, 121, 0.05)' },    // AIGC (Artistic)
-        '3': { a: 'rgba(28, 121, 80, 0.1)', b: 'rgba(255, 255, 255, 0.05)' },  // Zhipu (Life/Green)
-        '4': { a: 'rgba(197, 160, 89, 0.1)', b: 'rgba(50, 50, 121, 0.08)' },   // Independent (Tech/Gold)
-        '5': { a: 'rgba(28, 59, 121, 0.12)', b: 'rgba(15, 15, 15, 0.1)' }      // USC (Deep/Trust)
+        '1': { a: 'rgba(197, 160, 89, 0.10)', b: 'rgba(26, 26, 26, 0.04)' },
+        '2': { a: 'rgba(110, 20, 40, 0.09)',  b: 'rgba(28, 59, 121, 0.04)' },
+        '3': { a: 'rgba(20, 110, 70, 0.09)',  b: 'rgba(255, 255, 255, 0.03)' },
+        '4': { a: 'rgba(197, 160, 89, 0.09)', b: 'rgba(50, 50, 121, 0.07)' },
+        '5': { a: 'rgba(28, 59, 121, 0.10)',  b: 'rgba(10, 10, 10, 0.08)' }
     };
 
     function updateChapterColors(chapter) {
         if (chapter && chapterColors[chapter]) {
-            const colors = chapterColors[chapter];
-            document.documentElement.style.setProperty('--diffuse-1-a', colors.a);
-            document.documentElement.style.setProperty('--diffuse-1-b', colors.b);
+            const c = chapterColors[chapter];
+            document.documentElement.style.setProperty('--diffuse-1-a', c.a);
+            document.documentElement.style.setProperty('--diffuse-1-b', c.b);
         }
     }
 
-    // ---- Navigation Sync ----
-    const navLinks = document.querySelectorAll('nav ul li a');
-    function updateNav(sectionId) {
-        if (!sectionId) return;
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#' + sectionId) {
-                link.classList.add('active');
-            }
-        });
-    }
-
-    // Handle nav link clicks to jump to spreads
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const slides = document.querySelectorAll('.swiper-slide');
-            let foundIndex = -1;
-            slides.forEach((slide, index) => {
-                if (slide.querySelector(`section#${targetId}`)) {
-                    foundIndex = index;
-                }
-            });
-            if (foundIndex > -1) {
-                rootSwiper.slideTo(foundIndex);
-            }
-        });
-    });
-
-    // ---- Three.js Liquid Displacement (Water Ripple) ----
-    const scene = new THREE.Scene();
-    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    // ── Three.js ripple background ────────────────────────────
+    const scene    = new THREE.Scene();
+    const camera   = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
 
     const canvas = renderer.domElement;
     canvas.id = 'ripple-canvas';
-    canvas.style.position = 'fixed';
-    canvas.style.top = '0';
-    canvas.style.left = '0';
-    canvas.style.width = '100%';
-    canvas.style.height = '100%';
-    canvas.style.zIndex = '-1';
-    canvas.style.pointerEvents = 'none';
+    Object.assign(canvas.style, {
+        position: 'fixed', top: '0', left: '0',
+        width: '100%', height: '100%',
+        zIndex: '-1', pointerEvents: 'none'
+    });
     document.body.appendChild(canvas);
-
     renderer.setSize(window.innerWidth, window.innerHeight);
 
     const vertexShader = `
         varying vec2 vUv;
-        void main() {
-            vUv = uv;
-            gl_Position = vec4(position, 1.0);
-        }
+        void main() { vUv = uv; gl_Position = vec4(position, 1.0); }
     `;
-
     const fragmentShader = `
         uniform vec2 uMouse;
         uniform float uTime;
         varying vec2 vUv;
-
         void main() {
             vec2 uv = vUv;
-            vec2 direction = normalize(uv - vec2(0.5));
-            float distance = length(uv - uMouse);
-            float wave = sin(distance * 12.0 - uTime * 1.2) * 0.007;
-            float mask = smoothstep(0.7, 0.0, distance);
-            uv += direction * wave * mask;
-            
-            // Adjust to darker, subtle atmospheric color
-            vec3 color = vec3(0.06, 0.06, 0.07); 
-            float noise = fract(sin(dot(uv ,vec2(12.9898,78.233))) * 43758.5453);
-            color += noise * 0.015;
+            vec2 dir = normalize(uv - vec2(0.5));
+            float d = length(uv - uMouse);
+            float wave = sin(d * 12.0 - uTime * 1.2) * 0.006;
+            float mask = smoothstep(0.65, 0.0, d);
+            uv += dir * wave * mask;
+            vec3 color = vec3(0.04, 0.04, 0.055);
+            float noise = fract(sin(dot(uv, vec2(12.9898, 78.233))) * 43758.5453);
+            color += noise * 0.012;
             gl_FragColor = vec4(color, 1.0);
         }
     `;
@@ -180,36 +193,31 @@ document.addEventListener('DOMContentLoaded', function () {
     const material = new THREE.ShaderMaterial({
         uniforms: {
             uMouse: { value: new THREE.Vector2(0.5, 0.5) },
-            uTime: { value: 0 }
+            uTime:  { value: 0 }
         },
-        vertexShader,
-        fragmentShader,
-        transparent: true
+        vertexShader, fragmentShader, transparent: true
     });
 
-    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
-    scene.add(mesh);
+    scene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material));
 
-    let mousePosition = new THREE.Vector2(0.5, 0.5);
-    window.addEventListener('mousemove', (e) => {
-        mousePosition.x = e.clientX / window.innerWidth;
-        mousePosition.y = 1.0 - (e.clientY / window.innerHeight);
+    let mousePos = new THREE.Vector2(0.5, 0.5);
+    window.addEventListener('mousemove', e => {
+        mousePos.x = e.clientX / window.innerWidth;
+        mousePos.y = 1.0 - e.clientY / window.innerHeight;
     });
 
-    function animate(time) {
-        material.uniforms.uTime.value = time * 0.001;
-        material.uniforms.uMouse.value.lerp(mousePosition, 0.04);
+    (function animate(t) {
+        material.uniforms.uTime.value = t * 0.001;
+        material.uniforms.uMouse.value.lerp(mousePos, 0.04);
         renderer.render(scene, camera);
         requestAnimationFrame(animate);
-    }
-
-    animate();
+    })();
 
     window.addEventListener('resize', () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
 
-    // Initialize first chapter
+    // Init
     updateChapterColors('1');
+    updateSidebar(0);
 });
-
