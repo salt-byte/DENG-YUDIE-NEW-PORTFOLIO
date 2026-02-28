@@ -66,7 +66,10 @@ document.addEventListener('DOMContentLoaded', function () {
             spaceBetween: 0,
             effect: 'fade',
             fadeEffect: { crossFade: true },
-            pagination: { el: '.gallery-pagination', clickable: true },
+            navigation: {
+                nextEl: '.gallery-next',
+                prevEl: '.gallery-prev',
+            },
             nested: true,
         });
     }

@@ -3729,6 +3729,39 @@ details.rp-section[open] .rp-chevron {
     display: block;
 }
 
+/* Custom Swiper Navigation Arrows for AIGC */
+.gallery-prev,
+.gallery-next {
+    color: rgba(255, 255, 255, 0.7) !important;
+    background: rgba(0, 0, 0, 0.4);
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.gallery-prev:hover,
+.gallery-next:hover {
+    color: #fff !important;
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.gallery-prev::after,
+.gallery-next::after {
+    font-size: 1.2rem !important;
+    font-weight: bold;
+}
+
+/* Hide arrows on very small screens to encourage swiping instead */
+@media (max-width: 600px) {
+
+    .gallery-prev,
+    .gallery-next {
+        display: none !important;
+    }
+}
+
 /* ════ CINEMATIC MIRROR SLIDE ════ */
 .cm-content {
     overflow-y: auto;
