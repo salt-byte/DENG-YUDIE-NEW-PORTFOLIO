@@ -3804,16 +3804,18 @@ details.rp-section[open] .rp-chevron {
 }
 
 .gallery-prev::after {
-    content: '❮';
-    font-size: 1rem;
-    font-weight: bold;
+    content: '‹';
+    font-size: 1.4rem;
+    line-height: 1;
+    display: block;
     color: inherit;
 }
 
 .gallery-next::after {
-    content: '❯';
-    font-size: 1rem;
-    font-weight: bold;
+    content: '›';
+    font-size: 1.4rem;
+    line-height: 1;
+    display: block;
     color: inherit;
 }
 
