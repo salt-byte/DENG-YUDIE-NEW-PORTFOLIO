@@ -3800,10 +3800,18 @@ details.rp-section[open] .rp-chevron {
     transform: translateY(-50%) scale(1.08) !important;
 }
 
-.gallery-prev::after,
-.gallery-next::after {
-    font-size: 1rem !important;
+.gallery-prev::after {
+    content: '❮';
+    font-size: 1rem;
     font-weight: bold;
+    color: inherit;
+}
+
+.gallery-next::after {
+    content: '❯';
+    font-size: 1rem;
+    font-weight: bold;
+    color: inherit;
 }
 
 /* Disabled state */
