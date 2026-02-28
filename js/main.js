@@ -16,10 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
             el: '.root-pagination',
             clickable: true,
         },
-        navigation: {
-            nextEl: '.next-page',
-            prevEl: '.prev-page',
-        },
+        // navigation handled manually below to avoid Swiper adding swiper-button-* classes
         on: {
             // Clear fly-ins immediately when slide starts changing
             slideChange: function () {
@@ -45,6 +42,10 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // ── Page nav buttons (manual, so Swiper won't add swiper-button-* classes) ──
+    document.querySelector('.next-page').addEventListener('click', () => rootSwiper.slideNext());
+    document.querySelector('.prev-page').addEventListener('click', () => rootSwiper.slidePrev());
+
     // ── Sidebar sync ─────────────────────────────────────────
     function updateSidebar(index) {
         document.querySelectorAll('.chapter-item').forEach((item, i) => {
@@ -60,17 +61,22 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const gallerySwiperEl = document.querySelector('.gallery-swiper');
     if (gallerySwiperEl) {
-        new Swiper('.gallery-swiper', {
+        new Swiper(gallerySwiperEl, {
             direction: 'horizontal',
             slidesPerView: 1,
             spaceBetween: 0,
             effect: 'fade',
             fadeEffect: { crossFade: true },
             navigation: {
-                nextEl: '.gallery-next',
-                prevEl: '.gallery-prev',
+                nextEl: gallerySwiperEl.querySelector('.gallery-next'),
+                prevEl: gallerySwiperEl.querySelector('.gallery-prev'),
             },
             nested: true,
+            // Prevent gallery arrow clicks from bubbling to root swiper
+            on: {
+                navigationNext: function () { },
+                navigationPrev: function () { },
+            },
         });
     }
 
