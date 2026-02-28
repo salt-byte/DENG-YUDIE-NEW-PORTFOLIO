@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // ── Nested Swipers ───────────────────────────────────────
     const gallerySwiperEl = document.querySelector('.gallery-swiper');
     if (gallerySwiperEl) {
         new Swiper('.gallery-swiper', {
@@ -68,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function () {
             effect: 'fade',
             fadeEffect: { crossFade: true },
             pagination: { el: '.gallery-pagination', clickable: true },
-            autoplay: { delay: 4000, disableOnInteraction: true },
             nested: true,
         });
     }
