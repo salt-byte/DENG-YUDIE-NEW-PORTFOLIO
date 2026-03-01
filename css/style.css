@@ -4373,3 +4373,82 @@ details.rp-section[open] .rp-chevron {
     margin-top: 2px;
     letter-spacing: 0.03em;
 }
+/* ════ MOBILE SCROLL MODE (≤768px) ════════════════════════
+   Swiper full-page lock is disabled; page scrolls normally.
+   Each slide becomes a normal block section.
+   ═══════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+    /* 1. Unlock scroll on root elements */
+    html, body {
+        overflow-y: auto !important;
+        height: auto !important;
+    }
+
+    /* 2. Reset Swiper container */
+    .root-swiper {
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    /* 3. Make swiper-wrapper a normal block (override flex + transform) */
+    .root-swiper > .swiper-wrapper {
+        display: block !important;
+        transform: none !important;
+        height: auto !important;
+        will-change: unset !important;
+    }
+
+    /* 4. Each slide scrolls naturally */
+    .root-swiper .swiper-slide {
+        height: auto !important;
+        min-height: 100svh;
+        width: 100% !important;
+    }
+
+    /* 5. Hide desktop-only chrome */
+    .root-pagination,
+    .page-controls {
+        display: none !important;
+    }
+
+    /* 6. All fly-in elements visible immediately — no Swiper trigger needed */
+    .fly-in {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+    }
+
+    /* 7. Full-screen slides: stack phone mockup on top, content below */
+    .fs-slide.fs-device {
+        min-height: auto;
+    }
+
+    .fs-visual.device-bg {
+        min-height: 55vw;
+    }
+
+    /* 8. About: show left deco panel on mobile (was hidden at ≤900px already) */
+
+    /* 9. Connect slide — comfortable spacing */
+    .connect-slide {
+        padding: 60px 0 40px;
+    }
+
+    /* 10. Hero: ensure full content visible */
+    .hero-dark {
+        min-height: 100svh;
+        height: auto;
+        overflow: visible;
+    }
+
+    /* 11. Stats row wraps nicely */
+    .zhipu-stats {
+        flex-wrap: wrap;
+    }
+
+    .zstat {
+        min-width: 45%;
+    }
+}

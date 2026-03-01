@@ -234,6 +234,8 @@ function applyLanguage(lang) {
 document.addEventListener('DOMContentLoaded', function () {
 
     // ── Root Swiper ──────────────────────────────────────────
+    const isMobile = () => window.innerWidth <= 768;
+
     const rootSwiper = new Swiper('.root-swiper', {
         direction: 'vertical',
         slidesPerView: 1,
@@ -249,10 +251,14 @@ document.addEventListener('DOMContentLoaded', function () {
             el: '.root-pagination',
             clickable: true,
         },
-        // navigation handled manually below to avoid Swiper adding swiper-button-* classes
+        // Disable full-page swiper on mobile — let the page scroll normally
+        breakpoints: {
+            0:   { enabled: false },
+            769: { enabled: true  },
+        },
         on: {
-            // Clear fly-ins immediately when slide starts changing
             slideChange: function () {
+                if (isMobile()) return;
                 document.querySelectorAll('.swiper-slide').forEach(s => {
                     s.classList.remove('slide-visible');
                 });
@@ -261,16 +267,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 updateChapterColors(chapter);
                 updateSidebar(this.activeIndex);
             },
-            // Trigger fly-ins AFTER the page-flip transition completes
             transitionEnd: function () {
+                if (isMobile()) return;
                 const active = this.slides[this.activeIndex];
                 if (active) active.classList.add('slide-visible');
             },
-            // Fly in slide 0 on first load
             init: function () {
-                setTimeout(() => {
-                    if (this.slides[0]) this.slides[0].classList.add('slide-visible');
-                }, 250);
+                if (isMobile()) {
+                    // On mobile: make all slides visible immediately (no Swiper transitions)
+                    document.querySelectorAll('.swiper-slide').forEach(s => {
+                        s.classList.add('slide-visible');
+                    });
+                } else {
+                    setTimeout(() => {
+                        if (this.slides[0]) this.slides[0].classList.add('slide-visible');
+                    }, 250);
+                }
             }
         }
     });
