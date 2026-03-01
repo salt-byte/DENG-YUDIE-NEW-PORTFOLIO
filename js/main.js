@@ -233,63 +233,8 @@ function applyLanguage(lang) {
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ── Root Swiper ──────────────────────────────────────────
+    // ── Root Swiper (desktop only) ────────────────────────────
     const isMobile = () => window.innerWidth <= 768;
-
-    const rootSwiper = new Swiper('.root-swiper', {
-        direction: 'vertical',
-        slidesPerView: 1,
-        spaceBetween: 0,
-        mousewheel: {
-            forceToAxis: true,
-            sensitivity: 1,
-            releaseOnEdges: true,
-        },
-        keyboard: true,
-        speed: 900,
-        pagination: {
-            el: '.root-pagination',
-            clickable: true,
-        },
-        // Disable full-page swiper on mobile — let the page scroll normally
-        breakpoints: {
-            0:   { enabled: false },
-            769: { enabled: true  },
-        },
-        on: {
-            slideChange: function () {
-                if (isMobile()) return;
-                document.querySelectorAll('.swiper-slide').forEach(s => {
-                    s.classList.remove('slide-visible');
-                });
-                const activeSlide = this.slides[this.activeIndex];
-                const chapter = activeSlide ? activeSlide.getAttribute('data-chapter') : null;
-                updateChapterColors(chapter);
-                updateSidebar(this.activeIndex);
-            },
-            transitionEnd: function () {
-                if (isMobile()) return;
-                const active = this.slides[this.activeIndex];
-                if (active) active.classList.add('slide-visible');
-            },
-            init: function () {
-                if (isMobile()) {
-                    // On mobile: make all slides visible immediately (no Swiper transitions)
-                    document.querySelectorAll('.swiper-slide').forEach(s => {
-                        s.classList.add('slide-visible');
-                    });
-                } else {
-                    setTimeout(() => {
-                        if (this.slides[0]) this.slides[0].classList.add('slide-visible');
-                    }, 250);
-                }
-            }
-        }
-    });
-
-    // ── Page nav buttons (manual, so Swiper won't add swiper-button-* classes) ──
-    document.querySelector('.next-page').addEventListener('click', () => rootSwiper.slideNext());
-    document.querySelector('.prev-page').addEventListener('click', () => rootSwiper.slidePrev());
 
     // ── Sidebar sync ─────────────────────────────────────────
     function updateSidebar(index) {
@@ -298,11 +243,74 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    document.querySelectorAll('.chapter-item').forEach((item) => {
-        item.addEventListener('click', () => {
-            rootSwiper.slideTo(parseInt(item.dataset.slide));
+    let rootSwiper = null;
+
+    if (!isMobile()) {
+        // ── Desktop: full-page vertical Swiper ───────────────
+        rootSwiper = new Swiper('.root-swiper', {
+            direction: 'vertical',
+            slidesPerView: 1,
+            spaceBetween: 0,
+            mousewheel: {
+                forceToAxis: true,
+                sensitivity: 1,
+                releaseOnEdges: true,
+            },
+            keyboard: true,
+            speed: 900,
+            pagination: {
+                el: '.root-pagination',
+                clickable: true,
+            },
+            on: {
+                slideChange: function () {
+                    document.querySelectorAll('.swiper-slide').forEach(s => {
+                        s.classList.remove('slide-visible');
+                    });
+                    const activeSlide = this.slides[this.activeIndex];
+                    const chapter = activeSlide ? activeSlide.getAttribute('data-chapter') : null;
+                    updateChapterColors(chapter);
+                    updateSidebar(this.activeIndex);
+                },
+                transitionEnd: function () {
+                    const active = this.slides[this.activeIndex];
+                    if (active) active.classList.add('slide-visible');
+                },
+                init: function () {
+                    setTimeout(() => {
+                        if (this.slides[0]) this.slides[0].classList.add('slide-visible');
+                    }, 250);
+                }
+            }
         });
-    });
+
+        // Page nav buttons
+        document.querySelector('.next-page').addEventListener('click', () => rootSwiper.slideNext());
+        document.querySelector('.prev-page').addEventListener('click', () => rootSwiper.slidePrev());
+
+        // Chapter nav → slide to section
+        document.querySelectorAll('.chapter-item').forEach((item) => {
+            item.addEventListener('click', () => {
+                rootSwiper.slideTo(parseInt(item.dataset.slide));
+            });
+        });
+
+    } else {
+        // ── Mobile: normal page scroll, no Swiper ────────────
+        // Show all slides immediately (no transition trigger needed)
+        document.querySelectorAll('.swiper-slide').forEach(s => s.classList.add('slide-visible'));
+        updateChapterColors('1');
+        updateSidebar(0);
+
+        // Chapter nav → smooth scroll to section
+        document.querySelectorAll('.chapter-item').forEach((item) => {
+            item.addEventListener('click', () => {
+                const slides = document.querySelectorAll('.swiper-slide');
+                const target = slides[parseInt(item.dataset.slide)];
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    }
 
     const gallerySwiperEl = document.querySelector('.gallery-swiper');
     if (gallerySwiperEl) {

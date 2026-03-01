@@ -4420,6 +4420,13 @@ details.rp-section[open] .rp-chevron {
         animation: none !important;
     }
 
+    /* 6b. All slides visible (no Swiper active-class logic) */
+    .root-swiper .swiper-slide,
+    .swiper-slide.slide-visible {
+        opacity: 1 !important;
+        padding: 0 !important;
+    }
+
     /* 7. Full-screen slides: stack phone mockup on top, content below */
     .fs-slide.fs-device {
         min-height: auto;
@@ -4436,10 +4443,12 @@ details.rp-section[open] .rp-chevron {
         padding: 60px 0 40px;
     }
 
-    /* 10. Hero: ensure full content visible */
-    .hero-dark {
+    /* 10. All full-page sections: auto height so content isn't cut off */
+    .hero-dark,
+    .about-dark,
+    .fs-slide {
         min-height: 100svh;
-        height: auto;
+        height: auto !important;
         overflow: visible;
     }
 
