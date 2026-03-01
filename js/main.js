@@ -22,7 +22,7 @@ const translations = {
         'about-heading': 'Why AI Product <span class="gradient-text-gold">Management?</span>',
         'story-p-1': '<strong class="story-section-title">It started with Netflix.</strong> During my undergraduate studies at <strong>Beijing Film Academy</strong>, my professor led a deep analysis of Netflix\'s evolution — from DVD rentals to a data-driven content empire. That was the moment I realized: <span class="story-hi">the future of media isn\'t just creative — it\'s technical.</span> I decided then that my edge would be the ability to bridge content and technology.',
         'story-p-2': '<strong class="story-section-title">Then AI arrived — faster than I expected.</strong> While preparing for graduate school, generative AI exploded. ChatGPT, Sora, Stable Diffusion — the intersection I\'d been drawn to was suddenly the center of the industry. I didn\'t pivot to AI. AI came to me.',
-        'story-p-3': 'I started hands-on: training LoRA models and building AIGC pipelines at <strong>Enlight Media</strong> (the studio behind <em>Ne Zha 2</em>). Then I moved deeper into product — defining the vision for a multimodal AI companion at <strong>Zhipu AI</strong>, shipping features to 1,500+ beta testers. At <strong>Tianji Cloud</strong>, I independently built and launched an AI-native consumer app. Now at <strong>USC\'s AI Trust Lab</strong>, I\'m tackling the harder question: how do we make AI systems trustworthy enough for enterprise adoption?',
+        'story-p-3': 'I started hands-on: training LoRA models and building AIGC pipelines at <strong>Enlight Media</strong> (the studio behind <em>Ne Zha 2</em>). Then I moved deeper into product — defining the vision for a multimodal AI companion at <strong>Zhipu AI</strong>, shipping features to 1,500+ beta testers. At Tianji Cloud, I <strong>independently built and launched </strong> an AI-native consumer app. Now at <strong>USC\'s AI Trust Lab</strong>, I\'m tackling the harder question: how do we make AI systems trustworthy enough for enterprise adoption?',
         'story-p-4': '<strong class="story-section-title">What I bring that most PM candidates don\'t:</strong> I come from a world where story, aesthetics, and audience experience are everything. Most PMs optimize for metrics. I optimize for metrics <em>and</em> for how the product feels. At USC and Tsinghua, I\'m now building the technical foundation — machine learning, deep learning, data science — so I can speak both languages fluently: the language of engineering, and the language of human experience.',
         'story-p-5': 'The thread connecting all of it: I don\'t just want to build AI products that <em>work</em> — I want to build AI products that people <em>trust, enjoy, and remember</em>.',
         // Zhipu
@@ -109,11 +109,11 @@ const translations = {
     zh: {
         // Nav
         'nav-01': '简介', 'nav-02': '关于我', 'nav-03': '智谱华章',
-        'nav-04': '镜像', 'nav-05': 'LandIt', 'nav-06': '南加实验室',
+        'nav-04': '影中镜', 'nav-05': 'LandIt', 'nav-06': '南加实验室',
         'nav-07': 'AIGC作品', 'nav-08': '联系我',
         // Hero
         'hero-badge': 'AI产品经理',
-        'hero-summary': '连接创意媒体与前沿AI技术 — 深度参与智能体流水线、生成式AI产品与企业AI安全，跨越南加大、清华与中国头部AI公司。',
+        'hero-summary': '连接创意媒体与前沿AI技术 — 深度参与智能体流水线、生成式AI产品与企业AI安全，跨越北电、清华、南加大与中国头部AI公司。',
         'htag-1': '智能体流水线', 'htag-2': '生成式AI',
         'htag-3': 'AI安全', 'htag-4': '提示工程',
         'hero-tl-label': '职业路径',
@@ -128,11 +128,11 @@ const translations = {
         'about-heading': '为什么是AI产品<span class="gradient-text-gold">管理？</span>',
         'story-p-1': '<strong class="story-section-title">一切从Netflix开始。</strong> 在<strong>北京电影学院</strong>学习文化产业管理期间，我的教授带领我们深度拆解Netflix的演变史 — 从DVD租赁到数据驱动的内容帝国。那一刻我意识到：<span class="story-hi">媒体的未来不只是创意，更是技术。</span> 我决定，我从影视行业带来的优势，就是连接内容与技术的能力。',
         'story-p-2': '<strong class="story-section-title">然后，AI来了 — 比我预想的更快。</strong> 在备考研究生的同时，生成式AI爆发了。ChatGPT、Sora、Stable Diffusion — 我一直被吸引的那个交叉口，突然成了行业的中心。我并没有转型AI。AI向我走来了。',
-        'story-p-3': '我从动手实践开始：在<strong>光线传媒</strong>（《哪吒2》出品方）训练LoRA模型、搭建AIGC流水线。随后深入产品 — 在<strong>智谱华章</strong>定义多模态AI伴侣产品的核心愿景，将功能推向1500+内测用户。在<strong>天机云科技</strong>，我独立构建并上线了一款AI原生消费级应用。如今在<strong>南加州大学AI信任实验室</strong>，我在追问更难的问题：如何让AI系统可信到足以支撑企业级采用？',
+        'story-p-3': '我从动手实践开始：在<strong>光线传媒</strong>（《哪吒2》出品方）训练LoRA模型、搭建AIGC流水线。随后深入产品 — 在<strong>智谱华章</strong>定义多模态AI伴侣产品的核心愿景，将功能推向1500+内测用户。后来，我<strong>独立构建并上线了</strong>一款AI原生消费级应用。如今在<strong>南加州大学AI信任实验室</strong>，我在追问更难的问题：如何让AI系统可信到足以支撑企业级采用？',
         'story-p-4': '<strong class="story-section-title">我能带来大多数PM候选人没有的东西：</strong> 我来自一个以故事、美学与受众体验为核心的世界。大多数PM优化指标。我在优化指标<em>的同时</em>，也优化产品的感受。在南加大和清华，我正在构建技术基础 — 机器学习、深度学习、数据科学 — 让自己能流利地说两种语言：工程的语言，以及人类体验的语言。',
         'story-p-5': '贯穿始终的逻辑：我不只想构建<em>有效</em>的AI产品 — 我想构建人们愿意<em>信任、享受和铭记</em>的AI产品。',
         // Zhipu
-        'zhipu-chapter': '第三章 — AI生活',
+        'zhipu-chapter': '第三章 — AI生命',
         'zhipu-desc': '全球首个多模态AI伴侣与社交平台 — 内测用户突破<strong>1500+</strong>，并在<strong>WAIC 2025</strong>世界人工智能大会亮相。',
         'zstat-testers': '内测用户', 'zstat-genrate': '生成成功率',
         'zstat-stability': '视频稳定性', 'zstat-engineers': '协作工程师',
@@ -154,7 +154,7 @@ const translations = {
         'zhipu-phase-5-content': '<ul><li>MVP规划：Phase 1优先落地照片唤醒+陪伴；Phase 2排期云端旅行/破冰/漫游</li><li>参与Demo信息架构、核心交互与可用性设计</li><li>主持功能走查，收集可用性与稳定性反馈，推进迭代Backlog</li></ul>',
         // Mirror
         'mirror-chapter': '第四章 — 独立产品',
-        'mirror-title': 'Cinematic Mirror Agent',
+        'mirror-title': '影中镜',
         'mirror-desc': '以个性为核心的穿搭系统 — 而非趋势引擎。帮助用户以<em>真实自我</em>而非算法逻辑穿搭。',
         'mirror-prob-1': '<strong>同质化推荐</strong> — 算法优化的是趋势，而非个性。',
         'mirror-prob-2': '<strong>缺乏人格基础</strong> — 只考虑体型与潮流，忽视气质与身份。',
