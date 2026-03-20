@@ -1,0 +1,1859 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PawPals 萌爪伴学 · 项目说明书</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f0ebe2;
+      --paper: #fdfaf6;
+      --brown: #2b1a0e;
+      --mid: #5a3825;
+      --light: #9b7a65;
+      --rule: rgba(43, 26, 14, .10);
+      --orange: #c96f3c;
+      --o-bg: rgba(201, 111, 60, .08);
+      --o-bd: rgba(201, 111, 60, .22);
+      --teal: #1f7a71;
+      --t-bg: rgba(31, 122, 113, .08);
+      --t-bd: rgba(31, 122, 113, .20);
+      --gold: #a07828;
+      --purple: #534ab7;
+      --p-bg: rgba(83, 74, 183, .07);
+      --coral: #993c1d;
+      --c-bg: rgba(153, 60, 29, .07);
+      --pink: #993556;
+      --k-bg: rgba(153, 53, 86, .07);
+      --amber: #854f0b;
+      --a-bg: rgba(133, 79, 11, .07);
+    }
+
+    html {
+      font-size: 15px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Noto Sans CJK SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      background: var(--bg);
+      color: var(--brown);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ══ Page wrapper ══ */
+    .page {
+      max-width: 900px;
+      margin: 36px auto 60px;
+      background: var(--paper);
+      box-shadow: 0 2px 32px rgba(0, 0, 0, .10);
+      padding: 64px 72px 72px;
+    }
+
+    /* ══ Header ══ */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--brown);
+      margin-bottom: 40px;
+      gap: 20px;
+    }
+
+    .h-left {}
+
+    .doc-meta {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      color: var(--light);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .proj-name {
+      font-family: 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--brown);
+    }
+
+    .proj-name em {
+      color: var(--orange);
+      font-style: normal;
+    }
+
+    .proj-tag {
+      font-size: 13px;
+      color: var(--light);
+      margin-top: 6px;
+    }
+
+    .h-right {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--brown);
+      color: var(--paper);
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 2px;
+      margin-bottom: 6px;
+    }
+
+    .track {
+      display: block;
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      color: var(--orange);
+      letter-spacing: .07em;
+    }
+
+    .author {
+      font-size: 11px;
+      color: var(--light);
+      margin-top: 4px;
+    }
+
+    /* ══ Sections ══ */
+    .sec {
+      margin-bottom: 36px;
+    }
+
+    .sec-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .sec-num {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--orange);
+      letter-spacing: .10em;
+      flex-shrink: 0;
+    }
+
+    .sec-title {
+      font-family: 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--brown);
+    }
+
+    .sec-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    p {
+      font-size: 13.5px;
+      line-height: 1.85;
+      color: #3a2718;
+      margin-bottom: 10px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    strong {
+      font-weight: 700;
+      color: var(--brown);
+    }
+
+    /* ══ Hero insight ══ */
+    .hero {
+      background: var(--brown);
+      color: rgba(255, 255, 255, .9);
+      border-radius: 8px;
+      padding: 30px 36px;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '🦞';
+      position: absolute;
+      right: 20px;
+      bottom: -16px;
+      font-size: 100px;
+      opacity: .07;
+      line-height: 1;
+    }
+
+    .hero-label {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      color: var(--orange);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .hero-text {
+      font-family: 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.65;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      color: rgba(255, 255, 255, .65);
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* ══ 2-col grid ══ */
+    .g2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .g3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .g4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    /* ══ Diff cards (01) ══ */
+    .diff-card {
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 18px 18px 16px;
+      background: var(--paper);
+    }
+
+    .diff-card.c-orange {
+      border-left: 4px solid var(--orange);
+    }
+
+    .diff-card.c-pink {
+      border-left: 4px solid var(--pink);
+    }
+
+    .diff-card.c-teal {
+      border-left: 4px solid var(--teal);
+    }
+
+    .diff-card.c-gold {
+      border-left: 4px solid var(--gold);
+    }
+
+    .card-icon {
+      font-size: 26px;
+      display: block;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .card-tag {
+      display: inline-block;
+      font-family: 'Courier New', monospace;
+      font-size: 9.5px;
+      letter-spacing: .06em;
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-orange {
+      color: var(--orange);
+      background: var(--o-bg);
+    }
+
+    .tag-pink {
+      color: var(--pink);
+      background: var(--k-bg);
+    }
+
+    .tag-teal {
+      color: var(--teal);
+      background: var(--t-bg);
+    }
+
+    .tag-gold {
+      color: var(--gold);
+      background: rgba(160, 120, 40, .08);
+    }
+
+    .card-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+
+    .card-desc {
+      font-size: 12px;
+      color: var(--light);
+      line-height: 1.65;
+    }
+
+    .tech-badge {
+      display: inline-block;
+      font-family: 'Courier New', monospace;
+      font-size: 9.5px;
+      color: var(--mid);
+      background: rgba(43, 26, 14, .06);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 2px 7px;
+      margin: 5px 2px 0 0;
+    }
+
+    /* ══ VS bar ══ */
+    .vs-wrap {
+      display: grid;
+      grid-template-columns: 1fr 28px 1fr;
+      gap: 10px;
+      align-items: stretch;
+      margin-top: 14px;
+    }
+
+    .vs-col {
+      border-radius: 6px;
+      padding: 14px 16px;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .vs-bad {
+      background: rgba(192, 57, 43, .05);
+      border: 1px solid rgba(192, 57, 43, .15);
+    }
+
+    .vs-good {
+      background: var(--t-bg);
+      border: 1px solid var(--t-bd);
+    }
+
+    .vs-head {
+      font-weight: 700;
+      font-size: 11.5px;
+      margin-bottom: 6px;
+    }
+
+    .vs-bad .vs-head {
+      color: #c0392b;
+    }
+
+    .vs-good .vs-head {
+      color: var(--teal);
+    }
+
+    .vs-col ul {
+      padding-left: 14px;
+    }
+
+    .vs-col li {
+      color: var(--light);
+      font-size: 11.5px;
+      margin-bottom: 1px;
+    }
+
+    .vs-mid {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--light);
+    }
+
+    /* ══ Data cards ══ */
+    .data-row {
+      display: flex;
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .dc {
+      flex: 1;
+      border-left: 3px solid var(--orange);
+      background: var(--o-bg);
+      padding: 11px 14px;
+      border-radius: 0 5px 5px 0;
+    }
+
+    .dc.t {
+      border-left-color: var(--teal);
+      background: var(--t-bg);
+    }
+
+    .dc-num {
+      font-family: 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+      font-size: 21px;
+      font-weight: 900;
+      color: var(--orange);
+      line-height: 1.1;
+    }
+
+    .dc.t .dc-num {
+      color: var(--teal);
+    }
+
+    .dc-label {
+      font-size: 11px;
+      color: var(--light);
+      margin-top: 3px;
+      line-height: 1.4;
+    }
+
+    /* ══ User cards ══ */
+    .user-card {
+      border: 1px solid var(--rule);
+      border-radius: 7px;
+      padding: 14px 15px;
+      background: #f7f2ea;
+    }
+
+    .uc-emoji {
+      font-size: 22px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .uc-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 4px;
+    }
+
+    .uc-desc {
+      font-size: 11.5px;
+      color: var(--light);
+      line-height: 1.55;
+    }
+
+    /* ══ Pain points ══ */
+    .pain-list {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin: 12px 0;
+    }
+
+    .pain {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 11px 14px;
+      background: #f7f2ea;
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+    }
+
+    .pain-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .pain-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 3px;
+    }
+
+    .pain-desc {
+      font-size: 12px;
+      color: var(--light);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ══ Quote ══ */
+    .quote {
+      border-left: 3px solid var(--orange);
+      background: var(--o-bg);
+      padding: 11px 16px;
+      border-radius: 0 5px 5px 0;
+      font-size: 13px;
+      color: var(--mid);
+      line-height: 1.75;
+      margin: 12px 0;
+    }
+
+    .quote.teal {
+      border-left-color: var(--teal);
+      background: var(--t-bg);
+    }
+
+    /* ══ Metrics ══ */
+    .metric-row {
+      display: flex;
+      gap: 10px;
+      margin: 12px 0;
+    }
+
+    .metric {
+      flex: 1;
+      background: var(--t-bg);
+      border: 1px solid var(--t-bd);
+      border-radius: 7px;
+      padding: 14px;
+      text-align: center;
+    }
+
+    .metric-num {
+      font-family: 'Noto Serif CJK SC', 'Source Han Serif SC', serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--teal);
+      line-height: 1;
+    }
+
+    .metric-lbl {
+      font-size: 11px;
+      color: var(--light);
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+
+    /* ══ Comp tables ══ */
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0;
+      font-size: 11.5px;
+    }
+
+    .comp-table th {
+      background: var(--brown);
+      color: var(--paper);
+      padding: 8px 10px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    .comp-table th:first-child {
+      border-radius: 4px 0 0 0;
+    }
+
+    .comp-table th:last-child {
+      border-radius: 0 4px 0 0;
+    }
+
+    .comp-table td {
+      padding: 7px 10px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--brown);
+      vertical-align: middle;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .comp-table tr:nth-child(even) td {
+      background: #f7f2ea;
+    }
+
+    .comp-table tr.hl td {
+      background: var(--o-bg);
+      font-weight: 600;
+    }
+
+    .comp-table tr.hl td:first-child {
+      border-left: 3px solid var(--orange);
+      padding-left: 8px;
+    }
+
+    .ok {
+      color: var(--teal);
+      font-weight: 700;
+    }
+
+    .no {
+      color: #c0392b;
+    }
+
+    .so {
+      color: var(--gold);
+    }
+
+    /* ══ Agent layout ══ */
+    .agents {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .ag {
+      border: 1px solid var(--rule);
+      border-radius: 7px;
+      padding: 10px 10px;
+      text-align: center;
+      background: #f7f2ea;
+    }
+
+    .ag.center {
+      background: var(--brown);
+    }
+
+    .ag-icon {
+      font-size: 20px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .ag-name {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brown);
+    }
+
+    .ag.center .ag-name {
+      color: var(--paper);
+    }
+
+    .ag-role {
+      font-size: 10.5px;
+      color: var(--light);
+      line-height: 1.4;
+      margin-top: 2px;
+    }
+
+    .ag.center .ag-role {
+      color: rgba(255, 255, 255, .6);
+    }
+
+    /* ══ Growth grid ══ */
+    .growth {
+      padding: 11px 13px;
+      background: var(--t-bg);
+      border: 1px solid var(--t-bd);
+      border-radius: 6px;
+    }
+
+    .growth-icon {
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .growth-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--teal);
+      margin-bottom: 2px;
+    }
+
+    .growth-desc {
+      font-size: 11px;
+      color: var(--light);
+      line-height: 1.5;
+    }
+
+    /* ══ OpenClaw 4-box ══ */
+    .oc-box {
+      border: 1px solid var(--rule);
+      border-radius: 7px;
+      padding: 15px 16px;
+      background: #f7f2ea;
+    }
+
+    .oc-box-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 4px;
+    }
+
+    .oc-box-desc {
+      font-size: 12px;
+      color: var(--light);
+      line-height: 1.65;
+    }
+
+    .oc-box.top-orange {
+      border-top: 3px solid var(--orange);
+    }
+
+    .oc-box.top-teal {
+      border-top: 3px solid var(--teal);
+    }
+
+    .oc-box.top-gold {
+      border-top: 3px solid var(--gold);
+    }
+
+    .oc-box.top-pink {
+      border-top: 3px solid var(--pink);
+    }
+
+    /* ══ Dark callout ══ */
+    .dark-box {
+      background: var(--brown);
+      color: rgba(255, 255, 255, .9);
+      border-radius: 7px;
+      padding: 18px 22px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: start;
+      margin-top: 12px;
+    }
+
+    .dark-box-emoji {
+      font-size: 34px;
+      line-height: 1;
+    }
+
+    .dark-box-title {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--orange);
+      margin-bottom: 6px;
+    }
+
+    .dark-box-text {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .72);
+      line-height: 1.75;
+    }
+
+    /* ══ Tech 2-col ══ */
+    .tech-box {
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 13px 15px;
+      background: #f7f2ea;
+    }
+
+    .tech-box-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 4px;
+    }
+
+    .tech-box-desc {
+      font-size: 11.5px;
+      color: var(--light);
+      line-height: 1.6;
+    }
+
+    /* ══ Flow timeline ══ */
+    .flow-wrap {
+      margin: 14px 0;
+    }
+
+    .flow-label {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    .fl-orange {
+      color: var(--orange);
+      background: var(--o-bg);
+    }
+
+    .fl-teal {
+      color: var(--teal);
+      background: var(--t-bg);
+    }
+
+    .flow-step {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 4px;
+      position: relative;
+    }
+
+    .flow-step::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 26px;
+      bottom: -10px;
+      width: 2px;
+      background: var(--rule);
+    }
+
+    .flow-step:last-child::before {
+      display: none;
+    }
+
+    .step-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10.5px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .sn-gray {
+      background: #f1efe8;
+      border: 1px solid var(--light);
+      color: var(--mid);
+    }
+
+    .sn-purple {
+      background: var(--p-bg);
+      color: var(--purple);
+      border: 1px solid rgba(83, 74, 183, .25);
+    }
+
+    .sn-teal {
+      background: var(--t-bg);
+      color: var(--teal);
+      border: 1px solid var(--t-bd);
+    }
+
+    .sn-coral {
+      background: var(--c-bg);
+      color: var(--coral);
+      border: 1px solid rgba(153, 60, 29, .25);
+    }
+
+    .sn-amber {
+      background: var(--a-bg);
+      color: var(--amber);
+      border: 1px solid rgba(133, 79, 11, .25);
+    }
+
+    .sn-pink {
+      background: var(--k-bg);
+      color: var(--pink);
+      border: 1px solid rgba(153, 53, 86, .25);
+    }
+
+    .step-body {
+      flex: 1;
+      border-radius: 6px;
+      padding: 10px 13px;
+      margin-bottom: 6px;
+      border: 1px solid var(--rule);
+    }
+
+    .sb-gray {
+      background: #f7f2ea;
+    }
+
+    .sb-purple {
+      background: var(--p-bg);
+      border-color: rgba(83, 74, 183, .18);
+    }
+
+    .sb-teal {
+      background: var(--t-bg);
+      border-color: var(--t-bd);
+    }
+
+    .sb-coral {
+      background: var(--c-bg);
+      border-color: rgba(153, 60, 29, .18);
+    }
+
+    .sb-amber {
+      background: var(--a-bg);
+      border-color: rgba(133, 79, 11, .18);
+    }
+
+    .sb-pink {
+      background: var(--k-bg);
+      border-color: rgba(153, 53, 86, .18);
+    }
+
+    .step-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 3px;
+    }
+
+    .step-desc {
+      font-size: 11.5px;
+      color: var(--light);
+      line-height: 1.6;
+      margin-bottom: 5px;
+    }
+
+    .chat-bubble {
+      background: rgba(255, 255, 255, .75);
+      border-radius: 4px;
+      padding: 7px 10px;
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .sp {
+      font-weight: 700;
+    }
+
+    .sp-p {
+      color: var(--purple);
+    }
+
+    .sp-t {
+      color: var(--teal);
+    }
+
+    .sp-c {
+      color: var(--coral);
+    }
+
+    .sp-a {
+      color: var(--amber);
+    }
+
+    .sp-k {
+      color: var(--pink);
+    }
+
+    .flow-branch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin: 4px 0 8px 34px;
+    }
+
+    .branch-box {
+      border-radius: 6px;
+      padding: 9px 11px;
+      border: 1px solid var(--rule);
+    }
+
+    .bb-pink {
+      background: var(--k-bg);
+      border-color: rgba(153, 53, 86, .18);
+    }
+
+    .bb-amber {
+      background: var(--a-bg);
+      border-color: rgba(133, 79, 11, .18);
+    }
+
+    .bb-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 3px;
+    }
+
+    .bb-desc {
+      font-size: 11px;
+      color: var(--light);
+      line-height: 1.55;
+    }
+
+    .loop-note {
+      background: var(--t-bg);
+      border: 1px solid var(--t-bd);
+      border-radius: 5px;
+      padding: 8px 12px;
+      font-size: 11.5px;
+      color: var(--teal);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .collab-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 11px;
+      margin-top: 10px;
+    }
+
+    .collab-table th {
+      background: var(--brown);
+      color: var(--paper);
+      padding: 6px 9px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 10.5px;
+    }
+
+    .collab-table th:first-child {
+      border-radius: 3px 0 0 0;
+    }
+
+    .collab-table th:last-child {
+      border-radius: 0 3px 0 0;
+    }
+
+    .collab-table td {
+      padding: 6px 9px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--light);
+      font-size: 11px;
+    }
+
+    .collab-table tr:nth-child(even) td {
+      background: #f7f2ea;
+    }
+
+    .collab-table td:first-child {
+      color: var(--brown);
+      font-weight: 600;
+    }
+
+    /* ══ Footer ══ */
+    .footer {
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-l {
+      font-size: 11.5px;
+      color: var(--light);
+      line-height: 1.65;
+    }
+
+    .footer-r {
+      font-family: 'Courier New', monospace;
+      font-size: 10px;
+      color: var(--light);
+      letter-spacing: .05em;
+      text-align: right;
+    }
+
+    /* ══ Print / PDF ══ */
+    @media print {
+      body {
+        background: white;
+        font-size: 13px;
+      }
+
+      .page {
+        margin: 0;
+        padding: 28px 48px 40px;
+        max-width: 100%;
+        box-shadow: none;
+      }
+
+      /* 所有「框框」都不允许内部切页 */
+      .diff-card,
+      .oc-box,
+      .tech-box,
+      .growth,
+      .pain,
+      .user-card,
+      .dc,
+      .metric,
+      .ag,
+      .step-body,
+      .branch-box,
+      .chat-bubble,
+      .collab-table tr,
+      .comp-table tr,
+      .dark-box,
+      .quote,
+      .hero,
+      .flow-branch,
+      .loop-note {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      /* 整块区域尽量不拆，拆了也在块前分页而不是块中间 */
+      .sec {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .flow-step {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .flow-wrap {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .agents {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .data-row {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .metric-row {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .vs-wrap {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .pain-list {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      /* 竞品表太长允许在行之间切，但不允许在单元格内切 */
+      .comp-table {
+        break-inside: auto;
+      }
+
+      .comp-table td {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .comp-table tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      /* 流程图两列整体尽量不拆 */
+      .flow-grid {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      /* 分页前留空白，视觉更干净 */
+      .sec {
+        margin-bottom: 24px;
+      }
+
+      /* 隐藏不需要打印的东西 */
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- ══════════ HEADER ══════════ -->
+    <header class="header">
+      <div class="h-left">
+        <div class="doc-meta">项目说明书 · Project Specification · 2026</div>
+        <div class="proj-name">🐾 PawPals <em>萌爪伴学</em></div>
+        <div class="proj-tag">伴随你成长的 AI 助手 — 求职 · 考公 · 考研，从建档到上岸全程陪跑</div>
+      </div>
+      <div class="h-right">
+        <span class="badge">首届中关村北纬龙虾大赛</span>
+        <span class="track">⚡ PRODUCTIVITY LOBSTER</span>
+        <div class="author">邓雨蝶（Yudie Deng）· 清华大学 × USC</div>
+      </div>
+    </header>
+
+    <!-- ══════════ HERO ══════════ -->
+    <div class="hero">
+      <div class="hero-label">核心洞见 · Core Insight</div>
+      <div class="hero-text">
+        小红书上有几百篇「我用 OpenClaw 搭了一套 AI 求职系统」的帖子，<br>
+        B站有几十个教程——但它们全部是程序员做给自己的，<br>
+        换一个人，就跑不起来了。
+      </div>
+      <p class="hero-sub">真正的难题从来不是「AI 能不能做到」，而是「怎么让完全不懂技术的 1222 万毕业生也能用起来」。<br>
+        这是 PawPals 和所有同类尝试最本质的区别——<strong style="color:rgba(255,255,255,.92);">我们做的是一个产品，不是一个实验。</strong></p>
+    </div>
+
+    <!-- ══════════ 01 四大差异 ══════════ -->
+    <section class="sec">
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <span class="sec-title">四大核心差异 · 为什么是 PawPals</span>
+        <div class="sec-rule"></div>
+      </div>
+
+      <div class="g2">
+        <div class="diff-card c-teal">
+          <span class="card-icon">🔗</span>
+          <div class="card-tag tag-teal">自动化闭环</div>
+          <div class="card-title">从建档到拿 Offer<br>全程自动，一个系统搞定</div>
+          <div class="card-desc">职业定位 → Gap 分析 → 简历针对每个 JD 自动定制 → Boss 直聘真实搜索 → 一键投递 → 进度跟进 →
+            面试全流程模拟复盘。不是单点工具，是<strong>完整的求职操盘系统</strong>——每一步都不需要离开 PawPals 自己想办法。这是高价机构服务的完整性，但不是机构的价格。</div>
+        </div>
+
+        <div class="diff-card c-orange">
+          <span class="card-icon">🦞</span>
+          <div class="card-tag tag-orange">零门槛部署</div>
+          <div class="card-title">一键部署小龙虾<br>你不用排队，不用花钱</div>
+          <div class="card-desc">腾讯深圳楼下千人排队、代装服务 300—1500 元、京东上架 399 元官方安装——这些问题全被一个自动化脚本解决了。配置只需填入模型 API Key，URL
+            已预置完毕，「点击获取 Key」直接跳转官方控制台。<strong>会用微信，就能用 PawPals。</strong></div>
+        </div>
+
+        <div class="diff-card c-pink">
+          <span class="card-icon">🐾</span>
+          <div class="card-tag tag-pink">治愈陪伴 + 社区</div>
+          <div class="card-title">宠物 · 自习室 · 社群<br>你不是一个人在卷</div>
+          <div class="card-desc">上传自己家的猫狗、手办、喜欢的明星，设定专属人设。被拒了 TA 安慰你，停滞了 TA 催你，拿到面试 TA
+            第一个恭喜你。用好了还能<strong>给小龙虾买皮肤</strong>。<br><br>同时内置<strong>陪伴社区</strong>（打卡 / 互动 /
+            匿名吐槽）+<strong>番茄钟自习室</strong>，把高压备考 / 求职变成有节奏、有温度的日常——考公考研求职三条赛道的人，终于有了一个共同的地方。</div>
+        </div>
+
+        <div class="diff-card c-gold">
+          <span class="card-icon">🔐</span>
+          <div class="card-tag tag-gold">透明安全</div>
+          <div class="card-title">看清楚花了多少<br>文件只有你能读</div>
+          <div class="card-desc">OpenClaw 最大用户痛点：Token 消耗不透明，一觉醒来欠费通知。PawPals
+            实时展示每次对话用量与月累计，随时知道自己花了多少。<br><br>文件权限同样清晰：你上传的简历，只有你有权读取。<strong>安全透明，对普通用户零负担</strong>——所有设定已默认处理好，用户感知到的只有：放心用。
+          </div>
+        </div>
+      </div>
+
+      <!-- VS 对比 -->
+      <div class="vs-wrap">
+        <div class="vs-col vs-bad">
+          <div class="vs-head">❌ 现有所有方案的问题</div>
+          <ul>
+            <li>部署门槛高，换个人就跑不起来</li>
+            <li>只解决一个环节，全流程靠用户自己拼</li>
+            <li>没有情感支持，用完即走</li>
+            <li>Token 消耗不透明，用完才知道花了多少</li>
+            <li>国外工具不支持中文平台，国内工具不打通全链路</li>
+          </ul>
+        </div>
+        <div class="vs-mid">→</div>
+        <div class="vs-col vs-good">
+          <div class="vs-head">✅ PawPals 的解法</div>
+          <ul>
+            <li>下载即用，30 秒进入，零门槛</li>
+            <li>7 Agent 全链路，从建档到面试完整闭环</li>
+            <li>宠物长期陪伴 + 社区 + 番茄钟</li>
+            <li>Token 用量实时可见，文件权限透明</li>
+            <li>深度接入 Boss 直聘，专为中文市场设计</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 02 背景 ══════════ -->
+    <section class="sec">
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <span class="sec-title">背景与市场机会</span>
+        <div class="sec-rule"></div>
+      </div>
+
+      <p>2025 年，中国高校毕业生达 <strong>1,222 万人</strong>，创历史新高，青年失业率在 16%—18% 高位震荡。考公报名突破 371
+        万，三条赛道的年轻人面对同一困境：信息不对称、方向不清、缺乏专业支持，而专业支持长期被高价机构垄断。</p>
+
+      <div class="data-row">
+        <div class="dc">
+          <div class="dc-num">1,222万</div>
+          <div class="dc-label">2025届毕业生<br>创历史最高纪录</div>
+        </div>
+        <div class="dc">
+          <div class="dc-num">~18%</div>
+          <div class="dc-label">青年失业率峰值<br>每5人中1人无法就业</div>
+        </div>
+        <div class="dc t">
+          <div class="dc-num">371万</div>
+          <div class="dc-label">2026国考报名人数<br>首次超过考研</div>
+        </div>
+        <div class="dc t">
+          <div class="dc-num">数千—万元</div>
+          <div class="dc-label">高价机构单次收费<br>大多数人负担不起</div>
+        </div>
+      </div>
+
+      <div class="quote">国外 AI 求职工具（Simplify / Jobright /
+        Sonara）已卷成红海，但完全不支持中文平台。国内呢？改简历的、自动投递的工具各做一块，没有人打通全链路，更没有人做长期陪伴。<strong>1,222 万毕业生，至今没有一款真正属于他们的 AI
+          求职助手。</strong></div>
+    </section>
+
+    <!-- ══════════ 03 验证 ══════════ -->
+    <section class="sec">
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <span class="sec-title">需求验证 · 市场信号</span>
+        <div class="sec-rule"></div>
+      </div>
+
+      <div class="metric-row">
+        <div class="metric">
+          <div class="metric-num">8万</div>
+          <div class="metric-lbl">单篇小红书浏览量<br>飞书多Agent求职帖</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">2,000+</div>
+          <div class="metric-lbl">真实互动<br>零付费推广</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">数百篇</div>
+          <div class="metric-lbl">全网「OpenClaw求职」<br>教程/帖子/项目</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">0款</div>
+          <div class="metric-lbl">真正做给普通人用<br>的中文求职AI产品</div>
+        </div>
+      </div>
+
+      <p>开发者本人在小红书发布「飞书上搭建多 Agent 求职系统」帖子，仅靠自然流量获得 <strong>8 万浏览、2,000+
+          互动</strong>。全网有数百个类似教程和项目，说明需求真实存在——但没有人把它做成普通人能用的产品。<strong>这个空白，就是 PawPals 的机会。</strong></p>
+    </section>
+
+    <!-- ══════════ 04 用户 ══════════ -->
+    <section class="sec">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <span class="sec-title">目标用户</span>
+        <div class="sec-rule"></div>
+      </div>
+
+      <div class="g3">
+        <div class="user-card"><span class="uc-emoji">🎓</span>
+          <div class="uc-name">应届生 / 准毕业生</div>
+          <div class="uc-desc">第一次系统求职，缺方向感，不知从哪开始，容易焦虑拖延，负担不起高价机构</div>
+        </div>
+        <div class="user-card"><span class="uc-emoji">🏛️</span>
+          <div class="uc-name">考公 / 考研备战者</div>
+          <div class="uc-desc">海量备考信息无从筛选，需要专业方向定位和持续学习陪伴，长期处于高压孤独状态</div>
+        </div>
+        <div class="user-card"><span class="uc-emoji">🌏</span>
+          <div class="uc-name">留学生 / 转型求职者</div>
+          <div class="uc-desc">信息差大，不熟悉国内招聘规则，需要快速建档精准投递，时间窗口紧迫</div>
+        </div>
+      </div>
+
+      <p style="margin-top:10px;font-size:12.5px;color:var(--light);">共同特征：<strong style="color:var(--brown);">负担不起高价机构
+          + AI 门槛感高 + 需要长期陪伴而非一次性工具。</strong></p>
+    </section>
+
+    <!-- ══════════ 05 痛点 ══════════ -->
+    <section class="sec">
+      <div class="sec-head">
+        <span class="sec-num">05</span>
+        <span class="sec-title">核心痛点</span>
+        <div class="sec-rule"></div>
+      </div>
+
+      <div class="pain-list">
+        <div class="pain">
+          <div class="pain-icon">🏦</div>
+          <div>
+            <div class="pain-title">专业支持被高价机构垄断，普通人负担不起</div>
+            <p class="pain-desc">简历一对一辅导 800—3,000 元，面试辅导 5,000 元起，考公全程规划数万元。AI 完全可以做到，但没有人做成普通人用得起的产品。</p>
+          </div>
+        </div>
+        <div class="pain">
+          <div class="pain-icon">🤖</div>
+          <div>
+            <div class="pain-title">AI 工具学习成本高，普通用户根本用不起来</div>
+            <p class="pain-desc">Coze、Dify 需要配置工作流；OpenClaw 需要命令行部署；自搭系统只有作者自己能维护。全网数百个教程，没有一个普通人能直接复现。</p>
+          </div>
+        </div>
+        <div class="pain">
+          <div class="pain-icon">🌊</div>
+          <div>
+            <div class="pain-title">信息过载，有岗位不等于有方向</div>
+            <p class="pain-desc">每天刷几百条 JD 或备考资料，不知道哪些和自己相关。简历千人一面，每次都知道「应该改改」，但改简历本身就是重体力活。</p>
+          </div>
+        </div>
+        <div class="pain">
+          <div class="pain-icon">💔</div>
+          <div>
+            <div class="pain-title">过程极度孤独，缺乏持续陪伴和情感支持</div>
+            <p class="pain-desc">连续被拒没有人分析原因，长期备考没有人一起打卡。「买完课机构消失」「工具用一次就丢」是常态——没有一个产品真正做到长期陪伴。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 06 竞品 ══════════ -->
+    <section class="sec">
+      <div class="sec-head">
+        <span class="sec-num">06</span>
+        <span class="sec-title">竞品分析</span>
+        <div class="sec-rule"></div>
+      </div>
+
+      <p style="font-size:12.5px;font-weight:700;color:var(--brown);margin-bottom:6px;">🌍 海外：AI 求职工具已是红海，但对国内用户毫无意义</p>
+      <table class="comp-table" style="margin-bottom:14px;">
+        <thead>
+          <tr>
+            <th>海外产品</th>
+            <th>核心功能</th>
+            <th>用户规模</th>
+            <th>支持中文平台</th>
+            <th>长期陪伴</th>
+            <th>情感支持</th>
+            <th>致命短板</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Simplify</strong></td>
+            <td style="color:var(--light)">ATS 自动填表</td>
+            <td>100万+</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td style="color:#c0392b">无法用于 Boss直聘/智联</td>
+          </tr>
+          <tr>
+            <td><strong>Jobright.ai</strong></td>
+            <td style="color:var(--light)">AI 岗位匹配</td>
+            <td>$29.99/月</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td style="color:#c0392b">纯美国岗位库</td>
+          </tr>
+          <tr>
+            <td><strong>Sonara / JobCopilot</strong></td>
+            <td style="color:var(--light)">全自动批量投递</td>
+            <td>订阅制</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td style="color:#c0392b">量大质差，用户数月无面试</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p style="font-size:12.5px;font-weight:700;color:var(--brown);margin-bottom:6px;">🇨🇳 国内：各做一块，没有人打通全链路</p>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>国内产品</th>
+            <th>定位</th>
+            <th>长期陪伴</th>
+            <th>职业定位/Gap</th>
+            <th>简历针对JD定制</th>
+            <th>Boss直聘投递</th>
+            <th>面试全流程</th>
+            <th>情感陪伴</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>超级简历</strong></td>
+            <td style="color:var(--light)">模板+AI润色</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td class="ok">✓</td>
+            <td class="no">✗</td>
+            <td class="so">△</td>
+            <td class="no">✗</td>
+          </tr>
+          <tr>
+            <td><strong>职徒简历</strong></td>
+            <td style="color:var(--light)">AI简历+邮件</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td class="ok">✓</td>
+            <td class="no">✗</td>
+            <td class="so">△</td>
+            <td class="no">✗</td>
+          </tr>
+          <tr>
+            <td><strong>云端职达</strong></td>
+            <td style="color:var(--light)">自动投递</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td class="so">△</td>
+            <td class="ok">✓</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+          </tr>
+          <tr>
+            <td><strong>高价机构</strong></td>
+            <td style="color:var(--light)">人工一对一</td>
+            <td class="so">△课程期</td>
+            <td class="ok">✓</td>
+            <td class="ok">✓</td>
+            <td class="no">✗</td>
+            <td class="ok">✓</td>
+            <td class="so">△</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>🐾 PawPals</strong></td>
+            <td>AI长期成长助手</td>
+            <td class="ok">✓持续</td>
+            <td class="ok">✓每日</td>
+            <td class="ok">✓每岗</td>
+            <td class="ok">✓深度</td>
+            <td class="ok">✓全程</td>
+            <td class="ok">✓宠物</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ══════════ 07 产品方案 ══════════ -->
+    <section class="sec">
+      <div class="sec-head">
+        <span class="sec-num">07</span>
+        <span class="sec-title">产品方案 · 7 位 AI 专家 + 长期成长助手</span>
+        <div class="sec-rule"></div>
+      </div>
+
+      <div class="agents">
+        <div class="ag center"><span class="ag-icon">🐾</span>
+          <div class="ag-name">首席伴学官</div>
+          <div class="ag-role">总调度 · 情绪陪伴<br>流程推进 · 意图分流</div>
+        </div>
+        <div class="ag"><span class="ag-icon">🧭</span>
+          <div class="ag-name">专业老师</div>
+          <div class="ag-role">方向定位 · JD拆解<br>每日行业资讯 · Gap分析</div>
+        </div>
+        <div class="ag"><span class="ag-icon">📝</span>
+          <div class="ag-name">简历专家</div>
+          <div class="ag-role">解析 · 优化<br>针对每个JD定制</div>
+        </div>
+        <div class="ag"><span class="ag-icon">🔍</span>
+          <div class="ag-name">岗位猎手</div>
+          <div class="ag-role">Boss直聘真实搜索<br>精准推荐 · 自动投递</div>
+        </div>
+        <div class="ag"><span class="ag-icon">📊</span>
+          <div class="ag-name">投递管家</div>
+          <div class="ag-role">进度记录 · 跟进<br>自动Follow-up</div>
+        </div>
+        <div class="ag"><span class="ag-icon">🤝</span>
+          <div class="ag-name">人脉顾问</div>
+          <div class="ag-role">找联系人<br>撰写冷邮件</div>
+        </div>
+        <div class="ag"><span class="ag-icon">🎤</span>
+          <div class="ag-name">面试教练</div>
+          <div class="ag-role">全流程模拟<br>复盘打分迭代</div>
+        </div>
+      </div>
+
+      <p style="font-size:12px;color:var(--light);margin-top:6px;margin-bottom:14px;">各 Agent 通过「共享协作表」交换状态，状态机管边界、Agent
+        管逻辑，自动推进不越权。用户全程只看到一个界面和宠物。</p>
+
+      <div class="g4">
+        <div class="growth">
+          <div class="growth-icon">📰</div>
+          <div class="growth-title">每日行业资讯</div>
+          <div class="growth-desc">专业老师每天推送行业动态与政策更新</div>
+        </div>
+        <div class="growth">
+          <div class="growth-icon">🔍</div>
+          <div class="growth-title">Gap 分析</div>
+          <div class="growth-desc">持续对比你与目标岗位的差距并给出建议</div>
+        </div>
+        <div class="growth">
+          <div class="growth-icon">📝</div>
+          <div class="growth-title">简历按岗定制</div>
+          <div class="growth-desc">每次投递都是针对该 JD 的独立版本</div>
+        </div>
+        <div class="growth">
+          <div class="growth-icon">🎤</div>
+          <div class="growth-title">面试全流程</div>
+          <div class="growth-desc">模拟→打分→复盘→再模拟，迭代闭环</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 08 交互逻辑 ══════════ -->
+    <section class="sec">
+      <div class="sec-head">
+        <span class="sec-num">08</span>
+        <span class="sec-title">交互逻辑 · 这才是真正的护城河</span>
+        <div class="sec-rule"></div>
+      </div>
+
+      <div class="quote" style="margin-bottom:16px;">多 Agent
+        本身不稀奇——难的是<strong>编排逻辑</strong>：谁在什么时机出场、怎么交棒、什么时候宠物出来安慰你而不是继续推进任务。下面展示两条线：首次 Onboarding 与日常循环。</div>
+
+      <!-- 两列并排 -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;" class="flow-grid">
+
+        <!-- 左：Onboarding -->
+        <div class="flow-wrap">
+          <span class="flow-label fl-orange">① 首次 Onboarding · 线性推进</span>
+
+          <div class="flow-step">
+            <div class="step-num sn-gray">①</div>
+            <div class="step-body sb-gray">
+              <div class="step-title">用户上线 · 给宠物起名</div>
+              <div class="step-desc">给自己的 AI 龙虾取一个名字，它就有了专属人设，从此记住你是谁，伴随你整个求职旅程。下面将用“团团”举例</div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-purple">②</div>
+            <div class="step-body sb-purple">
+              <div class="step-title">🐾 宠物 · 主动建档</div>
+              <div class="step-desc">主动引导采集 10 项关键信息：简历、求职方向、目标市场、实习类型、时间、城市……建立专属求职档案，后续所有专家都从这里了解你。</div>
+              <div class="chat-bubble">
+                <span class="sp sp-p">团团：</span>主人～先把简历发我看看吧！📄<br>
+                <span class="sp sp-t">用户：</span>[上传简历.pdf]<br>
+                <span class="sp sp-p">团团：</span>你想找 AI PM 还是相关方向也可以？<br>
+                <span class="sp sp-t">用户：</span>相关都可以，主要找美国的
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-teal">③</div>
+            <div class="step-body sb-teal">
+              <div class="step-title">🔬 技能分析师 · 定位报告</div>
+              <div class="step-desc">结合你的背景与目标方向，搜索行业信息，输出强弱分析、能力 Gap、求职时间线——相当于一份专业的职业定位咨询。</div>
+              <div class="chat-bubble">
+                <span class="sp sp-t">技能分析师：</span>✅ 强项：多模态AI产品 / agentic pipeline<br>
+                ⚠️ Gap：SQL实战、A/B testing 偏少<br>
+                📅 3月改简历 → 4月投递 → 4月中面试准备
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-teal">④</div>
+            <div class="step-body sb-teal">
+              <div class="step-title">📝 简历专家 · 优化建档</div>
+              <div class="step-desc">与技能分析师协作，一个负责内容方向，一个负责表达和格式。每一步用户确认后才执行，不替你做主。</div>
+              <div class="chat-bubble">
+                <span class="sp sp-t">简历专家：</span>评分 6.5/10，建议压缩 bullet、OpenClaw 数据提前…<br>
+                <span class="sp sp-t">用户：</span>可以，改吧 ✓
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-coral">⑤</div>
+            <div class="step-body sb-coral">
+              <div class="step-title">🔍 岗位猎手 · 首次推荐</div>
+              <div class="step-desc">根据你的档案，搜索 Boss 直聘 / LinkedIn 等平台，筛选匹配岗位推荐给你选，不会推荐你已经看过或不感兴趣的。</div>
+              <div class="chat-bubble">
+                <span class="sp sp-c">岗位猎手：</span>找到 5 个岗位～<br>
+                1️⃣ Anthropic | AI PM | $60/hr | SF/Remote<br>
+                2️⃣ Scale AI | Assoc PM | $55/hr…<br>
+                <span class="sp sp-t">用户：</span>1、4、5 都投
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-coral">⑥</div>
+            <div class="step-body sb-coral">
+              <div class="step-title">📊 投递管家 · 执行 + 监控</div>
+              <div class="step-desc">每次投递前用户确认，监控邮箱，7天无回音提醒 follow-up。</div>
+              <div class="chat-bubble">
+                <span class="sp sp-c">投递管家：</span>🎉 主人！Anthropic 发来面试邀请了！！
+              </div>
+            </div>
+          </div>
+
+          <div style="padding-left:34px;">
+            <div style="text-align:center;font-size:11px;color:var(--light);margin-bottom:4px;">↓ 分支并行</div>
+            <div class="flow-branch" style="margin-left:0;">
+              <div class="branch-box bb-pink">
+                <div class="bb-title">🤝 人脉顾问</div>
+                <div class="bb-desc">搜 HR 联系人 → 定制冷邮件 → 用户确认后发送</div>
+              </div>
+              <div class="branch-box bb-amber">
+                <div class="bb-title">🎤 面试教练</div>
+                <div class="bb-desc">宠物先恭喜 → 读 JD + 当时简历版本 → 模拟开始</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右：日常循环 -->
+        <div class="flow-wrap">
+          <span class="flow-label fl-teal">↻ 日常循环 · cron 驱动</span>
+          <div class="loop-note">Onboarding 完成后进入日常模式：<br>每天自动推送新岗位，专家们各自接力，宠物随时在旁</div>
+
+          <div class="flow-step">
+            <div class="step-num sn-coral">1</div>
+            <div class="step-body sb-coral">
+              <div class="step-title">🔍 岗位猎手 · 每日自动推送</div>
+              <div class="step-desc">每天早上自动推送新岗位，过滤掉你已看过的，只给你看新的和匹配度高的。</div>
+              <div class="chat-bubble">
+                <span class="sp sp-c">岗位猎手：</span>早上好！今天 4 个新岗位～<br>
+                1️⃣ Anthropic | AI PM | $60/hr …<br>
+                想投哪几个？
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-gray">2</div>
+            <div class="step-body sb-gray">
+              <div class="step-title">用户选择 · 宠物确认</div>
+              <div class="chat-bubble">
+                <span class="sp sp-t">用户：</span>1 和 3 投，2 不太 match<br>
+                <span class="sp sp-p">团团：</span>好！让简历专家和技能分析师开始准备～
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-teal">3</div>
+            <div class="step-body sb-teal">
+              <div class="step-title">📝 + 🔬 简历 Tailor · 双人协作</div>
+              <div class="step-desc">每个岗位生成一份独立定制版本：技能分析师先分析这个 JD 的侧重点，简历专家据此调整表达，两人互审后再给你确认。</div>
+              <div class="chat-bubble">
+                <span class="sp sp-t">技能分析师：</span>Anthropic 要强调 agentic + safety，Tumeryk 放第一条 ✅<br>
+                <span class="sp sp-t">简历专家：</span>v2.1-anthropic 评分 8.5/10，确认？<br>
+                <span class="sp sp-t">用户：</span>可以 ✅ 定稿
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-coral">4</div>
+            <div class="step-body sb-coral">
+              <div class="step-title">📊 投递管家 + 🤝 人脉顾问 · 并行</div>
+              <div class="step-desc">简历就绪后同时启动，不需要等对方完成。</div>
+              <div class="chat-bubble">
+                <span class="sp sp-c">投递管家：</span>✅ Anthropic 已投 ✅ SafetyWing 已投<br>
+                <span class="sp sp-k">人脉顾问：</span>同步找到 Sarah K.，冷邮件草稿已写好，确认？<br>
+                <span class="sp sp-t">用户：</span>可以，发 ✅
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-amber">5</div>
+            <div class="step-body sb-amber">
+              <div class="step-title">🎤 面试教练 · 收到邀请自动启动</div>
+              <div class="step-desc">检测到面试邀请，<strong>宠物第一个来恭喜你</strong>，然后面试教练根据这家公司的 JD 出题，针对你投递时用的那份简历来准备，而不是通用模板。
+              </div>
+              <div class="chat-bubble">
+                <span class="sp sp-p">团团：</span>🎉🎉 太棒了主人！Anthropic 面试来了！<br>
+                <span class="sp sp-a">面试教练：</span>Q1 [行为] Tell me about a 0-to-1 AI product launch…<br>
+                Q4 [专业] Design an eval framework for agentic AI?
+              </div>
+            </div>
+          </div>
+
+          <!-- 独立运行线 -->
+          <div
+            style="border:1px dashed rgba(31,122,113,.35);border-radius:6px;padding:10px 12px;margin-top:4px;background:var(--t-bg);">
+            <div style="font-size:11px;font-weight:700;color:var(--teal);margin-bottom:5px;">📡 每日主动推送（不需要你来问）</div>
+            <div class="chat-bubble" style="background:rgba(255,255,255,.6);">
+              <span class="sp sp-t">技能分析师：</span>📰 今日速递：Anthropic 发布新 MCP 协议——跟你面试的 tool use PM 直接相关，建议准备「如何设计 agentic
+              tool integration」的回答
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:18px;" class="quote teal">
+        7 位专家共享同一份求职上下文——每一个 Agent 接手时，都知道你是谁、在哪个阶段、之前发生了什么。这让整个体验感觉像一个团队，而不是 7 个互不相识的工具。
+      </div>
+    </section>
+
+    <!-- ══════════ 09 为什么 OpenClaw ══════════ -->
+    <section class="sec">
+      <div class="sec-head">
+        <span class="sec-num">09</span>
+        <span class="sec-title">为什么选 OpenClaw 作为底层架构</span>
+        <div class="sec-rule"></div>
+      </div>
+
+      <div class="quote teal" style="margin-bottom:16px;">OpenClaw
+        爆火，但绝大多数人只是把它当成「更聪明的聊天机器人」。它真正独特的四个能力——<strong>只有被封装进一个真正的应用里，才能发挥全部价值。</strong></div>
+
+      <div class="g2">
+        <div class="oc-box top-orange">
+          <div style="font-size:18px;margin-bottom:6px;">⏰</div>
+          <div class="oc-box-title">定时主动提醒</div>
+          <div class="oc-box-desc">7×24 小时主动干活，不需要用户召唤才出现。PawPals 用这一点实现：每天主动推送行业资讯、定时提醒跟进某个
+            offer、面试前一天主动问你准备好了吗。<strong>它不等你来，它来找你。</strong></div>
+        </div>
+        <div class="oc-box top-teal">
+          <div style="font-size:18px;margin-bottom:6px;">🧠</div>
+          <div class="oc-box-title">长期记忆 — 越用越懂你</div>
+          <div class="oc-box-desc">OpenClaw
+            原生支持长期记忆，不会每次对话后「失忆」。你告诉它不想去大厂、偏好产品岗——它永远记得。三个月后再找它，它还知道你是谁。<strong>这才是真正的「伴随成长」。</strong></div>
+        </div>
+        <div class="oc-box top-gold">
+          <div style="font-size:18px;margin-bottom:6px;">🤝</div>
+          <div class="oc-box-title">多 Agent 协作 — 架构不稀奇，交互逻辑才是核心</div>
+          <div class="oc-box-desc">OpenClaw 支持多 Agent 这件事本身不特别——Coze、Dify
+            也都支持。<strong>真正难的是：谁在什么时机出现、说什么、怎么交棒、让用户感觉不到切换。</strong>这是产品设计问题，不是技术问题。PawPals 花了大量精力设计的，正是这套编排逻辑。</div>
+        </div>
+        <div class="oc-box top-pink">
+          <div style="font-size:18px;margin-bottom:6px;">🌱</div>
+          <div class="oc-box-title">自主学习 — 你教它，它记住</div>
+          <div class="oc-box-desc">用户在对话中随时纠正它、告诉它偏好，它会写入长期记忆并调整后续行为。<strong>PawPals
+              给了你一个开箱即用的平台，但你只要跟它聊，它就在学习你这个人。</strong></div>
+        </div>
+      </div>
+
+      <div class="dark-box">
+        <div class="dark-box-emoji">🦞</div>
+        <div>
+          <div class="dark-box-title">为什么不用 Coze / Dify / 自搭 LLM 工作流？</div>
+          <div class="dark-box-text">它们都缺少 OpenClaw 最核心的东西：<strong style="color:rgba(255,255,255,.95);">持久记忆 + 主动行动 +
+              自我学习。</strong>Coze 的 Bot 每次对话都是「陌生人」，Dify 的工作流是静态的，不会因为你的偏好而改变行为。<br><br>
+            更重要的是——<strong style="color:rgba(255,255,255,.95);">多 Agent 本身不是壁垒，交互逻辑才是。</strong>任何人都可以搭 7 个
+            Agent，难的是设计出「用户完全感知不到切换」的流程：什么时候专业老师说话，什么时候让简历专家接手，什么时候宠物出来给你一个拥抱。这套编排逻辑，是 PawPals 真正的护城河。</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════ 10 总结 ══════════ -->
+    <section class="sec" style="margin-bottom:0;">
+      <div class="sec-head">
+        <span class="sec-num">10</span>
+        <span class="sec-title">一句话总结</span>
+        <div class="sec-rule"></div>
+      </div>
+
+      <div class="quote" style="font-size:14.5px;font-weight:600;line-height:2;">
+        全网有几百个「我用 OpenClaw 搭了 AI 求职系统」的帖子，但没有一个做成普通人能用的产品。PawPals 就是那个产品——7 位 AI
+        专家协作、下载即用零门槛、有温度的宠物长期陪伴、从求职到考公考研全覆盖，把过去只有高价机构才能提供的专业服务，第一次交到 1,222 万毕业生手里。
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-l">
+        开发者：邓雨蝶（Yudie Deng）&nbsp;·&nbsp; 清华大学数据传播 × USC Communication Data Science<br>
+        GitHub: github.com/salt-byte &nbsp;·&nbsp; Portfolio: salt-byte.github.io/DENG-YUDIE-NEW-PORTFOLIO
+      </div>
+      <div class="footer-r">PAWPALS · 2026<br>首届中关村北纬龙虾大赛</div>
+    </footer>
+
+  </div>
+</body>
+
+</html>

@@ -2,9 +2,9 @@
 const translations = {
     en: {
         // Nav
-        'nav-01': 'Intro', 'nav-02': 'About', 'nav-03': 'Zhipu AI',
-        'nav-04': 'Mirror', 'nav-05': 'LandIt', 'nav-06': 'USC Lab',
-        'nav-07': 'AIGC', 'nav-08': 'Connect',
+        'nav-01': 'Intro', 'nav-02': 'About', 'nav-03': 'PawPals',
+        'nav-04': 'Zhipu AI', 'nav-05': 'Mirror', 'nav-06': 'LandIt',
+        'nav-07': 'USC Lab', 'nav-08': 'AIGC', 'nav-09': 'Connect',
         // Hero
         'hero-badge': 'AI Product Manager',
         'hero-summary': 'Bridging creative media and technical AI — hands-on with agentic pipelines, generative AI, and enterprise AI safety across USC, Tsinghua, and top Chinese AI companies.',
@@ -12,8 +12,8 @@ const translations = {
         'htag-3': 'AI Safety', 'htag-4': 'Prompt Engineering',
         'hero-tl-label': 'Career Path',
         'hero-tl-hint': 'This portfolio unfolds chronologically →',
-        'tln-nm-1': 'Film Academy', 'tln-nm-2': 'Zhipu AI',
-        'tln-nm-3': 'Cinematic Mirror', 'tln-nm-4': 'USC Lab',
+        'tln-nm-1': 'Film Academy', 'tln-nm-2': 'PawPals',
+        'tln-nm-3': 'Zhipu AI', 'tln-nm-4': 'Cinematic Mirror', 'tln-nm-5': 'USC Lab',
         // About
         'about-chapter-tag': 'About',
         'apc-label-1': 'Beijing Film Academy · Graduation',
@@ -25,8 +25,22 @@ const translations = {
         'story-p-3': 'I started hands-on: training LoRA models and building AIGC pipelines at <strong>Enlight Media</strong> (the studio behind <em>Ne Zha 2</em>). Then I moved deeper into product — defining the vision for a multimodal AI companion at <strong>Zhipu AI</strong>, shipping features to 1,500+ beta testers. At Tianji Cloud, I <strong>independently built and launched </strong> an AI-native consumer app. Now at <strong>USC\'s AI Trust Lab</strong>, I\'m tackling the harder question: how do we make AI systems trustworthy enough for enterprise adoption?',
         'story-p-4': '<strong class="story-section-title">What I bring that most PM candidates don\'t:</strong> I come from a world where story, aesthetics, and audience experience are everything. Most PMs optimize for metrics. I optimize for metrics <em>and</em> for how the product feels. At USC and Tsinghua, I\'m now building the technical foundation — machine learning, deep learning, data science — so I can speak both languages fluently: the language of engineering, and the language of human experience.',
         'story-p-5': 'The thread connecting all of it: I don\'t just want to build AI products that <em>work</em> — I want to build AI products that people <em>trust, enjoy, and remember</em>.',
+        // PawPals
+        'pawpals-chapter': 'Chapter 03 — Independent Builds',
+        'pawpals-desc': 'A full-stack AI learning companion — <strong>independently built from 0 to 1</strong>. 7 specialized agents collaborate in group chat for job hunting, resume optimization, and interview prep. Shipped as Electron desktop app &amp; cloud deployment.',
+        'pstat-agents': 'AI Agents', 'pstat-groups': 'Study Groups',
+        'pstat-models': 'LLM Providers', 'pstat-stack': 'Stack',
+        'pawpals-rp-header': 'Architecture &amp; Features',
+        'pawpals-phase-1-title': 'Multi-Agent Group Chat',
+        'pawpals-phase-1-content': '<ul><li>7 specialized AI agents (Career Planner, Job Hunter, Resume Expert, Interview Coach, App Tracker, Networker, Skill Mentor) collaborate via group chat</li><li>Keyword routing, @-mention routing, and chain-of-agent orchestration</li><li>Streaming output with real-time typewriter effect</li></ul>',
+        'pawpals-phase-2-title': 'Full-Stack Architecture',
+        'pawpals-phase-2-content': '<ul><li><strong>Frontend:</strong> React 19 + Vite + Tailwind CSS + Motion animations</li><li><strong>Backend:</strong> Express + Socket.IO real-time communication</li><li><strong>Desktop:</strong> Electron app (macOS) with isolated runtime</li><li><strong>Cloud:</strong> Railway / Docker deployment with persistent volumes</li></ul>',
+        'pawpals-phase-3-title': 'Smart Features',
+        'pawpals-phase-3-content': '<ul><li>Resume parsing (PDF/Word) &amp; tailored resume generation</li><li>Job search integration with Boss直聘 auto-apply</li><li>Multi-model switching (Claude, Gemini, GPT, GLM, Doubao, MiniMax)</li><li>Data backup with snapshot versioning &amp; ZIP export</li></ul>',
+        'pawpals-phase-4-title': 'Security &amp; Reliability',
+        'pawpals-phase-4-content': '<ul><li>Login rate limiting with exponential backoff</li><li>PIN protection &amp; SHA-256 API key storage</li><li>Gateway watchdog with auto-recovery</li><li>9-phase personalized onboarding flow</li></ul>',
         // Zhipu
-        'zhipu-chapter': 'Chapter 03 — AI Life',
+        'zhipu-chapter': 'Chapter 04 — AI Life',
         'zhipu-desc': 'World\'s first multimodal AI companion &amp; social platform — shipped to internal beta with <strong>1500+ testers</strong> and showcased at <strong>WAIC 2025</strong>.',
         'zstat-testers': 'Beta Testers', 'zstat-genrate': 'Gen Success Rate',
         'zstat-stability': 'Video Stability', 'zstat-engineers': 'Engineers',
@@ -47,7 +61,7 @@ const translations = {
         'zhipu-phase-5-title': 'Product Process &amp; Review',
         'zhipu-phase-5-content': '<ul><li>MVP planning: prioritized Photo Awakening + Companionship for Phase 1; Cloud Travel / Icebreaker / Roaming for Phase 2</li><li>Contributed to demo IA, key interactions, and usability design</li><li>Ran feature walkthroughs, captured usability &amp; stability feedback, drove iteration backlog</li></ul>',
         // Mirror
-        'mirror-chapter': 'Chapter 04 — Independent Builds',
+        'mirror-chapter': 'Chapter 05 — Independent Builds',
         'mirror-title': 'Cinematic Mirror Agent',
         'mirror-desc': 'A personality-first styling system — not a trend engine. Built to help users dress <em>authentically</em>, not algorithmically.',
         'mirror-prob-1': '<strong>Homogenized recommendations</strong> — algorithms optimize for trends, not individuality.',
@@ -68,7 +82,7 @@ const translations = {
         'mirror-tradeoff-title': 'Tradeoffs',
         'mirror-tradeoff-content': '<ul><li><strong>Personality modeling</strong> adds complexity → creates defensibility &amp; long-term engagement</li><li><strong>Live video inference</strong> raises infra cost → enables premium pricing &amp; trust</li><li><strong>CV accuracy limits</strong> → prioritize silhouette logic &amp; aesthetic coherence over garment recognition</li><li><strong>Positioning risk</strong> → interface must deliver wearable suggestions, not just cinematic framing</li></ul>',
         // LandIt
-        'landit-chapter': 'Chapter 05 — Independent Builds',
+        'landit-chapter': 'Chapter 06 — Independent Builds',
         'landit-title': 'LandIt',
         'landit-desc': 'A preparation system, not a question generator — structured role-specific training that improves candidates across an entire interview cycle.',
         'landit-prob-1': '<strong>Fragmented prep</strong> — resume, research, questions, advice all disconnected. No system.',
@@ -81,12 +95,12 @@ const translations = {
         'landit-tradeoff-title': 'Tradeoffs',
         'landit-tradeoff-content': '<ul><li><strong>Deep personalization</strong> → modular agents + clean data flows to avoid brittle chains</li><li><strong>Adaptive orchestration</strong> → balance realism with response speed</li><li><strong>Video analysis deferred</strong> → prioritize structured text scoring in MVP</li><li><strong>Positioning risk</strong> → must emphasize growth, not just another mock tool</li></ul>',
         // USC Lab
-        'usc-chapter': 'Chapter 06 — The Pursuit of Trust',
+        'usc-chapter': 'Chapter 07 — The Pursuit of Trust',
         'usc-title': 'USC AI Trust Lab',
         'usc-desc': 'Contributing to the AI Trust Score™ — a B2B platform assessing safety risks in multi-agent pipelines. <a href="https://tumeryk.com/" target="_blank" class="usc-site-link">Visit Tumeryk.com →</a>',
         'usc-card': '<h4>Research Focus</h4><ul><li>Redesigned risk taxonomy: <strong>9 technical categories → 7 principle-based dimensions</strong> for enterprise interpretability</li><li>Evaluated <strong>5+ red-teaming frameworks</strong> — Microsoft PyRIT, NVIDIA Garak — mapped to redesigned taxonomy</li><li>Aligned with NIST AI RMF &amp; EU AI Act compliance needs</li><li>Bridging USC communication lens: enabling enterprise clients to map trust assessments to AI procurement decisions</li></ul>',
         // AIGC
-        'aigc-chapter': 'Chapter 07 — Creative Foundations',
+        'aigc-chapter': 'Chapter 08 — Creative Foundations',
         'aigc-title': 'AIGC Works',
         'aigc-desc': 'The technical foundation beneath the product work — LoRA training, multimodal generation, and cinematic AI at Enlight Media.',
         'aigc-card-1': '<h4>Key Contributions</h4><ul><li>Trained custom LoRA models for character consistency</li><li>Text-to-video workflows: Runway, Sora, Kling</li><li>Nominated for BFA Animation Awards — <em>Writing Pen</em></li><li>Visual style transfer across genres</li></ul>',
@@ -108,9 +122,9 @@ const translations = {
     },
     zh: {
         // Nav
-        'nav-01': '简介', 'nav-02': '关于我', 'nav-03': '智谱华章',
-        'nav-04': '影中镜', 'nav-05': 'LandIt', 'nav-06': '南加实验室',
-        'nav-07': 'AIGC作品', 'nav-08': '联系我',
+        'nav-01': '简介', 'nav-02': '关于我', 'nav-03': '萌爪伴学',
+        'nav-04': '智谱华章', 'nav-05': '影中镜', 'nav-06': 'LandIt',
+        'nav-07': '南加实验室', 'nav-08': 'AIGC作品', 'nav-09': '联系我',
         // Hero
         'hero-badge': 'AI产品经理',
         'hero-summary': '连接创意媒体与前沿AI技术 — 深度参与智能体流水线、生成式AI产品与企业AI安全，跨越北电、清华、南加大与中国头部AI公司。',
@@ -118,8 +132,8 @@ const translations = {
         'htag-3': 'AI安全', 'htag-4': '提示工程',
         'hero-tl-label': '职业路径',
         'hero-tl-hint': '本作品集按时间顺序展开 →',
-        'tln-nm-1': '北京电影学院', 'tln-nm-2': '智谱华章',
-        'tln-nm-3': '电影镜像', 'tln-nm-4': '南加实验室',
+        'tln-nm-1': '北京电影学院', 'tln-nm-2': '萌爪伴学',
+        'tln-nm-3': '智谱华章', 'tln-nm-4': '影中镜', 'tln-nm-5': '南加实验室',
         // About
         'about-chapter-tag': '关于我',
         'apc-label-1': '北京电影学院 · 毕业典礼',
@@ -131,8 +145,22 @@ const translations = {
         'story-p-3': '我从动手实践开始：在<strong>光线传媒</strong>（《哪吒2》出品方）训练LoRA模型、搭建AIGC流水线。随后深入产品 — 在<strong>智谱华章</strong>定义多模态AI伴侣产品的核心愿景，将功能推向1500+内测用户。后来，我<strong>独立构建并上线了</strong>一款AI原生消费级应用。如今在<strong>南加州大学AI信任实验室</strong>，我在追问更难的问题：如何让AI系统可信到足以支撑企业级采用？',
         'story-p-4': '<strong class="story-section-title">我能带来大多数PM候选人没有的东西：</strong> 我来自一个以故事、美学与受众体验为核心的世界。大多数PM优化指标。我在优化指标<em>的同时</em>，也优化产品的感受。在南加大和清华，我正在构建技术基础 — 机器学习、深度学习、数据科学 — 让自己能流利地说两种语言：工程的语言，以及人类体验的语言。',
         'story-p-5': '贯穿始终的逻辑：我不只想构建<em>有效</em>的AI产品 — 我想构建人们愿意<em>信任、享受和铭记</em>的AI产品。',
+        // PawPals
+        'pawpals-chapter': '第三章 — 独立产品',
+        'pawpals-desc': '全栈AI伴学助手 — <strong>独立从0到1完成</strong>。7个专项AI智能体通过群聊协作，覆盖求职、简历优化、面试备战。已交付Electron桌面应用 &amp; 云端部署。',
+        'pstat-agents': 'AI智能体', 'pstat-groups': '学习群',
+        'pstat-models': '模型提供商', 'pstat-stack': '全栈',
+        'pawpals-rp-header': '架构 &amp; 功能',
+        'pawpals-phase-1-title': '多智能体群聊',
+        'pawpals-phase-1-content': '<ul><li>7个专项AI智能体（职业规划师、岗位猎手、简历专家、面试教练、投递管家、人脉顾问、技能成长师）通过群聊协作</li><li>关键词路由、@提及路由、链式智能体编排</li><li>流式输出，实时打字机效果</li></ul>',
+        'pawpals-phase-2-title': '全栈架构',
+        'pawpals-phase-2-content': '<ul><li><strong>前端：</strong>React 19 + Vite + Tailwind CSS + Motion动画</li><li><strong>后端：</strong>Express + Socket.IO实时通信</li><li><strong>桌面端：</strong>Electron应用（macOS），独立运行时</li><li><strong>云端：</strong>Railway / Docker部署，持久化存储</li></ul>',
+        'pawpals-phase-3-title': '智能功能',
+        'pawpals-phase-3-content': '<ul><li>简历解析（PDF/Word）&amp; 定制化简历生成</li><li>岗位搜索集成，Boss直聘自动投递</li><li>多模型切换（Claude、Gemini、GPT、GLM、豆包、MiniMax）</li><li>数据备份，快照版本历史 &amp; ZIP导出</li></ul>',
+        'pawpals-phase-4-title': '安全 &amp; 可靠性',
+        'pawpals-phase-4-content': '<ul><li>登录限流，指数退避暴力破解保护</li><li>PIN保护 &amp; SHA-256 API Key存储</li><li>网关Watchdog，崩溃自动恢复</li><li>9阶段个性化引导流程</li></ul>',
         // Zhipu
-        'zhipu-chapter': '第三章 — AI生命',
+        'zhipu-chapter': '第四章 — AI生命',
         'zhipu-desc': '全球首个多模态AI伴侣与社交平台 — 内测用户突破<strong>1500+</strong>，并在<strong>WAIC 2025</strong>世界人工智能大会亮相。',
         'zstat-testers': '内测用户', 'zstat-genrate': '生成成功率',
         'zstat-stability': '视频稳定性', 'zstat-engineers': '协作工程师',
@@ -153,7 +181,7 @@ const translations = {
         'zhipu-phase-5-title': '产品流程 &amp; 评审',
         'zhipu-phase-5-content': '<ul><li>MVP规划：Phase 1优先落地照片唤醒+陪伴；Phase 2排期云端旅行/破冰/漫游</li><li>参与Demo信息架构、核心交互与可用性设计</li><li>主持功能走查，收集可用性与稳定性反馈，推进迭代Backlog</li></ul>',
         // Mirror
-        'mirror-chapter': '第四章 — 独立产品',
+        'mirror-chapter': '第五章 — 独立产品',
         'mirror-title': '影中镜',
         'mirror-desc': '以个性为核心的穿搭系统 — 而非趋势引擎。帮助用户以<em>真实自我</em>而非算法逻辑穿搭。',
         'mirror-prob-1': '<strong>同质化推荐</strong> — 算法优化的是趋势，而非个性。',
@@ -174,7 +202,7 @@ const translations = {
         'mirror-tradeoff-title': '权衡',
         'mirror-tradeoff-content': '<ul><li><strong>人格建模</strong>增加复杂性 → 形成壁垒与长期粘性</li><li><strong>实时视频推理</strong>提高基础设施成本 → 支撑高端定价与信任感</li><li><strong>CV精度限制</strong> → 优先廓形逻辑与美学一致性，而非服装识别</li><li><strong>定位风险</strong> → 界面必须提供可穿着的建议，而非纯电影化框架</li></ul>',
         // LandIt
-        'landit-chapter': '第五章 — 独立产品',
+        'landit-chapter': '第六章 — 独立产品',
         'landit-title': 'LandIt',
         'landit-desc': '一套备考系统，而非题库 — 针对特定岗位的结构化训练，贯穿整个面试周期。',
         'landit-prob-1': '<strong>碎片化备考</strong> — 简历、调研、题目、建议各自独立，毫无系统。',
@@ -187,12 +215,12 @@ const translations = {
         'landit-tradeoff-title': '权衡',
         'landit-tradeoff-content': '<ul><li><strong>深度个性化</strong> → 模块化智能体 + 清晰数据流，避免脆弱链路</li><li><strong>自适应编排</strong> → 在真实感与响应速度间取得平衡</li><li><strong>视频分析延后</strong> → MVP优先落地结构化文本评分</li><li><strong>定位风险</strong> → 必须强调成长性，而非又一款模拟工具</li></ul>',
         // USC Lab
-        'usc-chapter': '第六章 — 信任的追求',
+        'usc-chapter': '第七章 — 信任的追求',
         'usc-title': 'USC AI信任实验室',
         'usc-desc': '参与构建AI信任评分™ — 一个评估多智能体流水线安全风险的B2B平台。<a href="https://tumeryk.com/" target="_blank" class="usc-site-link">访问 Tumeryk.com →</a>',
         'usc-card': '<h4>研究方向</h4><ul><li>重构风险分类体系：<strong>9个技术类别 → 7个原则性维度</strong>，提升企业客户可解释性</li><li>评估<strong>5+ 红队测试框架</strong> — Microsoft PyRIT、NVIDIA Garak — 与新分类体系的映射</li><li>对齐NIST AI RMF与EU AI Act合规需求</li><li>引入USC传播学视角：帮助企业客户将信任评估与AI采购决策直接挂钩</li></ul>',
         // AIGC
-        'aigc-chapter': '第七章 — 创意基础',
+        'aigc-chapter': '第八章 — 创意基础',
         'aigc-title': 'AIGC作品',
         'aigc-desc': '产品工作背后的技术基础 — LoRA训练、多模态生成，以及在光线传媒的电影级AI实践。',
         'aigc-card-1': '<h4>核心贡献</h4><ul><li>训练自定义LoRA模型保障角色一致性</li><li>文生视频工作流：Runway、Sora、可灵</li><li>入围北京电影学院动画节 — <em>《写字的笔》</em></li><li>跨风格视觉迁移</li></ul>',
@@ -334,14 +362,25 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ── Zhipu idle reel (CSS crossfade, no Swiper) ───────────
-    const reelImgs = document.querySelectorAll('.phone-reel-img');
-    if (reelImgs.length) {
+    const zhipuReelImgs = document.querySelectorAll('.phone-img-reel:not(.pawpals-reel) .phone-reel-img');
+    if (zhipuReelImgs.length) {
         let reelIdx = 0;
         setInterval(() => {
-            reelImgs[reelIdx].classList.remove('active');
-            reelIdx = (reelIdx + 1) % reelImgs.length;
-            reelImgs[reelIdx].classList.add('active');
+            zhipuReelImgs[reelIdx].classList.remove('active');
+            reelIdx = (reelIdx + 1) % zhipuReelImgs.length;
+            zhipuReelImgs[reelIdx].classList.add('active');
         }, 2600);
+    }
+
+    // ── PawPals avatar reel ────────────────────────────────
+    const pawpalsReelImgs = document.querySelectorAll('.pawpals-reel .pawpals-reel-img');
+    if (pawpalsReelImgs.length) {
+        let ppIdx = 0;
+        setInterval(() => {
+            pawpalsReelImgs[ppIdx].classList.remove('active');
+            ppIdx = (ppIdx + 1) % pawpalsReelImgs.length;
+            pawpalsReelImgs[ppIdx].classList.add('active');
+        }, 2800);
     }
 
     // ── Zhipu GIF demos (phone mockup) ───────────────────────
