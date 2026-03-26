@@ -251,6 +251,10 @@ function applyLanguage(lang) {
         if (t[key] !== undefined) el.innerHTML = t[key];
     });
     currentLang = lang;
+    // Notify iframes of language change
+    document.querySelectorAll('iframe').forEach(f => {
+        try { f.contentWindow.postMessage({ type: 'lang', lang }, '*'); } catch(e) {}
+    });
     const btn = document.getElementById('langToggle');
     if (btn) {
         btn.textContent = lang === 'en' ? '中文' : 'EN';

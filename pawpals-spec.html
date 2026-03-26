@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" class="lang-en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PawPals 萌爪伴学 · 项目说明书</title>
+  <title>PawPals · Project Specification</title>
   <style>
     * {
       margin: 0;
@@ -1071,7 +1071,6 @@
         box-shadow: none;
       }
 
-      /* 所有「框框」都不允许内部切页 */
       .diff-card,
       .oc-box,
       .tech-box,
@@ -1095,7 +1094,6 @@
         page-break-inside: avoid;
       }
 
-      /* 整块区域尽量不拆，拆了也在块前分页而不是块中间 */
       .sec {
         break-inside: avoid;
         page-break-inside: avoid;
@@ -1136,7 +1134,6 @@
         page-break-inside: avoid;
       }
 
-      /* 竞品表太长允许在行之间切，但不允许在单元格内切 */
       .comp-table {
         break-inside: auto;
       }
@@ -1151,23 +1148,55 @@
         page-break-inside: avoid;
       }
 
-      /* 流程图两列整体尽量不拆 */
       .flow-grid {
         break-inside: avoid;
         page-break-inside: avoid;
       }
 
-      /* 分页前留空白，视觉更干净 */
       .sec {
         margin-bottom: 24px;
       }
 
-      /* 隐藏不需要打印的东西 */
       a {
         text-decoration: none;
         color: inherit;
       }
     }
+
+    /* ══ Bilingual toggle ══ */
+    .lang-en .zh { display: none !important; }
+    .lang-en .en { display: inline; }
+    .lang-zh .en { display: none !important; }
+    .lang-zh .zh { display: inline; }
+    /* Block-level bilingual elements */
+    .lang-en p.zh, .lang-en div.zh, .lang-en ul.zh, .lang-en li.zh,
+    .lang-en tr.zh, .lang-en td.zh, .lang-en th.zh, .lang-en table.zh,
+    .lang-en thead.zh, .lang-en tbody.zh { display: none !important; }
+    .lang-zh p.en, .lang-zh div.en, .lang-zh ul.en, .lang-zh li.en,
+    .lang-zh tr.en, .lang-zh td.en, .lang-zh th.en, .lang-zh table.en,
+    .lang-zh thead.en, .lang-zh tbody.en { display: none !important; }
+    .lang-en p.en, .lang-en div.en { display: block; }
+    .lang-zh p.zh, .lang-zh div.zh { display: block; }
+    .lang-en .data-row.en, .lang-zh .data-row.zh { display: flex; }
+    .lang-en .data-row.zh, .lang-zh .data-row.en { display: none !important; }
+    .lang-en .metric-row.en, .lang-zh .metric-row.zh { display: flex; }
+    .lang-en .metric-row.zh, .lang-zh .metric-row.en { display: none !important; }
+    .lang-en .pain-list.en, .lang-zh .pain-list.zh { display: flex; }
+    .lang-en .pain-list.zh, .lang-zh .pain-list.en { display: none !important; }
+    .lang-en .vs-wrap.en, .lang-zh .vs-wrap.zh { display: grid; }
+    .lang-en .vs-wrap.zh, .lang-zh .vs-wrap.en { display: none !important; }
+    .lang-en .agents.en, .lang-zh .agents.zh { display: grid; }
+    .lang-en .agents.zh, .lang-zh .agents.en { display: none !important; }
+    .lang-en .g2.en, .lang-zh .g2.zh { display: grid; }
+    .lang-en .g2.zh, .lang-zh .g2.en { display: none !important; }
+    .lang-en .g3.en, .lang-zh .g3.zh { display: grid; }
+    .lang-en .g3.zh, .lang-zh .g3.en { display: none !important; }
+    .lang-en .g4.en, .lang-zh .g4.zh { display: grid; }
+    .lang-en .g4.zh, .lang-zh .g4.en { display: none !important; }
+    .lang-en table.en, .lang-zh table.zh { display: table; }
+    .lang-en table.zh, .lang-zh table.en { display: none !important; }
+    .lang-en .flow-wrap.en, .lang-zh .flow-wrap.zh { display: block; }
+    .lang-en .flow-wrap.zh, .lang-zh .flow-wrap.en { display: none !important; }
   </style>
 </head>
 
@@ -1177,38 +1206,77 @@
     <!-- ══════════ HEADER ══════════ -->
     <header class="header">
       <div class="h-left">
-        <div class="doc-meta">项目说明书 · Project Specification · 2026</div>
-        <div class="proj-name">🐾 PawPals <em>萌爪伴学</em></div>
-        <div class="proj-tag">伴随你成长的 AI 助手 — 求职 · 考公 · 考研，从建档到上岸全程陪跑</div>
+        <div class="doc-meta"><span class="en">Project Specification · 2026</span><span class="zh">项目说明书 · Project Specification · 2026</span></div>
+        <div class="proj-name">🐾 PawPals <em><span class="en">Your AI Growth Companion</span><span class="zh">萌爪伴学</span></em></div>
+        <div class="proj-tag"><span class="en">The AI assistant that grows with you — Job Search · Civil Service Exam · Grad School, from profile to offer</span><span class="zh">伴随你成长的 AI 助手 — 求职 · 考公 · 考研，从建档到上岸全程陪跑</span></div>
       </div>
       <div class="h-right">
-        <span class="badge">首届中关村北纬龙虾大赛</span>
+        <span class="badge"><span class="en">1st Zhongguancun North Latitude Lobster Competition</span><span class="zh">首届中关村北纬龙虾大赛</span></span>
         <span class="track">⚡ PRODUCTIVITY LOBSTER</span>
-        <div class="author">邓雨蝶（Yudie Deng）· 清华大学 × USC</div>
+        <div class="author"><span class="en">Yudie Deng · Tsinghua University × USC</span><span class="zh">邓雨蝶（Yudie Deng）· 清华大学 × USC</span></div>
       </div>
     </header>
 
     <!-- ══════════ HERO ══════════ -->
     <div class="hero">
-      <div class="hero-label">核心洞见 · Core Insight</div>
-      <div class="hero-text">
+      <div class="hero-label"><span class="en">Core Insight</span><span class="zh">核心洞见 · Core Insight</span></div>
+      <div class="hero-text en">
+        There are hundreds of posts on Xiaohongshu (RED) saying "I built an AI job-hunting system with OpenClaw,"<br>
+        and dozens of tutorials on Bilibili — but they were all made by developers for themselves.<br>
+        Hand it to anyone else, and it falls apart.
+      </div>
+      <div class="hero-text zh">
         小红书上有几百篇「我用 OpenClaw 搭了一套 AI 求职系统」的帖子，<br>
         B站有几十个教程——但它们全部是程序员做给自己的，<br>
         换一个人，就跑不起来了。
       </div>
-      <p class="hero-sub">真正的难题从来不是「AI 能不能做到」，而是「怎么让完全不懂技术的 1222 万毕业生也能用起来」。<br>
+      <p class="hero-sub en">The real challenge was never "can AI do this?" but "how do you make it usable for 12.22 million graduates who have zero technical background?"<br>
+        This is the fundamental difference between PawPals and every other attempt — <strong style="color:rgba(255,255,255,.92);">we're building a product, not an experiment.</strong></p>
+      <p class="hero-sub zh">真正的难题从来不是「AI 能不能做到」，而是「怎么让完全不懂技术的 1222 万毕业生也能用起来」。<br>
         这是 PawPals 和所有同类尝试最本质的区别——<strong style="color:rgba(255,255,255,.92);">我们做的是一个产品，不是一个实验。</strong></p>
     </div>
 
-    <!-- ══════════ 01 四大差异 ══════════ -->
+    <!-- ══════════ 01 Four Key Differentiators ══════════ -->
     <section class="sec">
       <div class="sec-head">
         <span class="sec-num">01</span>
-        <span class="sec-title">四大核心差异 · 为什么是 PawPals</span>
+        <span class="sec-title"><span class="en">Four Key Differentiators · Why PawPals</span><span class="zh">四大核心差异 · 为什么是 PawPals</span></span>
         <div class="sec-rule"></div>
       </div>
 
-      <div class="g2">
+      <!-- English cards -->
+      <div class="g2 en">
+        <div class="diff-card c-teal">
+          <span class="card-icon">🔗</span>
+          <div class="card-tag tag-teal">End-to-End Automation</div>
+          <div class="card-title">From Profile to Offer<br>Fully Automated, One System</div>
+          <div class="card-desc">Career positioning → Gap analysis → Resume auto-tailored per JD → Real Boss Zhipin search → One-click apply → Progress tracking →
+            Full interview simulation & review. Not a point solution — it's a <strong>complete job search operating system</strong> — every step stays within PawPals. This is the comprehensiveness of premium agencies, without the premium price tag.</div>
+        </div>
+        <div class="diff-card c-orange">
+          <span class="card-icon">🦞</span>
+          <div class="card-tag tag-orange">Zero-Barrier Setup</div>
+          <div class="card-title">One-Click Deploy<br>No Queues, No Fees</div>
+          <div class="card-desc">Thousands queuing outside Tencent's Shenzhen HQ, setup services charging 300–1,500 yuan, JD.com listing the official install at 399 yuan — all solved by one automated script. Configuration only requires your model API Key; URLs are pre-configured, and "Get Key" links directly to the official console. <strong>If you can use WeChat, you can use PawPals.</strong></div>
+        </div>
+        <div class="diff-card c-pink">
+          <span class="card-icon">🐾</span>
+          <div class="card-tag tag-pink">Emotional Companion + Community</div>
+          <div class="card-title">Pet · Study Room · Community<br>You're Not Alone in This</div>
+          <div class="card-desc">Upload your own cat, dog, figurine, or favorite celebrity to create a custom persona. When you get rejected, it comforts you; when you stall, it nudges you; when you land an interview, it's the first to congratulate you. Use it well and you can even <strong>buy skins for your lobster</strong>.<br><br>It also includes a built-in <strong>companion community</strong> (check-ins / interactions /
+            anonymous venting) + <strong>Pomodoro study room</strong>, turning high-pressure exam prep and job hunting into a routine with rhythm and warmth — people on all three tracks (job search, civil service exam, grad school) finally have a shared space.</div>
+        </div>
+        <div class="diff-card c-gold">
+          <span class="card-icon">🔐</span>
+          <div class="card-tag tag-gold">Transparent & Secure</div>
+          <div class="card-title">See Exactly What You Spend<br>Your Files Are Yours Alone</div>
+          <div class="card-desc">The biggest pain point for OpenClaw users: Token spending is opaque — you wake up to an overdue notice. PawPals
+            shows real-time usage per conversation and monthly totals, so you always know what you've spent.<br><br>File permissions are equally clear: the resume you upload is readable only by you. <strong>Secure and transparent, zero burden on everyday users</strong> — all settings are pre-configured by default, and all users perceive is: use it with confidence.</div>
+        </div>
+      </div>
+
+      <!-- Chinese cards -->
+      <div class="g2 zh">
         <div class="diff-card c-teal">
           <span class="card-icon">🔗</span>
           <div class="card-tag tag-teal">自动化闭环</div>
@@ -1216,7 +1284,6 @@
           <div class="card-desc">职业定位 → Gap 分析 → 简历针对每个 JD 自动定制 → Boss 直聘真实搜索 → 一键投递 → 进度跟进 →
             面试全流程模拟复盘。不是单点工具，是<strong>完整的求职操盘系统</strong>——每一步都不需要离开 PawPals 自己想办法。这是高价机构服务的完整性，但不是机构的价格。</div>
         </div>
-
         <div class="diff-card c-orange">
           <span class="card-icon">🦞</span>
           <div class="card-tag tag-orange">零门槛部署</div>
@@ -1224,7 +1291,6 @@
           <div class="card-desc">腾讯深圳楼下千人排队、代装服务 300—1500 元、京东上架 399 元官方安装——这些问题全被一个自动化脚本解决了。配置只需填入模型 API Key，URL
             已预置完毕，「点击获取 Key」直接跳转官方控制台。<strong>会用微信，就能用 PawPals。</strong></div>
         </div>
-
         <div class="diff-card c-pink">
           <span class="card-icon">🐾</span>
           <div class="card-tag tag-pink">治愈陪伴 + 社区</div>
@@ -1233,19 +1299,42 @@
             第一个恭喜你。用好了还能<strong>给小龙虾买皮肤</strong>。<br><br>同时内置<strong>陪伴社区</strong>（打卡 / 互动 /
             匿名吐槽）+<strong>番茄钟自习室</strong>，把高压备考 / 求职变成有节奏、有温度的日常——考公考研求职三条赛道的人，终于有了一个共同的地方。</div>
         </div>
-
         <div class="diff-card c-gold">
           <span class="card-icon">🔐</span>
           <div class="card-tag tag-gold">透明安全</div>
           <div class="card-title">看清楚花了多少<br>文件只有你能读</div>
           <div class="card-desc">OpenClaw 最大用户痛点：Token 消耗不透明，一觉醒来欠费通知。PawPals
-            实时展示每次对话用量与月累计，随时知道自己花了多少。<br><br>文件权限同样清晰：你上传的简历，只有你有权读取。<strong>安全透明，对普通用户零负担</strong>——所有设定已默认处理好，用户感知到的只有：放心用。
-          </div>
+            实时展示每次对话用量与月累计，随时知道自己花了多少。<br><br>文件权限同样清晰：你上传的简历，只有你有权读取。<strong>安全透明，对普通用户零负担</strong>——所有设定已默认处理好，用户感知到的只有：放心用。</div>
         </div>
       </div>
 
-      <!-- VS 对比 -->
-      <div class="vs-wrap">
+      <!-- VS Comparison EN -->
+      <div class="vs-wrap en">
+        <div class="vs-col vs-bad">
+          <div class="vs-head">❌ Problems with All Existing Solutions</div>
+          <ul>
+            <li>High deployment barrier — breaks when someone else tries it</li>
+            <li>Only solves one step; users piece together the rest</li>
+            <li>No emotional support — use it and leave</li>
+            <li>Token spending is opaque — you only know the cost after it's spent</li>
+            <li>Foreign tools don't support Chinese platforms; domestic tools don't cover the full pipeline</li>
+          </ul>
+        </div>
+        <div class="vs-mid">→</div>
+        <div class="vs-col vs-good">
+          <div class="vs-head">✅ How PawPals Solves This</div>
+          <ul>
+            <li>Download and go — 30 seconds to start, zero barrier</li>
+            <li>7-Agent full pipeline, from profile to interview</li>
+            <li>Long-term pet companion + community + Pomodoro timer</li>
+            <li>Real-time Token usage visibility, transparent file permissions</li>
+            <li>Deep Boss Zhipin integration, purpose-built for the Chinese market</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- VS Comparison ZH -->
+      <div class="vs-wrap zh">
         <div class="vs-col vs-bad">
           <div class="vs-head">❌ 现有所有方案的问题</div>
           <ul>
@@ -1270,18 +1359,38 @@
       </div>
     </section>
 
-    <!-- ══════════ 02 背景 ══════════ -->
+    <!-- ══════════ 02 Background ══════════ -->
     <section class="sec">
       <div class="sec-head">
         <span class="sec-num">02</span>
-        <span class="sec-title">背景与市场机会</span>
+        <span class="sec-title"><span class="en">Background & Market Opportunity</span><span class="zh">背景与市场机会</span></span>
         <div class="sec-rule"></div>
       </div>
 
-      <p>2025 年，中国高校毕业生达 <strong>1,222 万人</strong>，创历史新高，青年失业率在 16%—18% 高位震荡。考公报名突破 371
+      <p class="en">In 2025, China's college graduates reached <strong>12.22 million</strong>, an all-time high, with youth unemployment hovering between 16%–18%. Civil service exam registrations surpassed 3.71 million. Young people across all three tracks face the same predicament: information asymmetry, unclear direction, and lack of professional support — while that support remains monopolized by expensive agencies.</p>
+      <p class="zh">2025 年，中国高校毕业生达 <strong>1,222 万人</strong>，创历史新高，青年失业率在 16%—18% 高位震荡。考公报名突破 371
         万，三条赛道的年轻人面对同一困境：信息不对称、方向不清、缺乏专业支持，而专业支持长期被高价机构垄断。</p>
 
-      <div class="data-row">
+      <div class="data-row en">
+        <div class="dc">
+          <div class="dc-num">12.22M</div>
+          <div class="dc-label">2025 Graduates<br>All-time record high</div>
+        </div>
+        <div class="dc">
+          <div class="dc-num">~18%</div>
+          <div class="dc-label">Peak youth unemployment<br>1 in 5 unable to find work</div>
+        </div>
+        <div class="dc t">
+          <div class="dc-num">3.71M</div>
+          <div class="dc-label">2026 civil service exam applicants<br>Surpassed grad school for the first time</div>
+        </div>
+        <div class="dc t">
+          <div class="dc-num">$1K–10K+</div>
+          <div class="dc-label">Premium agency fees per engagement<br>Unaffordable for most</div>
+        </div>
+      </div>
+
+      <div class="data-row zh">
         <div class="dc">
           <div class="dc-num">1,222万</div>
           <div class="dc-label">2025届毕业生<br>创历史最高纪录</div>
@@ -1300,20 +1409,41 @@
         </div>
       </div>
 
-      <div class="quote">国外 AI 求职工具（Simplify / Jobright /
+      <div class="quote en">International AI job-hunting tools (Simplify / Jobright /
+        Sonara) are already a red ocean, but they don't support Chinese platforms at all. Domestically? Resume polishers, auto-apply bots — each does one piece, nobody connects the full pipeline, and nobody does long-term companionship. <strong>12.22 million graduates still don't have a single AI job-hunting assistant that's truly built for them.</strong></div>
+      <div class="quote zh">国外 AI 求职工具（Simplify / Jobright /
         Sonara）已卷成红海，但完全不支持中文平台。国内呢？改简历的、自动投递的工具各做一块，没有人打通全链路，更没有人做长期陪伴。<strong>1,222 万毕业生，至今没有一款真正属于他们的 AI
           求职助手。</strong></div>
     </section>
 
-    <!-- ══════════ 03 验证 ══════════ -->
+    <!-- ══════════ 03 Validation ══════════ -->
     <section class="sec">
       <div class="sec-head">
         <span class="sec-num">03</span>
-        <span class="sec-title">需求验证 · 市场信号</span>
+        <span class="sec-title"><span class="en">Demand Validation · Market Signals</span><span class="zh">需求验证 · 市场信号</span></span>
         <div class="sec-rule"></div>
       </div>
 
-      <div class="metric-row">
+      <div class="metric-row en">
+        <div class="metric">
+          <div class="metric-num">80K</div>
+          <div class="metric-lbl">Views on a single Xiaohongshu (RED) post<br>"Multi-Agent job search on Feishu"</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">2,000+</div>
+          <div class="metric-lbl">Real engagements<br>Zero paid promotion</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">Hundreds</div>
+          <div class="metric-lbl">"OpenClaw job search" tutorials,<br>posts & projects across the web</div>
+        </div>
+        <div class="metric">
+          <div class="metric-num">0</div>
+          <div class="metric-lbl">Chinese AI job-hunting products<br>actually built for everyday users</div>
+        </div>
+      </div>
+
+      <div class="metric-row zh">
         <div class="metric">
           <div class="metric-num">8万</div>
           <div class="metric-lbl">单篇小红书浏览量<br>飞书多Agent求职帖</div>
@@ -1332,19 +1462,35 @@
         </div>
       </div>
 
-      <p>开发者本人在小红书发布「飞书上搭建多 Agent 求职系统」帖子，仅靠自然流量获得 <strong>8 万浏览、2,000+
+      <p class="en">The developer posted "Building a multi-Agent job search system on Feishu" on Xiaohongshu (RED), gaining <strong>80K views and 2,000+ engagements</strong> through organic reach alone. Hundreds of similar tutorials and projects exist across the web, proving the demand is real — but nobody has turned it into a product that regular people can use. <strong>That gap is PawPals' opportunity.</strong></p>
+      <p class="zh">开发者本人在小红书发布「飞书上搭建多 Agent 求职系统」帖子，仅靠自然流量获得 <strong>8 万浏览、2,000+
           互动</strong>。全网有数百个类似教程和项目，说明需求真实存在——但没有人把它做成普通人能用的产品。<strong>这个空白，就是 PawPals 的机会。</strong></p>
     </section>
 
-    <!-- ══════════ 04 用户 ══════════ -->
+    <!-- ══════════ 04 Target Users ══════════ -->
     <section class="sec">
       <div class="sec-head">
         <span class="sec-num">04</span>
-        <span class="sec-title">目标用户</span>
+        <span class="sec-title"><span class="en">Target Users</span><span class="zh">目标用户</span></span>
         <div class="sec-rule"></div>
       </div>
 
-      <div class="g3">
+      <div class="g3 en">
+        <div class="user-card"><span class="uc-emoji">🎓</span>
+          <div class="uc-name">New & Soon-to-Be Graduates</div>
+          <div class="uc-desc">First systematic job search, lacking direction, unsure where to start, prone to anxiety and procrastination, unable to afford premium agencies</div>
+        </div>
+        <div class="user-card"><span class="uc-emoji">🏛️</span>
+          <div class="uc-name">Civil Service / Grad School Candidates</div>
+          <div class="uc-desc">Overwhelmed by massive amounts of study material, needing professional guidance and sustained study companionship, chronically under high-pressure isolation</div>
+        </div>
+        <div class="user-card"><span class="uc-emoji">🌏</span>
+          <div class="uc-name">International Students / Career Changers</div>
+          <div class="uc-desc">Large information gap, unfamiliar with domestic hiring norms, needing fast profile setup and precise applications within tight time windows</div>
+        </div>
+      </div>
+
+      <div class="g3 zh">
         <div class="user-card"><span class="uc-emoji">🎓</span>
           <div class="uc-name">应届生 / 准毕业生</div>
           <div class="uc-desc">第一次系统求职，缺方向感，不知从哪开始，容易焦虑拖延，负担不起高价机构</div>
@@ -1359,19 +1505,52 @@
         </div>
       </div>
 
-      <p style="margin-top:10px;font-size:12.5px;color:var(--light);">共同特征：<strong style="color:var(--brown);">负担不起高价机构
+      <p class="en" style="margin-top:10px;font-size:12.5px;color:var(--light);">Shared traits: <strong style="color:var(--brown);">Can't afford premium agencies
+          + High perceived AI barrier + Need long-term companionship, not a one-off tool.</strong></p>
+      <p class="zh" style="margin-top:10px;font-size:12.5px;color:var(--light);">共同特征：<strong style="color:var(--brown);">负担不起高价机构
           + AI 门槛感高 + 需要长期陪伴而非一次性工具。</strong></p>
     </section>
 
-    <!-- ══════════ 05 痛点 ══════════ -->
+    <!-- ══════════ 05 Pain Points ══════════ -->
     <section class="sec">
       <div class="sec-head">
         <span class="sec-num">05</span>
-        <span class="sec-title">核心痛点</span>
+        <span class="sec-title"><span class="en">Core Pain Points</span><span class="zh">核心痛点</span></span>
         <div class="sec-rule"></div>
       </div>
 
-      <div class="pain-list">
+      <div class="pain-list en">
+        <div class="pain">
+          <div class="pain-icon">🏦</div>
+          <div>
+            <div class="pain-title">Professional support is monopolized by expensive agencies — unaffordable for most</div>
+            <p class="pain-desc">One-on-one resume coaching costs 800–3,000 yuan, interview prep starts at 5,000 yuan, and full civil service exam planning runs into tens of thousands. AI can absolutely do this, but nobody has built it into a product regular people can afford.</p>
+          </div>
+        </div>
+        <div class="pain">
+          <div class="pain-icon">🤖</div>
+          <div>
+            <div class="pain-title">AI tools have a steep learning curve — regular users simply can't get them working</div>
+            <p class="pain-desc">Coze and Dify require workflow configuration; OpenClaw requires command-line deployment; custom-built systems can only be maintained by their creators. Hundreds of tutorials exist online, but not a single one can be replicated by an ordinary user.</p>
+          </div>
+        </div>
+        <div class="pain">
+          <div class="pain-icon">🌊</div>
+          <div>
+            <div class="pain-title">Information overload — having job listings doesn't mean having direction</div>
+            <p class="pain-desc">Scrolling through hundreds of JDs or study materials daily without knowing which are relevant. Resumes all look the same; you know you "should tweak it," but rewriting a resume is heavy lifting in itself.</p>
+          </div>
+        </div>
+        <div class="pain">
+          <div class="pain-icon">💔</div>
+          <div>
+            <div class="pain-title">The process is deeply isolating — no sustained companionship or emotional support</div>
+            <p class="pain-desc">After consecutive rejections, nobody analyzes why; during months of exam prep, nobody checks in. "The agency disappears after you buy the course" and "use the tool once and forget it" are the norm — no product truly delivers long-term companionship.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="pain-list zh">
         <div class="pain">
           <div class="pain-icon">🏦</div>
           <div>
@@ -1403,16 +1582,61 @@
       </div>
     </section>
 
-    <!-- ══════════ 06 竞品 ══════════ -->
+    <!-- ══════════ 06 Competitive Analysis ══════════ -->
     <section class="sec">
       <div class="sec-head">
         <span class="sec-num">06</span>
-        <span class="sec-title">竞品分析</span>
+        <span class="sec-title"><span class="en">Competitive Analysis</span><span class="zh">竞品分析</span></span>
         <div class="sec-rule"></div>
       </div>
 
-      <p style="font-size:12.5px;font-weight:700;color:var(--brown);margin-bottom:6px;">🌍 海外：AI 求职工具已是红海，但对国内用户毫无意义</p>
-      <table class="comp-table" style="margin-bottom:14px;">
+      <p class="en" style="font-size:12.5px;font-weight:700;color:var(--brown);margin-bottom:6px;">🌍 International: AI job-hunting tools are a red ocean, but irrelevant for Chinese users</p>
+      <p class="zh" style="font-size:12.5px;font-weight:700;color:var(--brown);margin-bottom:6px;">🌍 海外：AI 求职工具已是红海，但对国内用户毫无意义</p>
+
+      <table class="comp-table en" style="margin-bottom:14px;">
+        <thead>
+          <tr>
+            <th>International Product</th>
+            <th>Core Feature</th>
+            <th>User Scale</th>
+            <th>Chinese Platform Support</th>
+            <th>Long-term Companion</th>
+            <th>Emotional Support</th>
+            <th>Critical Weakness</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Simplify</strong></td>
+            <td style="color:var(--light)">ATS auto-fill</td>
+            <td>1M+</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td style="color:#c0392b">Can't work with Boss Zhipin / Zhilian</td>
+          </tr>
+          <tr>
+            <td><strong>Jobright.ai</strong></td>
+            <td style="color:var(--light)">AI job matching</td>
+            <td>$29.99/mo</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td style="color:#c0392b">US-only job database</td>
+          </tr>
+          <tr>
+            <td><strong>Sonara / JobCopilot</strong></td>
+            <td style="color:var(--light)">Full-auto mass apply</td>
+            <td>Subscription</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td style="color:#c0392b">High volume, low quality — users go months without interviews</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="comp-table zh" style="margin-bottom:14px;">
         <thead>
           <tr>
             <th>海外产品</th>
@@ -1455,8 +1679,77 @@
         </tbody>
       </table>
 
-      <p style="font-size:12.5px;font-weight:700;color:var(--brown);margin-bottom:6px;">🇨🇳 国内：各做一块，没有人打通全链路</p>
-      <table class="comp-table">
+      <p class="en" style="font-size:12.5px;font-weight:700;color:var(--brown);margin-bottom:6px;">🇨🇳 Domestic: Each does one piece — nobody connects the full pipeline</p>
+      <p class="zh" style="font-size:12.5px;font-weight:700;color:var(--brown);margin-bottom:6px;">🇨🇳 国内：各做一块，没有人打通全链路</p>
+
+      <table class="comp-table en">
+        <thead>
+          <tr>
+            <th>Domestic Product</th>
+            <th>Positioning</th>
+            <th>Long-term Companion</th>
+            <th>Career Positioning / Gap</th>
+            <th>Resume Tailored per JD</th>
+            <th>Boss Zhipin Apply</th>
+            <th>Full Interview Prep</th>
+            <th>Emotional Support</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Super Resume</strong></td>
+            <td style="color:var(--light)">Templates + AI polish</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td class="ok">✓</td>
+            <td class="no">✗</td>
+            <td class="so">△</td>
+            <td class="no">✗</td>
+          </tr>
+          <tr>
+            <td><strong>Zhitu Resume</strong></td>
+            <td style="color:var(--light)">AI resume + email</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td class="ok">✓</td>
+            <td class="no">✗</td>
+            <td class="so">△</td>
+            <td class="no">✗</td>
+          </tr>
+          <tr>
+            <td><strong>CloudCareer</strong></td>
+            <td style="color:var(--light)">Auto-apply</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+            <td class="so">△</td>
+            <td class="ok">✓</td>
+            <td class="no">✗</td>
+            <td class="no">✗</td>
+          </tr>
+          <tr>
+            <td><strong>Premium Agencies</strong></td>
+            <td style="color:var(--light)">Human 1-on-1</td>
+            <td class="so">△ Course only</td>
+            <td class="ok">✓</td>
+            <td class="ok">✓</td>
+            <td class="no">✗</td>
+            <td class="ok">✓</td>
+            <td class="so">△</td>
+          </tr>
+          <tr class="hl">
+            <td><strong>🐾 PawPals</strong></td>
+            <td>AI long-term growth assistant</td>
+            <td class="ok">✓ Ongoing</td>
+            <td class="ok">✓ Daily</td>
+            <td class="ok">✓ Per job</td>
+            <td class="ok">✓ Deep</td>
+            <td class="ok">✓ Full</td>
+            <td class="ok">✓ Pet</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="comp-table zh">
         <thead>
           <tr>
             <th>国内产品</th>
@@ -1524,15 +1817,46 @@
       </table>
     </section>
 
-    <!-- ══════════ 07 产品方案 ══════════ -->
+    <!-- ══════════ 07 Product Design ══════════ -->
     <section class="sec">
       <div class="sec-head">
         <span class="sec-num">07</span>
-        <span class="sec-title">产品方案 · 7 位 AI 专家 + 长期成长助手</span>
+        <span class="sec-title"><span class="en">Product Design · 7 AI Experts + Long-Term Growth Assistant</span><span class="zh">产品方案 · 7 位 AI 专家 + 长期成长助手</span></span>
         <div class="sec-rule"></div>
       </div>
 
-      <div class="agents">
+      <div class="agents en">
+        <div class="ag center"><span class="ag-icon">🐾</span>
+          <div class="ag-name">Chief Companion</div>
+          <div class="ag-role">Orchestrator · Emotional support<br>Flow management · Intent routing</div>
+        </div>
+        <div class="ag"><span class="ag-icon">🧭</span>
+          <div class="ag-name">Career Advisor</div>
+          <div class="ag-role">Direction setting · JD analysis<br>Daily industry news · Gap analysis</div>
+        </div>
+        <div class="ag"><span class="ag-icon">📝</span>
+          <div class="ag-name">Resume Expert</div>
+          <div class="ag-role">Parsing · Optimization<br>Tailored per JD</div>
+        </div>
+        <div class="ag"><span class="ag-icon">🔍</span>
+          <div class="ag-name">Job Hunter</div>
+          <div class="ag-role">Real Boss Zhipin search<br>Smart matching · Auto-apply</div>
+        </div>
+        <div class="ag"><span class="ag-icon">📊</span>
+          <div class="ag-name">Application Tracker</div>
+          <div class="ag-role">Progress logging · Follow-ups<br>Auto reminders</div>
+        </div>
+        <div class="ag"><span class="ag-icon">🤝</span>
+          <div class="ag-name">Networking Advisor</div>
+          <div class="ag-role">Find contacts<br>Draft cold emails</div>
+        </div>
+        <div class="ag"><span class="ag-icon">🎤</span>
+          <div class="ag-name">Interview Coach</div>
+          <div class="ag-role">Full simulation<br>Review · Score · Iterate</div>
+        </div>
+      </div>
+
+      <div class="agents zh">
         <div class="ag center"><span class="ag-icon">🐾</span>
           <div class="ag-name">首席伴学官</div>
           <div class="ag-role">总调度 · 情绪陪伴<br>流程推进 · 意图分流</div>
@@ -1563,10 +1887,34 @@
         </div>
       </div>
 
-      <p style="font-size:12px;color:var(--light);margin-top:6px;margin-bottom:14px;">各 Agent 通过「共享协作表」交换状态，状态机管边界、Agent
+      <p class="en" style="font-size:12px;color:var(--light);margin-top:6px;margin-bottom:14px;">All Agents communicate through a shared collaboration board. A state machine manages boundaries while Agents manage logic — auto-advancing without overstepping. Users only ever see one interface and their pet.</p>
+      <p class="zh" style="font-size:12px;color:var(--light);margin-top:6px;margin-bottom:14px;">各 Agent 通过「共享协作表」交换状态，状态机管边界、Agent
         管逻辑，自动推进不越权。用户全程只看到一个界面和宠物。</p>
 
-      <div class="g4">
+      <div class="g4 en">
+        <div class="growth">
+          <div class="growth-icon">📰</div>
+          <div class="growth-title">Daily Industry Briefing</div>
+          <div class="growth-desc">Career Advisor delivers daily industry trends and policy updates</div>
+        </div>
+        <div class="growth">
+          <div class="growth-icon">🔍</div>
+          <div class="growth-title">Gap Analysis</div>
+          <div class="growth-desc">Continuously compares your profile to target roles and suggests improvements</div>
+        </div>
+        <div class="growth">
+          <div class="growth-icon">📝</div>
+          <div class="growth-title">Resume Tailored per Job</div>
+          <div class="growth-desc">Every application gets its own version customized for that specific JD</div>
+        </div>
+        <div class="growth">
+          <div class="growth-icon">🎤</div>
+          <div class="growth-title">Full Interview Pipeline</div>
+          <div class="growth-desc">Simulate → Score → Review → Re-simulate, iterative loop</div>
+        </div>
+      </div>
+
+      <div class="g4 zh">
         <div class="growth">
           <div class="growth-icon">📰</div>
           <div class="growth-title">每日行业资讯</div>
@@ -1590,29 +1938,121 @@
       </div>
     </section>
 
-    <!-- ══════════ 08 交互逻辑 ══════════ -->
+    <!-- ══════════ 08 Interaction Logic ══════════ -->
     <section class="sec">
       <div class="sec-head">
         <span class="sec-num">08</span>
-        <span class="sec-title">交互逻辑 · 这才是真正的护城河</span>
+        <span class="sec-title"><span class="en">Interaction Logic · The Real Moat</span><span class="zh">交互逻辑 · 这才是真正的护城河</span></span>
         <div class="sec-rule"></div>
       </div>
 
-      <div class="quote" style="margin-bottom:16px;">多 Agent
+      <div class="quote en" style="margin-bottom:16px;">Multi-Agent architecture itself isn't novel — the hard part is <strong>orchestration logic</strong>: who appears at what moment, how they hand off, and when the pet shows up to comfort you instead of pushing the next task. Below are two flows: first-time Onboarding and the daily loop.</div>
+      <div class="quote zh" style="margin-bottom:16px;">多 Agent
         本身不稀奇——难的是<strong>编排逻辑</strong>：谁在什么时机出场、怎么交棒、什么时候宠物出来安慰你而不是继续推进任务。下面展示两条线：首次 Onboarding 与日常循环。</div>
 
-      <!-- 两列并排 -->
+      <!-- Two-column layout -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;" class="flow-grid">
 
-        <!-- 左：Onboarding -->
-        <div class="flow-wrap">
+        <!-- Left: Onboarding EN -->
+        <div class="flow-wrap en">
+          <span class="flow-label fl-orange">① First-Time Onboarding · Linear Flow</span>
+
+          <div class="flow-step">
+            <div class="step-num sn-gray">①</div>
+            <div class="step-body sb-gray">
+              <div class="step-title">User arrives · Name your pet</div>
+              <div class="step-desc">Give your AI lobster a name — it now has a unique persona, remembers who you are, and will accompany you throughout your entire job search journey. We'll use "TuanTuan" as an example below</div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-purple">②</div>
+            <div class="step-body sb-purple">
+              <div class="step-title">🐾 Pet · Proactive Profile Building</div>
+              <div class="step-desc">Proactively guides you through 10 key data points: resume, job preferences, target market, internship type, timeline, city... Builds your personal job search profile that all subsequent experts reference.</div>
+              <div class="chat-bubble">
+                <span class="sp sp-p">TuanTuan:</span> Hey there~ Send me your resume first! 📄<br>
+                <span class="sp sp-t">User:</span> [Uploads resume.pdf]<br>
+                <span class="sp sp-p">TuanTuan:</span> Are you looking for AI PM specifically, or open to related roles too?<br>
+                <span class="sp sp-t">User:</span> Open to related roles, mainly looking in the US
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-teal">③</div>
+            <div class="step-body sb-teal">
+              <div class="step-title">🔬 Skills Analyst · Positioning Report</div>
+              <div class="step-desc">Combines your background with target direction, searches industry data, and outputs a strengths/weaknesses analysis, skill gaps, and job search timeline — essentially a professional career consultation.</div>
+              <div class="chat-bubble">
+                <span class="sp sp-t">Skills Analyst:</span> ✅ Strengths: Multimodal AI products / agentic pipeline<br>
+                ⚠️ Gap: SQL hands-on, A/B testing on the lighter side<br>
+                📅 March: polish resume → April: apply → Mid-April: interview prep
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-teal">④</div>
+            <div class="step-body sb-teal">
+              <div class="step-title">📝 Resume Expert · Optimize & Finalize</div>
+              <div class="step-desc">Collaborates with the Skills Analyst — one handles content direction, the other handles expression and formatting. Every change requires user confirmation before execution; it never decides for you.</div>
+              <div class="chat-bubble">
+                <span class="sp sp-t">Resume Expert:</span> Score: 6.5/10. Suggest condensing bullets, moving OpenClaw metrics higher...<br>
+                <span class="sp sp-t">User:</span> Sounds good, go ahead ✓
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-coral">⑤</div>
+            <div class="step-body sb-coral">
+              <div class="step-title">🔍 Job Hunter · First Recommendations</div>
+              <div class="step-desc">Based on your profile, searches Boss Zhipin / LinkedIn and other platforms, filters matching positions, and recommends them for your selection — never recommends jobs you've already seen or aren't interested in.</div>
+              <div class="chat-bubble">
+                <span class="sp sp-c">Job Hunter:</span> Found 5 positions~<br>
+                1️⃣ Anthropic | AI PM | $60/hr | SF/Remote<br>
+                2️⃣ Scale AI | Assoc PM | $55/hr...<br>
+                <span class="sp sp-t">User:</span> Apply to 1, 4, and 5
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-coral">⑥</div>
+            <div class="step-body sb-coral">
+              <div class="step-title">📊 Application Tracker · Execute + Monitor</div>
+              <div class="step-desc">User confirms before each submission. Monitors inbox; reminds you to follow up after 7 days of silence.</div>
+              <div class="chat-bubble">
+                <span class="sp sp-c">Application Tracker:</span> 🎉 Great news! Anthropic just sent an interview invite!!
+              </div>
+            </div>
+          </div>
+
+          <div style="padding-left:34px;">
+            <div style="text-align:center;font-size:11px;color:var(--light);margin-bottom:4px;">↓ Parallel branches</div>
+            <div class="flow-branch" style="margin-left:0;">
+              <div class="branch-box bb-pink">
+                <div class="bb-title">🤝 Networking Advisor</div>
+                <div class="bb-desc">Find HR contacts → Draft cold email → Send after user confirms</div>
+              </div>
+              <div class="branch-box bb-amber">
+                <div class="bb-title">🎤 Interview Coach</div>
+                <div class="bb-desc">Pet congratulates first → Reads JD + the resume version used → Simulation begins</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Left: Onboarding ZH -->
+        <div class="flow-wrap zh">
           <span class="flow-label fl-orange">① 首次 Onboarding · 线性推进</span>
 
           <div class="flow-step">
             <div class="step-num sn-gray">①</div>
             <div class="step-body sb-gray">
               <div class="step-title">用户上线 · 给宠物起名</div>
-              <div class="step-desc">给自己的 AI 龙虾取一个名字，它就有了专属人设，从此记住你是谁，伴随你整个求职旅程。下面将用“团团”举例</div>
+              <div class="step-desc">给自己的 AI 龙虾取一个名字，它就有了专属人设，从此记住你是谁，伴随你整个求职旅程。下面将用"团团"举例</div>
             </div>
           </div>
 
@@ -1695,8 +2135,88 @@
           </div>
         </div>
 
-        <!-- 右：日常循环 -->
-        <div class="flow-wrap">
+        <!-- Right: Daily Loop EN -->
+        <div class="flow-wrap en">
+          <span class="flow-label fl-teal">↻ Daily Loop · Cron-Driven</span>
+          <div class="loop-note">After Onboarding, the system enters daily mode:<br>New jobs pushed automatically every day, experts hand off seamlessly, pet always by your side</div>
+
+          <div class="flow-step">
+            <div class="step-num sn-coral">1</div>
+            <div class="step-body sb-coral">
+              <div class="step-title">🔍 Job Hunter · Daily Auto-Push</div>
+              <div class="step-desc">Every morning, automatically pushes new positions, filters out ones you've already seen, and only shows fresh, high-match results.</div>
+              <div class="chat-bubble">
+                <span class="sp sp-c">Job Hunter:</span> Good morning! 4 new positions today~<br>
+                1️⃣ Anthropic | AI PM | $60/hr ...<br>
+                Which ones do you want to apply to?
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-gray">2</div>
+            <div class="step-body sb-gray">
+              <div class="step-title">User selects · Pet confirms</div>
+              <div class="chat-bubble">
+                <span class="sp sp-t">User:</span> Apply to 1 and 3, 2 doesn't really match<br>
+                <span class="sp sp-p">TuanTuan:</span> Got it! Sending Resume Expert and Skills Analyst to prep~
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-teal">3</div>
+            <div class="step-body sb-teal">
+              <div class="step-title">📝 + 🔬 Resume Tailoring · Dual Collaboration</div>
+              <div class="step-desc">Generates an independently tailored version for each position: Skills Analyst first identifies the JD's key focus areas, Resume Expert adjusts phrasing accordingly, they cross-review, then present it for your approval.</div>
+              <div class="chat-bubble">
+                <span class="sp sp-t">Skills Analyst:</span> Anthropic emphasizes agentic + safety, move Tumeryk to first bullet ✅<br>
+                <span class="sp sp-t">Resume Expert:</span> v2.1-anthropic scored 8.5/10, confirm?<br>
+                <span class="sp sp-t">User:</span> Looks good ✅ Finalize
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-coral">4</div>
+            <div class="step-body sb-coral">
+              <div class="step-title">📊 Application Tracker + 🤝 Networking Advisor · Parallel</div>
+              <div class="step-desc">Once the resume is ready, both launch simultaneously — no need to wait for each other.</div>
+              <div class="chat-bubble">
+                <span class="sp sp-c">Application Tracker:</span> ✅ Anthropic submitted ✅ SafetyWing submitted<br>
+                <span class="sp sp-k">Networking Advisor:</span> Found Sarah K. in parallel, cold email draft ready — confirm?<br>
+                <span class="sp sp-t">User:</span> Go ahead, send ✅
+              </div>
+            </div>
+          </div>
+
+          <div class="flow-step">
+            <div class="step-num sn-amber">5</div>
+            <div class="step-body sb-amber">
+              <div class="step-title">🎤 Interview Coach · Auto-Triggers on Invite</div>
+              <div class="step-desc">When an interview invite is detected, <strong>the pet is the first to congratulate you</strong>, then the Interview Coach generates questions based on that company's JD and the specific resume version you submitted — not a generic template.
+              </div>
+              <div class="chat-bubble">
+                <span class="sp sp-p">TuanTuan:</span> 🎉🎉 Amazing!! Anthropic interview incoming!<br>
+                <span class="sp sp-a">Interview Coach:</span> Q1 [Behavioral] Tell me about a 0-to-1 AI product launch...<br>
+                Q4 [Technical] Design an eval framework for agentic AI?
+              </div>
+            </div>
+          </div>
+
+          <!-- Independent push line -->
+          <div
+            style="border:1px dashed rgba(31,122,113,.35);border-radius:6px;padding:10px 12px;margin-top:4px;background:var(--t-bg);">
+            <div style="font-size:11px;font-weight:700;color:var(--teal);margin-bottom:5px;">📡 Daily Proactive Push (no need to ask)</div>
+            <div class="chat-bubble" style="background:rgba(255,255,255,.6);">
+              <span class="sp sp-t">Skills Analyst:</span> 📰 Today's brief: Anthropic released a new MCP protocol — directly relevant to the tool-use PM role you're interviewing for. Suggest preparing a response on "how to design agentic
+              tool integration"
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Daily Loop ZH -->
+        <div class="flow-wrap zh">
           <span class="flow-label fl-teal">↻ 日常循环 · cron 驱动</span>
           <div class="loop-note">Onboarding 完成后进入日常模式：<br>每天自动推送新岗位，专家们各自接力，宠物随时在旁</div>
 
@@ -1776,23 +2296,54 @@
         </div>
       </div>
 
-      <div style="margin-top:18px;" class="quote teal">
+      <div style="margin-top:18px;" class="quote teal en">
+        All 7 experts share a single job search context — every time an Agent picks up, it knows who you are, what stage you're at, and what happened before. This makes the entire experience feel like one team, not 7 disconnected tools.
+      </div>
+      <div style="margin-top:18px;" class="quote teal zh">
         7 位专家共享同一份求职上下文——每一个 Agent 接手时，都知道你是谁、在哪个阶段、之前发生了什么。这让整个体验感觉像一个团队，而不是 7 个互不相识的工具。
       </div>
     </section>
 
-    <!-- ══════════ 09 为什么 OpenClaw ══════════ -->
+    <!-- ══════════ 09 Why OpenClaw ══════════ -->
     <section class="sec">
       <div class="sec-head">
         <span class="sec-num">09</span>
-        <span class="sec-title">为什么选 OpenClaw 作为底层架构</span>
+        <span class="sec-title"><span class="en">Why OpenClaw as the Underlying Architecture</span><span class="zh">为什么选 OpenClaw 作为底层架构</span></span>
         <div class="sec-rule"></div>
       </div>
 
-      <div class="quote teal" style="margin-bottom:16px;">OpenClaw
+      <div class="quote teal en" style="margin-bottom:16px;">OpenClaw
+        went viral, but the vast majority of people treat it as just "a smarter chatbot." Its four truly unique capabilities — <strong>can only reach their full potential when wrapped inside a real application.</strong></div>
+      <div class="quote teal zh" style="margin-bottom:16px;">OpenClaw
         爆火，但绝大多数人只是把它当成「更聪明的聊天机器人」。它真正独特的四个能力——<strong>只有被封装进一个真正的应用里，才能发挥全部价值。</strong></div>
 
-      <div class="g2">
+      <div class="g2 en">
+        <div class="oc-box top-orange">
+          <div style="font-size:18px;margin-bottom:6px;">⏰</div>
+          <div class="oc-box-title">Scheduled Proactive Reminders</div>
+          <div class="oc-box-desc">Works 24/7 without waiting for the user to summon it. PawPals leverages this for: daily industry briefings, timed follow-up reminders for specific offers, and proactively asking if you're prepared the day before an interview. <strong>It doesn't wait for you — it comes to you.</strong></div>
+        </div>
+        <div class="oc-box top-teal">
+          <div style="font-size:18px;margin-bottom:6px;">🧠</div>
+          <div class="oc-box-title">Long-Term Memory — Gets Smarter Over Time</div>
+          <div class="oc-box-desc">OpenClaw
+            natively supports long-term memory and won't "forget" after each conversation. Tell it you don't want to work at big tech, that you prefer product roles — it remembers forever. Come back three months later, and it still knows who you are. <strong>This is what "growing with you" really means.</strong></div>
+        </div>
+        <div class="oc-box top-gold">
+          <div style="font-size:18px;margin-bottom:6px;">🤝</div>
+          <div class="oc-box-title">Multi-Agent Collaboration — Architecture Isn't the Moat, Orchestration Is</div>
+          <div class="oc-box-desc">Multi-Agent support in OpenClaw isn't unique by itself — Coze and Dify
+            support it too. <strong>The real challenge is: who appears at what moment, says what, hands off how, and makes the user feel zero switching.</strong> That's a product design problem, not an engineering problem. What PawPals invested heavily in is exactly this orchestration logic.</div>
+        </div>
+        <div class="oc-box top-pink">
+          <div style="font-size:18px;margin-bottom:6px;">🌱</div>
+          <div class="oc-box-title">Self-Learning — You Teach It, It Remembers</div>
+          <div class="oc-box-desc">Users can correct it or state preferences at any point in the conversation, and it writes those to long-term memory and adjusts future behavior. <strong>PawPals
+              gives you a ready-to-use platform, but the more you talk to it, the more it learns about you as a person.</strong></div>
+        </div>
+      </div>
+
+      <div class="g2 zh">
         <div class="oc-box top-orange">
           <div style="font-size:18px;margin-bottom:6px;">⏰</div>
           <div class="oc-box-title">定时主动提醒</div>
@@ -1819,7 +2370,18 @@
         </div>
       </div>
 
-      <div class="dark-box">
+      <div class="dark-box en">
+        <div class="dark-box-emoji">🦞</div>
+        <div>
+          <div class="dark-box-title">Why not Coze / Dify / custom LLM workflows?</div>
+          <div class="dark-box-text">They all lack what makes OpenClaw truly special: <strong style="color:rgba(255,255,255,.95);">persistent memory + proactive action +
+              self-learning.</strong> Coze Bots are "strangers" every conversation; Dify workflows are static and don't adapt to your preferences.<br><br>
+            More importantly — <strong style="color:rgba(255,255,255,.95);">multi-Agent itself isn't a moat; orchestration logic is.</strong> Anyone can wire up 7
+            Agents. The hard part is designing a flow where "the user never notices the switch": when does the Career Advisor speak, when does the Resume Expert take over, when does the pet step in to give you a hug. That orchestration logic is PawPals' true moat.</div>
+        </div>
+      </div>
+
+      <div class="dark-box zh">
         <div class="dark-box-emoji">🦞</div>
         <div>
           <div class="dark-box-title">为什么不用 Coze / Dify / 自搭 LLM 工作流？</div>
@@ -1831,15 +2393,19 @@
       </div>
     </section>
 
-    <!-- ══════════ 10 总结 ══════════ -->
+    <!-- ══════════ 10 Summary ══════════ -->
     <section class="sec" style="margin-bottom:0;">
       <div class="sec-head">
         <span class="sec-num">10</span>
-        <span class="sec-title">一句话总结</span>
+        <span class="sec-title"><span class="en">In One Sentence</span><span class="zh">一句话总结</span></span>
         <div class="sec-rule"></div>
       </div>
 
-      <div class="quote" style="font-size:14.5px;font-weight:600;line-height:2;">
+      <div class="quote en" style="font-size:14.5px;font-weight:600;line-height:2;">
+        Hundreds of "I built an AI job-hunting system with OpenClaw" posts exist online, but not one became a product regular people can actually use. PawPals is that product — 7 AI
+        experts working together, download-and-go with zero setup, warm long-term pet companionship, covering everything from job search to civil service exams to grad school prep, putting professional services that once cost thousands at premium agencies into the hands of 12.22 million graduates for the very first time.
+      </div>
+      <div class="quote zh" style="font-size:14.5px;font-weight:600;line-height:2;">
         全网有几百个「我用 OpenClaw 搭了 AI 求职系统」的帖子，但没有一个做成普通人能用的产品。PawPals 就是那个产品——7 位 AI
         专家协作、下载即用零门槛、有温度的宠物长期陪伴、从求职到考公考研全覆盖，把过去只有高价机构才能提供的专业服务，第一次交到 1,222 万毕业生手里。
       </div>
@@ -1847,13 +2413,31 @@
 
     <footer class="footer">
       <div class="footer-l">
-        开发者：邓雨蝶（Yudie Deng）&nbsp;·&nbsp; 清华大学数据传播 × USC Communication Data Science<br>
-        GitHub: github.com/salt-byte &nbsp;·&nbsp; Portfolio: salt-byte.github.io/DENG-YUDIE-NEW-PORTFOLIO
+        <span class="en">Developer: Yudie Deng &nbsp;·&nbsp; Tsinghua University Data Communication × USC Communication Data Science<br>
+        GitHub: github.com/salt-byte &nbsp;·&nbsp; Portfolio: salt-byte.github.io/DENG-YUDIE-NEW-PORTFOLIO</span>
+        <span class="zh">开发者：邓雨蝶（Yudie Deng）&nbsp;·&nbsp; 清华大学数据传播 × USC Communication Data Science<br>
+        GitHub: github.com/salt-byte &nbsp;·&nbsp; Portfolio: salt-byte.github.io/DENG-YUDIE-NEW-PORTFOLIO</span>
       </div>
-      <div class="footer-r">PAWPALS · 2026<br>首届中关村北纬龙虾大赛</div>
+      <div class="footer-r"><span class="en">PAWPALS · 2026<br>1st Zhongguancun North Latitude Lobster Competition</span><span class="zh">PAWPALS · 2026<br>首届中关村北纬龙虾大赛</span></div>
     </footer>
 
   </div>
+
+  <script>
+    // Default to English; listen for parent language changes
+    document.documentElement.className = 'lang-en';
+    window.addEventListener('message', function(e) {
+      if (e.data && e.data.type === 'lang') {
+        document.documentElement.className = e.data.lang === 'zh' ? 'lang-zh' : 'lang-en';
+      }
+    });
+    // Also check parent's language on load
+    try {
+      if (window.parent && window.parent.currentLang === 'zh') {
+        document.documentElement.className = 'lang-zh';
+      }
+    } catch(e) {}
+  </script>
 </body>
 
 </html>
