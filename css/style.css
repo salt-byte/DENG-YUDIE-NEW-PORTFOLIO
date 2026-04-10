@@ -3780,12 +3780,9 @@ details.rp-section[open] .rp-chevron {
     bottom: 52px;
     z-index: 2;
     background: transparent;
-}
-
-/* When the slide is interacted with, let the click pass through to the video */
-.aigc-embed-slide:active::after {
     pointer-events: none;
 }
+
 
 /* Custom Swiper Navigation Arrows for AIGC — switch between videos only */
 .gallery-prev,
